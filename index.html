@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,6 +18,9 @@
         width: fit-content
       }
     </style>
+  </head>
+  <body>
+    <div id="MyClockDisplay" class="clock" onshow="showTime()"></div>
     <script>
       function showTime() {
         const simples = [ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three" ]
@@ -33,13 +37,11 @@
           time = time + " " + tens[(m / 10 >> 0)];
           if (m % 10 != 0) time = time + "-" + simples[m % 10];
         }
+        document.getElementById("MyClockDisplay").innerText = "It is " + time;
         document.getElementById("MyClockDisplay").textContent = "It is " + time;
         setTimeout(showTime, 1000);
       }
       showTime();
     </script>
-  </head>
-  <body>
-    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
   </body>
 </html>
