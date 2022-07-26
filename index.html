@@ -10,16 +10,17 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
-        color: #17D4FE;
+        color: white;
         font-size: 60px;
-        font-family: Orbitron;
+        font-family: Impact;
         letter-spacing: 7px;
+        width: fit-content
       }
     </style>
     <script>
       function showTime() {
         const simples = [ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three" ]
-        const tens = [ "", "ten", "twenty", "thirty", "fourty", "fifty" ]
+        const tens = [ "", "", "twenty", "thirty", "fourty", "fifty" ]
         var date = new Date();
         var h = date.getHours();
         var m = date.getMinutes();
