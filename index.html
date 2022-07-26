@@ -33,7 +33,6 @@
           time = time + " " + tens[(m / 10 >> 0)];
           if (m % 10 != 0) time = time + "-" + simples[m % 10];
         }
-        document.getElementById("MyClockDisplay").innerText = "It is " + time;
         document.getElementById("MyClockDisplay").textContent = "It is " + time;
         setTimeout(showTime, 1000);
       }
