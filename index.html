@@ -1,9 +1,37 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <style>
+    #content {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
 <body>
-  <h1>Hello World</h1>
-  <p>I'm hosted with GitHub Pages.</p>
+  <div id="content">
+    <div id="readme"></div>
+    <hr />
+    <div id="sites"></div>
+  </div>
+
+  <script>
+    function httpGet(theUrl) {
+      var xmlHttp = null;
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", theUrl, false);
+      xmlHttp.send(null);
+      return xmlHttp.responseText;
+    }
+
+    document.getElementById("readme").innerHTML = marked.parse(httpGet("https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md"));
+    document.getElementById("sites").innerHTML = marked.parse(httpGet("https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md"));
+  </script>
 </body>
 
 </html>
