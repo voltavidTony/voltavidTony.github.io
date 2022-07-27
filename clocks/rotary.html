@@ -70,6 +70,8 @@
     <div id="gradientBottom"></div>
   </div>
   <script>
+    var $ = function (id) { return document.getElementById(id); };
+
     function digitTransform(element, val, valmod, rel, relscale) {
       element.textContent = ((val + valmod - 1) % valmod) + " " + val + " " + ((val + 1) % valmod) + " " + ((val + 2) % valmod);
       element.style.transform = "translateY(" + ((-CLOCK_HEIGHT * rel / relscale - CLOCK_HEIGHT) >> 0) + "px)";
@@ -81,31 +83,31 @@
       var m = date.getMinutes();
       var s = date.getSeconds();
 
-      document.getElementById("separator").textContent = (s % 2 == 0) ? ":": "\xa0";
+      $("separator").textContent = (s % 2 == 0) ? ":" : "\xa0";
 
-      digitTransform(document.getElementById("MinuteOne"), m % 10, 10, s, 60);
+      digitTransform($("MinuteOne"), m % 10, 10, s, 60);
       m = m + s / 60;
-      digitTransform(document.getElementById("MinuteTen"), m / 10 >> 0, 6, m % 10, 10);
+      digitTransform($("MinuteTen"), m / 10 >> 0, 6, m % 10, 10);
       if (h < 20) {
-        digitTransform(document.getElementById("HourOne"), h % 10, 10, m, 60);
+        digitTransform($("HourOne"), h % 10, 10, m, 60);
         h = h + m / 60;
-        digitTransform(document.getElementById("HourTen"), h / 10 >> 0, 3, h % 10, 10);
+        digitTransform($("HourTen"), h / 10 >> 0, 3, h % 10, 10);
       } else {
-        digitTransform(document.getElementById("HourOne"), h % 10, 5, m, 60);
+        digitTransform($("HourOne"), h % 10, 5, m, 60);
         h = h + m / 60;
-        digitTransform(document.getElementById("HourTen"), h / 10 >> 0, 3, h % 10, 3);
+        digitTransform($("HourTen"), h / 10 >> 0, 3, h % 10, 3);
       }
 
       setTimeout(showTime, 1000);
     }
 
-    var CLOCK_HEIGHT = document.getElementById("HourTen").clientHeight / 10 >> 0;
-    var CLOCK_WIDTH = document.getElementById("HourTen").clientWidth;
+    var CLOCK_HEIGHT = $("HourTen").clientHeight / 10 >> 0;
+    var CLOCK_WIDTH = $("HourTen").clientWidth;
     var digits = document.getElementsByClassName("digit");
     for (i = 0; i < digits.length; i++) digits[i].style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px";
-    document.getElementById("clockFace").style.height = CLOCK_HEIGHT + "px";
-    document.getElementById("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
-    document.getElementById("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
+    $("clockFace").style.height = CLOCK_HEIGHT + "px";
+    $("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
+    $("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
     showTime();
   </script>
 </body>
