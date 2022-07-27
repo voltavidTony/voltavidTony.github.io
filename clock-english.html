@@ -22,19 +22,21 @@
     <div id="MyClockDisplay" class="clock" onshow="showTime()"></div>
     <script>
       function showTime() {
-        const simples = [ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three" ]
-        const tens = [ "", "", "twenty", "thirty", "fourty", "fifty" ]
+        const simples = [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three" ]
+        const tens = [ "zero", "ten", "twenty", "thirty", "fourty", "fifty" ]
         var date = new Date();
         var h = date.getHours();
         var m = date.getMinutes();
         var time = "midnight";
-        if (h != 0) time = simples[h];
-        if (m == 0) time = time + " o'clock";
-        else if (m < 10) time = time + " O-" + simples[m];
-        else if (m < 24) time = time + " " + simples[m];
-        else {
-          time = time + " " + tens[(m / 10 >> 0)];
-          if (m % 10 != 0) time = time + "-" + simples[m % 10];
+        if (h != 0 || m != 0) {
+          time = simples[h];
+          if (m == 0) time = time + " o'clock";
+          else if (m < 10) time = time + " O-" + simples[m];
+          else if (m < 24) time = time + " " + simples[m];
+          else {
+            time = time + " " + tens[(m / 10 >> 0)];
+            if (m % 10 != 0) time = time + "-" + simples[m % 10];
+          }
         }
         document.getElementById("MyClockDisplay").innerText = "It is " + time;
         document.getElementById("MyClockDisplay").textContent = "It is " + time;
