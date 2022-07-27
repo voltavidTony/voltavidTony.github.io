@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background: black;
+    }
+
+    .digit {
+      color: white;
+      font-size: 90px;
+      font-family: Impact;
+      text-align: center;
+      vertical-align: top;
+      display: inline-block;
+      background-color: black;
+    }
+
+    .border {
+      position: relative;
+      height: 4px;
+      background-color: white;
+      display: block;
+      z-index: 3;
+    }
+
+    #container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      overflow: hidden;
+    }
+
+    #clockFace {
+      position: relative;
+      background-color: white;
+      padding-left: 4px;
+      padding-right: 4px;
+      z-index: 0;
+    }
+
+    #gradientTop {
+      position: relative;
+      background-image: linear-gradient(0, #0007, black);
+      z-index: 1;
+    }
+
+    #gradientBottom {
+      position: relative;
+      background-image: linear-gradient(0, black, #0007);
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="gradientTop"></div>
+    <div class="border"></div>
+    <div id="clockFace">
+      <div id="HourTen" class="digit">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
+      <div id="HourOne" class="digit"></div>
+      <div id="separator" class="digit"></div>
+      <div id="MinuteTen" class="digit"></div>
+      <div id="MinuteOne" class="digit"></div>
+    </div>
+    <div class="border"></div>
+    <div id="gradientBottom"></div>
+  </div>
+  <script>
+    function digitTransform(element, val, valmod, rel, relscale) {
+      element.textContent = ((val + valmod - 1) % valmod) + " " + val + " " + ((val + 1) % valmod) + " " + ((val + 2) % valmod);
+      element.style.transform = "translateY(" + ((-CLOCK_HEIGHT * rel / relscale - CLOCK_HEIGHT) >> 0) + "px)";
+    }
+
+    function showTime() {
+      var date = new Date();
+      var h = date.getHours();
+      var m = date.getMinutes();
+      var s = date.getSeconds();
+
+      document.getElementById("separator").textContent = (s % 2 == 0) ? ":": "\xa0";
+
+      digitTransform(document.getElementById("MinuteOne"), m % 10, 10, s, 60);
+      m = m + s / 60;
+      digitTransform(document.getElementById("MinuteTen"), m / 10 >> 0, 6, m % 10, 10);
+      if (h < 20) {
+        digitTransform(document.getElementById("HourOne"), h % 10, 10, m, 60);
+        h = h + m / 60;
+        digitTransform(document.getElementById("HourTen"), h / 10 >> 0, 3, h % 10, 10);
+      } else {
+        digitTransform(document.getElementById("HourOne"), h % 10, 5, m, 60);
+        h = h + m / 60;
+        digitTransform(document.getElementById("HourTen"), h / 10 >> 0, 3, h % 10, 3);
+      }
+
+      setTimeout(showTime, 1000);
+    }
+
+    var CLOCK_HEIGHT = document.getElementById("HourTen").clientHeight / 10 >> 0;
+    var CLOCK_WIDTH = document.getElementById("HourTen").clientWidth;
+    var digits = document.getElementsByClassName("digit");
+    for (i = 0; i < digits.length; i++) digits[i].style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px";
+    document.getElementById("clockFace").style.height = CLOCK_HEIGHT + "px";
+    document.getElementById("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
+    document.getElementById("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
+    showTime();
+  </script>
+</body>
+
+</html>
