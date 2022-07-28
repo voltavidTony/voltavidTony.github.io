@@ -2,6 +2,6 @@
 
 ht<span>tps:/</span>/voltavidTony.github.io/<br/>
  ┣ 📦clocks/<br>
- ┃  ┣ 📜[english.html](/clocks/english)<br>
- ┃  ┗ 📜[rotary.html](/clocks/rotary)<br>
- ┗ 📜[index.html](/)<br>
+ ┃  ┣ 📜[english.html](clocks/english.html)<br>
+ ┃  ┗ 📜[rotary.html](clocks/rotary.html)<br>
+ ┗ 📜[index.html](index.html)<br>
