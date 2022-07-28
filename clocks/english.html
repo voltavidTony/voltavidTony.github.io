@@ -19,10 +19,6 @@
       width: fit-content
     }
   </style>
-</head>
-
-<body>
-  <div id="MyClockDisplay" class="clock" onshow="showTime()"></div>
   <script>
     function showTime() {
       const simples = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three"]
@@ -45,8 +41,11 @@
       document.getElementById("MyClockDisplay").textContent = "It is " + time;
       setTimeout(showTime, 1000);
     }
-    showTime();
   </script>
+</head>
+
+<body onload="showTime();">
+  <div id="MyClockDisplay" class="clock"></div>
 </body>
 
 </html>

@@ -53,28 +53,12 @@
       z-index: 2;
     }
   </style>
-</head>
-
-<body>
-  <div id="container">
-    <div id="gradientTop"></div>
-    <div class="border"></div>
-    <div id="clockFace">
-      <div id="HourTen" class="digit">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
-      <div id="HourOne" class="digit"></div>
-      <div id="separator" class="digit"></div>
-      <div id="MinuteTen" class="digit"></div>
-      <div id="MinuteOne" class="digit"></div>
-    </div>
-    <div class="border"></div>
-    <div id="gradientBottom"></div>
-  </div>
   <script>
     var $ = function (id) { return document.getElementById(id); };
 
     function digitTransform(element, val, valmod, rel, relscale) {
       element.textContent = ((val + valmod - 1) % valmod) + " " + val + " " + ((val + 1) % valmod) + " " + ((val + 2) % valmod);
-      element.style.transform = "translateY(" + ((-CLOCK_HEIGHT * rel / relscale - CLOCK_HEIGHT) >> 0) + "px)";
+      element.style.transform = "translateY(" + (-0.25 * (rel / relscale + 1) * element.clientHeight) + "px)";
     }
 
     function showTime() {
@@ -101,15 +85,33 @@
       setTimeout(showTime, 1000);
     }
 
-    var CLOCK_HEIGHT = $("HourTen").clientHeight / 10 >> 0;
-    var CLOCK_WIDTH = $("HourTen").clientWidth;
-    var digits = document.getElementsByClassName("digit");
-    for (i = 0; i < digits.length; i++) digits[i].style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px";
-    $("clockFace").style.height = CLOCK_HEIGHT + "px";
-    $("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
-    $("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
-    showTime();
+    function setupStyle() {
+      var CLOCK_HEIGHT = $("HourTen").clientHeight / 10 >> 0;
+      var CLOCK_WIDTH = $("HourTen").clientWidth;
+      var digits = document.getElementsByClassName("digit");
+      for (i = 0; i < digits.length; i++) digits[i].style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px";
+      $("clockFace").style.height = CLOCK_HEIGHT + "px";
+      $("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
+      $("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
+      showTime();
+    }
   </script>
+</head>
+
+<body onload="setupStyle();">
+  <div id="container">
+    <div id="gradientTop"></div>
+    <div class="border"></div>
+    <div id="clockFace">
+      <div id="HourTen" class="digit">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
+      <div id="HourOne" class="digit"></div>
+      <div id="separator" class="digit"></div>
+      <div id="MinuteTen" class="digit"></div>
+      <div id="MinuteOne" class="digit"></div>
+    </div>
+    <div class="border"></div>
+    <div id="gradientBottom"></div>
+  </div>
 </body>
 
 </html>

@@ -12,6 +12,21 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    function getMD(id, url) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.onload = function (e) {
+        document.getElementById(id).innerHTML = marked.parse(xhr.responseText);
+      };
+      xhr.onerror = function () {
+        console.error("Error loading content from " + url);
+      };
+      xhr.send(null);
+    }
+    getMD("readme", "https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md");
+    getMD("sites", "https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md");
+  </script>
 </head>
 
 <body>
@@ -20,19 +35,6 @@
     <hr />
     <div id="sites"></div>
   </div>
-
-  <script>
-    function httpGet(theUrl) {
-      var xmlHttp = null;
-      xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("GET", theUrl, false);
-      xmlHttp.send(null);
-      return xmlHttp.responseText;
-    }
-
-    document.getElementById("readme").innerHTML = marked.parse(httpGet("https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md"));
-    document.getElementById("sites").innerHTML = marked.parse(httpGet("https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md"));
-  </script>
 </body>
 
 </html>
