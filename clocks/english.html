@@ -20,7 +20,7 @@
     }
   </style>
   <script>
-    function showTime() {
+    function setTime() {
       const simples = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three"]
       const tens = ["zero", "ten", "twenty", "thirty", "fourty", "fifty"]
 
@@ -43,17 +43,17 @@
       document.getElementById("clock").textContent = "It is " + time;
     }
 
-    function startInterval() {
+    function startClock() {
       setTimeout(() => {
-        setInterval(showTime, 60000);
-        showTime();
+        setInterval(setTime, 60000);
+        setTime();
       }, (60 - (new Date()).getSeconds()) * 1000);
-      showTime();
+      setTime();
     }
   </script>
 </head>
 
-<body onload="startInterval();">
+<body onload="startClock();">
   <div id="clock">Please enable JavaScript</div>
 </body>
 
