@@ -4,10 +4,10 @@
 <head>
   <style>
     #content {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
       font-family: 'Courier New', Courier, monospace;
+      left: 50%;
+      position: relative;
+      transform: translateX(-50%);
       width: fit-content;
     }
   </style>
@@ -24,6 +24,7 @@
       };
       xhr.send(null);
     }
+
     getMD("readme", "https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md");
     getMD("sites", "https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md");
   </script>

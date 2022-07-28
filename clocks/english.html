@@ -8,14 +8,14 @@
     }
 
     #clock {
+      color: white;
+      font-family: Impact;
+      font-size: 60px;
+      left: 50%;
+      letter-spacing: 7px;
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      color: white;
-      font-size: 60px;
-      font-family: Impact;
-      letter-spacing: 7px;
       width: fit-content
     }
   </style>
@@ -23,9 +23,11 @@
     function showTime() {
       const simples = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three"]
       const tens = ["zero", "ten", "twenty", "thirty", "fourty", "fifty"]
+
       var date = new Date();
       var h = date.getHours();
       var m = date.getMinutes();
+
       var time = "midnight";
       if (h != 0 || m != 0) {
         time = simples[h];
@@ -37,14 +39,16 @@
           if (m % 10 != 0) time = time + "-" + simples[m % 10];
         }
       }
+
       document.getElementById("clock").textContent = "It is " + time;
+
       setTimeout(showTime, 1000);
     }
   </script>
 </head>
 
 <body onload="showTime();">
-  <div id="clock"></div>
+  <div id="clock">Please enable JavaScript</div>
 </body>
 
 </html>
