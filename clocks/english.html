@@ -7,7 +7,7 @@
       background: black;
     }
 
-    .clock {
+    #clock {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -37,15 +37,14 @@
           if (m % 10 != 0) time = time + "-" + simples[m % 10];
         }
       }
-      document.getElementById("MyClockDisplay").innerText = "It is " + time;
-      document.getElementById("MyClockDisplay").textContent = "It is " + time;
+      document.getElementById("clock").textContent = "It is " + time;
       setTimeout(showTime, 1000);
     }
   </script>
 </head>
 
 <body onload="showTime();">
-  <div id="MyClockDisplay" class="clock"></div>
+  <div id="clock"></div>
 </body>
 
 </html>
