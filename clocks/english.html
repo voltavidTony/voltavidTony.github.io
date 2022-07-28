@@ -41,13 +41,19 @@
       }
 
       document.getElementById("clock").textContent = "It is " + time;
+    }
 
-      setTimeout(showTime, 1000);
+    function startInterval() {
+      setTimeout(() => {
+        setInterval(showTime, 60000);
+        showTime();
+      }, (60 - (new Date()).getSeconds()) * 1000);
+      showTime();
     }
   </script>
 </head>
 
-<body onload="showTime();">
+<body onload="startInterval();">
   <div id="clock">Please enable JavaScript</div>
 </body>
 
