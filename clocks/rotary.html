@@ -7,107 +7,135 @@
       background: black;
     }
 
-    .digit {
-      color: white;
-      font-size: 90px;
-      font-family: Impact;
-      text-align: center;
-      vertical-align: top;
-      display: inline-block;
-      background-color: black;
+    .animated {
+      transition: transform 0.75s ease-in;
     }
 
     .border {
-      position: relative;
-      height: 4px;
       background-color: white;
       display: block;
+      height: 4px;
+      position: relative;
       z-index: 3;
     }
 
-    #container {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      overflow: hidden;
+    .digit {
+      background-color: black;
+      color: white;
+      display: inline-block;
+      font-family: Impact;
+      font-size: 90px;
+      text-align: center;
+      vertical-align: top;
     }
 
     #clockFace {
-      position: relative;
       background-color: white;
+      display: none;
       padding-left: 4px;
       padding-right: 4px;
+      position: relative;
       z-index: 0;
     }
 
-    #gradientTop {
-      position: relative;
-      background-image: linear-gradient(0, #0007, black);
-      z-index: 1;
+    #container {
+      left: 50%;
+      overflow: hidden;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: fit-content;
     }
 
     #gradientBottom {
-      position: relative;
       background-image: linear-gradient(0, black, #0007);
+      position: relative;
       z-index: 2;
+    }
+
+    #gradientTop {
+      background-image: linear-gradient(0, #0007, black);
+      position: relative;
+      z-index: 1;
     }
   </style>
   <script>
-    var $ = function (id) { return document.getElementById(id); };
+    function $(id) { return document.getElementById(id); }
+    function $$(id) { return Array.from(document.getElementsByClassName(id)); }
 
-    function digitTransform(element, val, valmod, rel, relscale) {
-      element.textContent = ((val + valmod - 1) % valmod) + " " + val + " " + ((val + 1) % valmod) + " " + ((val + 2) % valmod);
-      element.style.transform = "translateY(" + (-0.25 * (rel / relscale + 1) * element.clientHeight) + "px)";
-    }
-
-    function showTime() {
+    function clockLoop() {
       var date = new Date();
       var h = date.getHours();
       var m = date.getMinutes();
-      var s = date.getSeconds();
+      var s = (date.getSeconds() + date.getMilliseconds() / 1000 + 0.5) >> 0;
 
-      $("separator").textContent = (s % 2 == 0) ? ":" : "\xa0";
+      $("separator").style.color = (s % 2 == 0) ? "white" : "black";
 
-      digitTransform($("MinuteOne"), m % 10, 10, s, 60);
-      m = m + s / 60;
-      digitTransform($("MinuteTen"), m / 10 >> 0, 6, m % 10, 10);
-      if (h < 20) {
-        digitTransform($("HourOne"), h % 10, 10, m, 60);
-        h = h + m / 60;
-        digitTransform($("HourTen"), h / 10 >> 0, 3, h % 10, 10);
-      } else {
-        digitTransform($("HourOne"), h % 10, 5, m, 60);
-        h = h + m / 60;
-        digitTransform($("HourTen"), h / 10 >> 0, 3, h % 10, 3);
+      if (s == 1) setTime(h, m);
+      if (s == 59) {
+        var incr = $("separator").clientHeight;
+        moveDigit($("MinuteOne"), incr);
+        if (m % 10 == 9) {
+          moveDigit($("MinuteTen"), incr);
+          if (m == 59) {
+            moveDigit($("HourOne"), incr);
+            if (h % 10 == (h < 20 ? 9 : 3))
+              moveDigit($("HourTen"), incr);
+          }
+        }
       }
-
-      setTimeout(showTime, 1000);
     }
 
-    function setupStyle() {
-      var CLOCK_HEIGHT = $("HourTen").clientHeight / 10 >> 0;
-      var CLOCK_WIDTH = $("HourTen").clientWidth;
-      var digits = document.getElementsByClassName("digit");
-      for (i = 0; i < digits.length; i++) digits[i].style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px";
+    function moveDigit(element, amount) {
+      element.classList.add("animated");
+      var trans = (element.style.transform.replace(/\D/g, "") >> 0) + amount;
+      element.style.transform = "translateY(" + -trans + "px)";
+    }
+
+    function setTime(h, m) {
+      $$("digit").forEach(item => item.classList.remove("animated"));
+
+      var height = -$("separator").clientHeight;
+      $("MinuteOne").style.transform = "translateY(" + ((m % 10 + 1) * height) + "px)";
+      $("MinuteTen").style.transform = "translateY(" + (((m / 10 >> 0) + 1) * height) + "px)";
+      $("HourOne").style.transform = "translateY(" + ((h + 1) * height) + "px)";
+      $("HourTen").style.transform = "translateY(" + (((h / 10 >> 0) + 1) * height) + "px)";
+    }
+
+    function setupClock() {
+      $("JSmsg").remove();
+      $("clockFace").style.display = "block";
+
+      var CLOCK_HEIGHT = ($("MinuteOne").clientHeight / 13 + 0.5) >> 0;
+      var CLOCK_WIDTH = $("MinuteOne").clientWidth;
+
+      $$("digit").forEach(item => item.style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px");
+
       $("clockFace").style.height = CLOCK_HEIGHT + "px";
       $("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
       $("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
-      showTime();
+
+      var date = new Date();
+      setTime(date.getHours(), date.getMinutes());
+
+      setInterval(clockLoop, 1000);
     }
   </script>
 </head>
 
-<body onload="setupStyle();">
+<body onload="setupClock();">
   <div id="container">
     <div id="gradientTop"></div>
     <div class="border"></div>
+    <div id="JSmsg" style="color: white; margin: 10px;">Please enable JavaScript</div>
     <div id="clockFace">
-      <div id="HourTen" class="digit">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
-      <div id="HourOne" class="digit"></div>
-      <div id="separator" class="digit"></div>
-      <div id="MinuteTen" class="digit"></div>
-      <div id="MinuteOne" class="digit"></div>
+      <div id="HourTen" class="digit">2<br>0<br>1<br>2<br>0<br>1</div>
+      <div id="HourOne" class="digit">
+        3<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>0<br>1
+      </div>
+      <div id="separator" class="digit">:</div>
+      <div id="MinuteTen" class="digit">5<br>0<br>1<br>2<br>3<br>4<br>5<br>0<br>1</div>
+      <div id="MinuteOne" class="digit">9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1</div>
     </div>
     <div class="border"></div>
     <div id="gradientBottom"></div>
