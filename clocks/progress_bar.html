@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Progress Bar Clock</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="A clock that tells the time with progress bars">
+    <meta name="keywords" content="JS, clock, progress bar">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        td {
+            height: inherit;
+            text-align: right;
+        }
+
+        tr {
+            height: 1px;
+        }
+
+        .bar {
+            background-color: white;
+            height: 100%;
+            width: 100%;
+        }
+
+        .barBorder {
+            border-color: white;
+            border-style: solid;
+            border-width: 1px;
+            padding: 0;
+            width: 75%;
+        }
+
+        #container {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: fit-content;
+        }
+
+        #second {
+            animation: tick 1s infinite linear;
+        }
+
+        @keyframes tick {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function $(id) { return document.getElementById(id); }
+
+        function setTime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+
+            var drw = $("dimsRef").clientWidth;
+            $("minute").style.width = (s * drw / 59 + 0.5 >> 0) + "px";
+            $("hour").style.width = (m * drw / 59 + 0.5 >> 0) + "px";
+            $("day").style.width = (h * drw / 23 + 0.5 >> 0) + "px";
+        }
+
+        function setupClock() {
+            $("JSmsg").remove();
+            $("clockFace").style.display = "block";
+            $("second").addEventListener("animationiteration", setTime, false);
+            setTime();
+        }
+    </script>
+</head>
+
+<body onload="setupClock();">
+    <div id="container">
+        <div id="JSmsg" style="color: white;">Please enable JavaScript</div>
+        <table id="clockFace" style="display: none;">
+            <tr>
+                <td>Second:</td>
+                <td class="barBorder">
+                    <div id="second" class="bar"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Minute:</td>
+                <td id="dimsRef" class="barBorder">
+                    <div id="minute" class="bar"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Hour:</td>
+                <td class="barBorder">
+                    <div id="hour" class="bar"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Day:</td>
+                <td class="barBorder">
+                    <div id="day" class="bar"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
