@@ -35,7 +35,7 @@
         else if (m < 10) time = time + " O-" + simples[m];
         else if (m < 24) time = time + " " + simples[m];
         else {
-          time = time + " " + tens[(m / 10 >> 0)];
+          time = time + " " + tens[m / 10 >> 0];
           if (m % 10 != 0) time = time + "-" + simples[m % 10];
         }
       }
