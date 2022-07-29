@@ -67,7 +67,7 @@
       var date = new Date();
       var h = date.getHours();
       var m = date.getMinutes();
-      var s = (date.getSeconds() + date.getMilliseconds() / 1000 + 0.5) >> 0;
+      var s = date.getSeconds() + date.getMilliseconds() / 1000 + 0.5 >> 0;
 
       $("separator").style.color = (s % 2 == 0) ? "white" : "black";
 
@@ -79,7 +79,7 @@
           moveDigit($("MinuteTen"), incr);
           if (m == 59) {
             moveDigit($("HourOne"), incr);
-            if (h % 10 == (h < 20 ? 9 : 3))
+            if (h == 9 || h == 19 || h == 23)
               moveDigit($("HourTen"), incr);
           }
         }
@@ -106,7 +106,7 @@
       $("JSmsg").remove();
       $("clockFace").style.display = "block";
 
-      var CLOCK_HEIGHT = ($("MinuteOne").clientHeight / 13 + 0.5) >> 0;
+      var CLOCK_HEIGHT = $("MinuteOne").clientHeight / 13 + 0.5 >> 0;
       var CLOCK_WIDTH = $("MinuteOne").clientWidth;
 
       $$("digit").forEach(item => item.style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px");
