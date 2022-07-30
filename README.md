@@ -4,5 +4,6 @@ ht<span>tps:/</span>/voltavidTony.github.io/<br/>
  ┣ 📦clocks/<br>
  ┃  ┣ 📜[english.html](clocks/english.html)<br>
  ┃  ┣ 📜[progress_bar.html](clocks/progress_bar.html)<br>
- ┃  ┗ 📜[rotary.html](clocks/rotary.html)<br>
+ ┃  ┣ 📜[rotary.html](clocks/rotary.html)<br>
+ ┃  ┗ 📜[sky.html](clocks/sky.html)<br>
  ┗ 📜[index.html](index.html)<br>
