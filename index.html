@@ -9,21 +9,32 @@
   <meta name="keywords" content="voltavidTony, about me, content">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <style>
-    #content {
-      font-family: 'Courier New', Courier, monospace;
-      left: 50%;
-      position: relative;
-      transform: translateX(-50%);
+    div {
       width: fit-content;
+    }
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Courier New', Courier, monospace;
+      gap: 0 1rem;
+      margin: 0 auto;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
+    function $(id) { return document.getElementById(id); }
+
     function getMD(id, url) {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
       xhr.onload = function (e) {
-        document.getElementById(id).innerHTML = marked.parse(xhr.responseText);
+        $(id).innerHTML = marked.parse(xhr.responseText);
+        var separator = parseFloat(getComputedStyle(document.body).fontSize) * 2 + 2;
+        var cutoff = $("readme").clientWidth + $("sites").clientWidth + separator;
+        onresize = event => {
+          $("content").style.flexDirection = document.body.clientWidth < cutoff ? "column" : "row";
+        };
       };
       xhr.onerror = function () {
         console.error("Error loading content from " + url);
@@ -39,7 +50,7 @@
 <body>
   <div id="content">
     <div id="readme"></div>
-    <hr />
+    <hr style="margin: 0;" />
     <div id="sites"></div>
   </div>
 </body>
