@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Sky Clock</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="A clock that shows sun's and moon's orbits">
+    <meta name="keywords" content="JS, clock, sky, sun, moon">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        circle {
+            fill: transparent;
+            stroke-linecap: butt;
+            stroke-width: 10;
+        }
+
+        .orbitSVG {
+            display: none;
+            height: 320px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 320px;
+        }
+
+        #clockFace {
+            color: white;
+            font-family: Impact;
+            font-size: 64px;
+            position: absolute;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+
+        #container {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: fit-content;
+        }
+
+        #dawnBar {
+            stroke: darkorange;
+        }
+
+        #dayBar {
+            stroke: lightskyblue;
+        }
+
+        #duskBar {
+            stroke: orangered;
+        }
+
+        #hourTicksMoon {
+            stroke: white;
+            stroke-dasharray: 1 25.18;
+            stroke-width: 16;
+        }
+
+        #hourTicksSun {
+            stroke: white;
+            stroke-dasharray: 1 35.652;
+            stroke-width: 20;
+        }
+
+        #moon {
+            fill: slategray;
+            stroke: white;
+            stroke-linecap: butt;
+            stroke-width: 4;
+        }
+
+        #moonAntiBar {
+            stroke: darkslategray;
+            stroke-width: 6;
+        }
+
+        #moonBar {
+            stroke: lightskyblue;
+            stroke-width: 6;
+        }
+
+        #nightBar {
+            stroke: midnightblue;
+        }
+
+        #sun {
+            fill: gold;
+            stroke: gold;
+            stroke-dasharray: 1 4.236;
+            stroke-linecap: butt;
+            stroke-width: 6;
+        }
+
+        #sunTicks {
+            stroke: yellow;
+            stroke-width: 15;
+        }
+    </style>
+    <script src="suncalc.js"></script>
+    <script>
+        function $(id) { return document.getElementById(id); }
+
+        function getDayProgress(date) { return (date.getHours() + date.getMinutes() / 60) / 24; }
+
+        function getLightBar(startTime, endTime, r) {
+            startTime = (startTime + 0.25) % 1;
+            endTime = (endTime + 0.25) % 1;
+
+            if (endTime < startTime) {
+                var a = endTime * r - 0.5;
+                var b = (startTime - endTime) * r + 1;
+                var c = (1 - startTime) * r;
+                return a + " " + b + " " + c;
+            } else {
+                var a = startTime * r + 0.5;
+                var b = (endTime - startTime) * r - 1;
+                var c = (1 - endTime) * r;
+                return "0 " + a + " " + b + " " + c;
+            }
+        }
+
+        function movePointer(date) {
+            var angle = getDayProgress(date) * Math.PI * 2;
+            var tx = -Math.sin(angle);
+            var ty = Math.cos(angle);
+            $("sun").style.transform = "translate(" + tx * 140 + "px, " + ty * 140 + "px)";
+            $("moon").style.transform = "translate(" + tx * 100 + "px, " + ty * 100 + "px)";
+        }
+
+        function setupClock() {
+            setupLightRings();
+            setTimeout(() => {
+                setInterval(setTime, 60000);
+                setTime();
+            }, (60 - (new Date()).getSeconds()) * 1000);
+            setTime();
+        }
+
+        function setupLightRings() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://geolocation-db.com/json/", true);
+            xhr.onload = function (e) {
+                var date = new Date();
+                var location = JSON.parse(xhr.responseText);
+
+                var times = SunCalc.getTimes(date, location.latitude, location.longitude);
+                var dawn = getDayProgress(times.dawn);
+                var ghe = getDayProgress(times.goldenHourEnd);
+                var gh = getDayProgress(times.goldenHour);
+                var dusk = getDayProgress(times.dusk);
+                $("duskBar").style.strokeDasharray = getLightBar(gh, dusk, 879.646);
+                $("nightBar").style.strokeDasharray = getLightBar(dusk, dawn, 879.646);
+                $("dawnBar").style.strokeDasharray = getLightBar(dawn, ghe, 879.646);
+                $("dayBar").style.strokeDasharray = getLightBar(ghe, gh, 879.646);
+
+                var rise = (getDayProgress(times.sunrise) + 0.25) % 1;
+                var set = (getDayProgress(times.sunsetStart) + 0.25) % 1;
+                $("sunTicks").style.strokeDasharray = (rise < set)
+                    ? "0 " + (rise * 879.646) + " 1 " + ((set - rise) * 879.646 - 1) + " 1 " + ((1 - set) * 879.646 - 1)
+                    : "0 " + (set * 879.646) + " 1 " + ((rise - set) * 879.646 - 1) + " 1 " + ((1 - rise) * 879.646 - 1);
+
+                var sunAzimuth = ((dawn < dusk) - dawn - dusk) * 180;
+                $("sunRing").style.transform = "translate(-50%, -50%) rotate(" + sunAzimuth + "deg)";
+                $("sunRing").style.display = "block";
+
+                var moon = SunCalc.getMoonTimes(date, location.latitude, location.longitude);
+                var rise = getDayProgress(moon.rise);
+                var set = getDayProgress(moon.set);
+                $("moonAntiBar").style.strokeDasharray = getLightBar(set, rise, 628.32);
+                $("moonBar").style.strokeDasharray = getLightBar(rise, set, 628.32);
+
+                var moonAzimuth = ((rise < set) - rise - set) * 180;
+                $("moonRing").style.transform = "translate(-50%, -50%) rotate(" + moonAzimuth + "deg)";
+                $("moonRing").style.display = "block";
+            };
+            xhr.onerror = function () {
+                console.error("Error getting location from https://geolocation-db.com/json/");
+            };
+            xhr.send(null);
+        }
+
+        function setTime() {
+            var date = new Date();
+            var hh = date.getHours().toString().padStart(2, "0");
+            var mm = date.getMinutes().toString().padStart(2, "0");
+            $("clockFace").innerHTML = hh + "<br>" + mm;
+            if (hh + mm == 0) setupLightRings();
+            movePointer(date);
+        }
+    </script>
+</head>
+
+<body onload="setupClock();">
+    <div id="container">
+        <svg id="sunRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="hourTicksSun" cx="160" cy="160" r="140"></circle>
+            <circle id="dayBar" cx="160" cy="160" r="140"></circle>
+            <circle id="duskBar" cx="160" cy="160" r="140"></circle>
+            <circle id="nightBar" cx="160" cy="160" r="140"></circle>
+            <circle id="dawnBar" cx="160" cy="160" r="140"></circle>
+            <circle id="sunTicks" cx="160" cy="160" r="140"></circle>
+            <circle id="sun" cx="160" cy="160" r="10"></circle>
+        </svg>
+        <svg id="moonRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle id="hourTicksMoon" cx="160" cy="160" r="100"></circle>
+            <circle id="moonAntiBar" cx="160" cy="160" r="100"></circle>
+            <circle id="moonBar" cx="160" cy="160" r="100"></circle>
+            <circle id="moon" cx="160" cy="160" r="6"></circle>
+        </svg>
+        <div id="clockFace">Please enable JavaScript</div>
+    </div>
+</body>
+
+</html>
