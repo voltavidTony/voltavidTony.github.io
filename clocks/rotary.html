@@ -105,6 +105,12 @@
       $("JSmsg").remove();
       $("clockFace").style.display = "flex";
 
+      var params = new URLSearchParams(location.search);
+      if (params.has("color"))
+        $("clockFace").style.color = params.get("color");
+      if (params.has("font-size"))
+        $("container").style.fontSize = params.get("font-size") + "px";
+
       var date = new Date();
       setTime(date.getHours(), date.getMinutes());
 
