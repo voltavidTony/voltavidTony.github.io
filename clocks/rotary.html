@@ -18,34 +18,29 @@
     }
 
     .border {
-      background-color: white;
-      display: block;
-      height: 4px;
-      position: relative;
-      z-index: 3;
+      border: 2px solid;
     }
 
     .digit {
-      background-color: black;
-      color: white;
-      display: inline-block;
       font-family: Impact;
-      font-size: 90px;
       text-align: center;
-      vertical-align: top;
+      width: 1.5ch;
+      z-index: -1;
     }
 
     #clockFace {
-      background-color: white;
+      border: 4px solid;
+      color: white;
       display: none;
-      padding-left: 4px;
-      padding-right: 4px;
-      position: relative;
-      z-index: 0;
+      height: 50%;
     }
 
     #container {
+      --shf: 4.9406564584124654e-324;
+      font-size: 90px;
+      height: calc(calc(2.5em + 0px) / 4 * var(--shf) / var(--shf) * 4);
       left: 50%;
+      line-height: 1.25;
       overflow: hidden;
       position: absolute;
       top: 50%;
@@ -55,14 +50,14 @@
 
     #gradientBottom {
       background-image: linear-gradient(0, black, #0007);
+      height: calc(25% - 4px);
       position: relative;
-      z-index: 2;
     }
 
     #gradientTop {
       background-image: linear-gradient(0, #0007, black);
+      height: calc(25% - 4px);
       position: relative;
-      z-index: 1;
     }
   </style>
   <script>
@@ -75,51 +70,40 @@
       var m = date.getMinutes();
       var s = date.getSeconds() + date.getMilliseconds() / 1000 + 0.5 >> 0;
 
-      $("separator").style.color = (s % 2 == 0) ? "white" : "black";
+      $("separator").style.color = (s % 2 == 0) ? "" : "black";
 
       if (s == 1) setTime(h, m);
       if (s == 59) {
-        var incr = $("separator").clientHeight;
-        moveDigit($("MinuteOne"), incr);
+        moveDigit($("MinuteOne"));
         if (m % 10 == 9) {
-          moveDigit($("MinuteTen"), incr);
+          moveDigit($("MinuteTen"));
           if (m == 59) {
-            moveDigit($("HourOne"), incr);
+            moveDigit($("HourOne"));
             if (h == 9 || h == 19 || h == 23)
-              moveDigit($("HourTen"), incr);
+              moveDigit($("HourTen"));
           }
         }
       }
     }
 
-    function moveDigit(element, amount) {
+    function moveDigit(element) {
       element.classList.add("animated");
-      var trans = (element.style.transform.replace(/\D/g, "") >> 0) + amount;
-      element.style.transform = "translateY(" + -trans + "px)";
+      var trans = parseFloat(element.style.transform.replace(/[^0-9.]/g, "")) + 1.25;
+      element.style.transform = "translateY(-" + trans + "em)";
     }
 
     function setTime(h, m) {
       $$("digit").forEach(item => item.classList.remove("animated"));
 
-      var height = -$("separator").clientHeight;
-      $("MinuteOne").style.transform = "translateY(" + ((m % 10 + 1) * height) + "px)";
-      $("MinuteTen").style.transform = "translateY(" + (((m / 10 >> 0) + 1) * height) + "px)";
-      $("HourOne").style.transform = "translateY(" + ((h + 1) * height) + "px)";
-      $("HourTen").style.transform = "translateY(" + (((h / 10 >> 0) + 1) * height) + "px)";
+      $("MinuteOne").style.transform = "translateY(-" + ((m % 10 + 1) * 1.25) + "em)";
+      $("MinuteTen").style.transform = "translateY(-" + (((m / 10 >> 0) + 1) * 1.25) + "em)";
+      $("HourOne").style.transform = "translateY(-" + ((h + 1) * 1.25) + "em)";
+      $("HourTen").style.transform = "translateY(-" + (((h / 10 >> 0) + 1) * 1.25) + "em)";
     }
 
     function setupClock() {
       $("JSmsg").remove();
-      $("clockFace").style.display = "block";
-
-      var CLOCK_HEIGHT = $("MinuteOne").clientHeight / 13 + 0.5 >> 0;
-      var CLOCK_WIDTH = $("MinuteOne").clientWidth;
-
-      $$("digit").forEach(item => item.style.width = (CLOCK_WIDTH * 1.25 >> 0) + "px");
-
-      $("clockFace").style.height = CLOCK_HEIGHT + "px";
-      $("gradientTop").style.height = CLOCK_HEIGHT / 2 + "px";
-      $("gradientBottom").style.height = CLOCK_HEIGHT / 2 + "px";
+      $("clockFace").style.display = "flex";
 
       var date = new Date();
       setTime(date.getHours(), date.getMinutes());
@@ -132,18 +116,20 @@
 <body onload="setupClock();">
   <div id="container">
     <div id="gradientTop"></div>
-    <div class="border"></div>
     <div id="JSmsg" style="color: white; margin: 10px;">Please enable JavaScript</div>
     <div id="clockFace">
       <div id="HourTen" class="digit">2<br>0<br>1<br>2<br>0<br>1</div>
+      <div class="border"></div>
       <div id="HourOne" class="digit">
         3<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>0<br>1
       </div>
+      <div class="border"></div>
       <div id="separator" class="digit">:</div>
+      <div class="border"></div>
       <div id="MinuteTen" class="digit">5<br>0<br>1<br>2<br>3<br>4<br>5<br>0<br>1</div>
+      <div class="border"></div>
       <div id="MinuteOne" class="digit">9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1</div>
     </div>
-    <div class="border"></div>
     <div id="gradientBottom"></div>
   </div>
 </body>
