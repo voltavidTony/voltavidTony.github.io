@@ -35,6 +35,7 @@
         onresize = event => {
           $("content").style.flexDirection = document.body.clientWidth < cutoff ? "column" : "row";
         };
+        window.dispatchEvent(new Event("resize"));
       };
       xhr.onerror = function () {
         console.error("Error loading content from " + url);
@@ -42,12 +43,14 @@
       xhr.send(null);
     }
 
-    getMD("readme", "https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md");
-    getMD("sites", "https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md");
+    function loadContent() {
+      getMD("readme", "https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md");
+      getMD("sites", "https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md");
+    }
   </script>
 </head>
 
-<body>
+<body onload="loadContent();">
   <div id="content">
     <div id="readme"></div>
     <hr style="margin: 0;" />
