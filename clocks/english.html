@@ -26,6 +26,16 @@
     }
   </style>
   <script>
+    function $(id) { return document.getElementById(id); }
+
+    function applyConfig(element, keys) {
+      var params = new URLSearchParams(location.search);
+      keys.forEach(key => {
+        if (params.has(key))
+          element.style.setProperty(key, params.get(key));
+      });
+    }
+
     function setTime() {
       const simples = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three"]
       const tens = ["zero", "ten", "twenty", "thirty", "fourty", "fifty"]
@@ -46,10 +56,12 @@
         }
       }
 
-      document.getElementById("clock").textContent = "It is " + time;
+      $("clock").textContent = "It is " + time;
     }
 
     function startClock() {
+      applyConfig($("clock"), ["color", "font-size"]);
+
       setTimeout(() => {
         setInterval(setTime, 60000);
         setTime();

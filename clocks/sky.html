@@ -136,6 +136,14 @@
 
         function $(id) { return document.getElementById(id); }
 
+        function applyConfig(element, keys) {
+            var params = new URLSearchParams(location.search);
+            keys.forEach(key => {
+                if (params.has(key))
+                    element.style.setProperty(key, params.get(key));
+            });
+        }
+
         function dayFrac(date) {
             return (((
                 date.getMilliseconds() / 1000

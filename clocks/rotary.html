@@ -30,13 +30,13 @@
 
     #clockFace {
       border: 4px solid;
-      color: white;
       display: none;
       height: 50%;
     }
 
     #container {
       --shf: 4.9406564584124654e-324;
+      color: white;
       font-size: 90px;
       height: calc(calc(2.5em + 0px) / 4 * var(--shf) / var(--shf) * 4);
       left: 50%;
@@ -63,6 +63,14 @@
   <script>
     function $(id) { return document.getElementById(id); }
     function $$(id) { return Array.from(document.getElementsByClassName(id)); }
+
+    function applyConfig(element, keys) {
+      var params = new URLSearchParams(location.search);
+      keys.forEach(key => {
+        if (params.has(key))
+          element.style.setProperty(key, params.get(key));
+      });
+    }
 
     function clockLoop() {
       var date = new Date();
@@ -105,11 +113,7 @@
       $("JSmsg").remove();
       $("clockFace").style.display = "flex";
 
-      var params = new URLSearchParams(location.search);
-      if (params.has("color"))
-        $("clockFace").style.color = params.get("color");
-      if (params.has("font-size"))
-        $("container").style.fontSize = params.get("font-size") + "px";
+      applyConfig($("container"), ["color", "font-size"]);
 
       var date = new Date();
       setTime(date.getHours(), date.getMinutes());
