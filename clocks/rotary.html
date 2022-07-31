@@ -72,8 +72,8 @@
 
       $("separator").style.color = (s % 2 == 0) ? "" : "black";
 
-      if (s == 1) setTime(h, m);
-      if (s == 59) {
+      if (s <= 1) setTime(h, m);
+      if (s >= 59) {
         moveDigit($("MinuteOne"));
         if (m % 10 == 9) {
           moveDigit($("MinuteTen"));
