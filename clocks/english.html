@@ -18,7 +18,7 @@
       font-family: Impact;
       font-size: 60px;
       left: 50%;
-      letter-spacing: 7px;
+      letter-spacing: 0.125em;
       position: absolute;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
@@ -59,7 +59,7 @@
       $("clock").textContent = "It is " + time;
     }
 
-    function startClock() {
+    function setupClock() {
       applyConfig($("clock"), ["color", "font-size"]);
 
       setTimeout(() => {
@@ -71,7 +71,7 @@
   </script>
 </head>
 
-<body onload="startClock();">
+<body onload="setupClock();">
   <div id="clock">Please enable JavaScript</div>
 </body>
 
