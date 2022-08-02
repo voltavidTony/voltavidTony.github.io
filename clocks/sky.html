@@ -11,12 +11,13 @@
     <style>
         body {
             background-color: black;
+            color: white;
         }
 
         circle {
             fill: transparent;
             stroke-linecap: butt;
-            stroke-width: 10;
+            stroke-width: 0.625em;
         }
 
         .orbitSVG {
@@ -36,7 +37,6 @@
         }
 
         #container {
-            color: white;
             left: 50%;
             position: absolute;
             top: 50%;
@@ -45,7 +45,6 @@
         }
 
         #location {
-            color: white;
             display: table;
             width: fit-content;
         }
@@ -86,23 +85,23 @@
             fill: slategray;
             stroke: white;
             stroke-linecap: butt;
-            stroke-width: 4;
+            stroke-width: 0.25em;
         }
 
         #moonBarDay {
             stroke: lightskyblue;
-            stroke-width: 6;
+            stroke-width: 0.5em;
         }
 
         #moonBarNight {
             stroke: darkslategray;
-            stroke-width: 6;
+            stroke-width: 0.5em;
         }
 
         #moonTickHour {
             stroke: white;
-            stroke-dasharray: 1 25.18;
-            stroke-width: 16;
+            stroke-dasharray: 0.0625em 1.574em;
+            stroke-width: 1em;
         }
 
         /* 
@@ -112,9 +111,9 @@
         #sun {
             fill: gold;
             stroke: gold;
-            stroke-dasharray: 1 4.236;
+            stroke-dasharray: 0.0625em 0.265em;
             stroke-linecap: butt;
-            stroke-width: 6;
+            stroke-width: 0.375em;
         }
 
         #sunBarDawn {
@@ -133,15 +132,20 @@
             stroke: midnightblue;
         }
 
-        #sunTickHorizon {
+        #sunTickRise {
             stroke: yellow;
-            stroke-width: 15;
+            stroke-width: 0.875em;
+        }
+
+        #sunTickSet {
+            stroke: yellow;
+            stroke-width: 0.875em;
         }
 
         #sunTickHour {
             stroke: white;
-            stroke-dasharray: 1 35.652;
-            stroke-width: 20;
+            stroke-dasharray: 0.0625em 2.294em;
+            stroke-width: 1.25em;
         }
     </style>
     <script src="suncalc.js"></script>
@@ -198,19 +202,16 @@
                 sun.rise = dayFrac(sunTimes.sunrise) - sun.zero;
                 sun.set = dayFrac(sunTimes.sunsetStart) - sun.zero;
 
-                var rise = (sun.rise + 0.25) % 1;
-                var set = (sun.set + 0.25) % 1;
-                $("sunTickHorizon").style.strokeDasharray = (rise < set)
-                    ? "0 " + (rise * 879.646) + " 1 " + ((set - rise) * 879.646 - 1) + " 1 " + ((1 - set) * 879.646 - 1)
-                    : "0 " + (set * 879.646) + " 1 " + ((rise - set) * 879.646 - 1) + " 1 " + ((1 - rise) * 879.646 - 1);
-                setLightRing($("sunBarDusk"), sun.gol, sun.dusk, 879.646);
-                setLightRing($("sunBarNight"), sun.dusk, sun.dawn, 879.646);
-                setLightRing($("sunBarDawn"), sun.dawn, sun.golEnd, 879.646);
-                setLightRing($("sunBarDay"), sun.golEnd, sun.gol, 879.646);
+                setLightRing($("sunBarDawn"), sun.dawn, sun.golEnd, 9);
+                setLightRing($("sunBarDay"), sun.golEnd, sun.gol, 9);
+                setLightRing($("sunBarDusk"), sun.gol, sun.dusk, 9);
+                setLightRing($("sunBarNight"), sun.dusk, sun.dawn, 9);
+                setLightRing($("sunTickRise"), sun.rise, sun.rise + 0.00227, 9);
+                setLightRing($("sunTickSet"), sun.set, sun.set + 0.00227, 9);
                 $("sunRing").style.display = "block";
 
-                setLightRing($("moonBarNight"), moon.set, moon.rise, 628.32);
-                setLightRing($("moonBarDay"), moon.rise, moon.set, 628.32);
+                setLightRing($("moonBarNight"), moon.set, moon.rise, 6);
+                setLightRing($("moonBarDay"), moon.rise, moon.set, 6);
                 $("moonRing").style.display = "block";
 
                 placeBodies(date);
@@ -223,26 +224,27 @@
 
         function placeBodies(date) {
             var mrad = (dayFrac(date) - moon.zero) * Math.PI * 2;
-            $("moon").style.transform = "translate(" + -Math.sin(mrad) * 100 + "px, " + Math.cos(mrad) * 100 + "px)";
+            $("moon").style.transform = "translate(" + -Math.sin(mrad) * 6 + "em, " + Math.cos(mrad) * 6 + "em)";
 
             var srad = (dayFrac(date) - sun.zero) * Math.PI * 2;
-            $("sun").style.transform = "translate(" + -Math.sin(srad) * 140 + "px, " + Math.cos(srad) * 140 + "px)";
+            $("sun").style.transform = "translate(" + -Math.sin(srad) * 9 + "em, " + Math.cos(srad) * 9 + "em)";
         }
 
         function setLightRing(element, start, end, radius) {
             start = (start + 0.25) % 1;
             end = (end + 0.25) % 1;
+            radius *= Math.PI * 2;
 
             if (end < start) {
-                var a = end * radius - 0.5;
-                var b = (start - end) * radius + 1;
+                var a = end * radius - 0.03125;
+                var b = (start - end) * radius + 0.0625;
                 var c = (1 - start) * radius;
-                element.style.strokeDasharray = a + " " + b + " " + c;
+                element.style.strokeDasharray = a + "em " + b + "em " + c + "em";
             } else {
-                var a = start * radius + 0.5;
-                var b = (end - start) * radius - 1;
+                var a = start * radius + 0.03125;
+                var b = (end - start) * radius - 0.0625;
                 var c = (1 - end) * radius;
-                element.style.strokeDasharray = "0 " + a + " " + b + " " + c;
+                element.style.strokeDasharray = "0 " + a + "em " + b + "em " + c + "em";
             }
         }
 
@@ -258,7 +260,7 @@
         }
 
         function setupClock() {
-            applyConfig($("container"), ["color", "font-size"]);
+            applyConfig($("container"), ["font-size"]);
             setTimeout(() => {
                 setInterval(setTime, 60000);
                 setTime();
@@ -279,19 +281,20 @@
     </div>
     <div id="container">
         <svg id="sunRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle id="sunTickHour" cx="160" cy="160" r="140"></circle>
-            <circle id="sunBarDay" cx="160" cy="160" r="140"></circle>
-            <circle id="sunBarDusk" cx="160" cy="160" r="140"></circle>
-            <circle id="sunBarNight" cx="160" cy="160" r="140"></circle>
-            <circle id="sunBarDawn" cx="160" cy="160" r="140"></circle>
-            <circle id="sunTickHorizon" cx="160" cy="160" r="140"></circle>
-            <circle id="sun" cx="160" cy="160" r="10"></circle>
+            <circle id="sunTickHour" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sunBarDawn" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sunBarDay" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sunBarDusk" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sunBarNight" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sunTickSet" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sunTickRise" cx="10em" cy="10em" r="9em"></circle>
+            <circle id="sun" cx="10em" cy="10em" r="0.625em"></circle>
         </svg>
         <svg id="moonRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle id="moonTickHour" cx="160" cy="160" r="100"></circle>
-            <circle id="moonBarNight" cx="160" cy="160" r="100"></circle>
-            <circle id="moonBarDay" cx="160" cy="160" r="100"></circle>
-            <circle id="moon" cx="160" cy="160" r="6"></circle>
+            <circle id="moonTickHour" cx="10em" cy="10em" r="6em"></circle>
+            <circle id="moonBarNight" cx="10em" cy="10em" r="6em"></circle>
+            <circle id="moonBarDay" cx="10em" cy="10em" r="6em"></circle>
+            <circle id="moon" cx="10em" cy="10em" r="0.375em"></circle>
         </svg>
         <div id="clockFace">Please enable JavaScript</div>
     </div>
