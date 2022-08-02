@@ -29,20 +29,27 @@
         }
 
         #clockFace {
-            font-family: Impact;
             font-size: 4em;
+            left: 0.0625em;
+            letter-spacing: 0.125em;
             position: absolute;
             text-align: center;
             transform: translate(-50%, -50%);
         }
 
         #container {
+            font-family: Impact;
+            letter-spacing: 0.125em;
             left: 50%;
             position: absolute;
             top: 50%;
             transform: translate(-50%, -50%);
             width: fit-content;
         }
+
+        /* 
+         * Location Elements
+         */
 
         #location {
             display: table;
@@ -151,8 +158,8 @@
     <script src="suncalc.js"></script>
     <script>
         var geoloc = null;
-        var moon = { noon: 0, rise: 0, set: 0, zero: 0 };
-        var sun = { dawn: 0, dusk: 0, gol: 0, golEnd: 0, noon: 0, rise: 0, set: 0, zero: 0 };
+        var moon = { adj: "lunar", name: "moon", rise: 0, set: 0, zero: 0 };
+        var sun = { adj: "solar", dawn: 0, dusk: 0, gol: 0, golEnd: 0, name: "sun", rise: 0, set: 0, zero: 0 };
 
         function $(id) { return document.getElementById(id); }
 
@@ -162,6 +169,28 @@
                 if (params.has(key))
                     element.style.setProperty(key, params.get(key));
             });
+        }
+
+        function celestialEvent(frac, body) {
+            var times = [0, 0.5, body.rise, body.set];
+            var timeNames = [
+                body.adj + " midnight",
+                body.adj + " noon",
+                body.name + "rise",
+                body.name + "set"
+            ];
+
+            for (i = 0; i < 4; i++) {
+                var working = (frac - times[i] + 1) % 1;
+                if (0.958 <= working && working < 0.9993)
+                    return "approaching " + timeNames[i];
+                if (0.9993 <= working || working <= 0.0007)
+                    return timeNames[i];
+                if (0.0007 < working && working <= 0.042)
+                    return "leaving " + timeNames[i];
+            }
+
+            return "";
         }
 
         function dayFrac(date) {
@@ -187,34 +216,36 @@
                 var mTime = SunCalc.getMoonTimes(date, geoloc.lat, geoloc.long);
                 moon.rise = dayFrac(mTime.rise);
                 moon.set = dayFrac(mTime.set);
-                moon.noon = (moon.rise + moon.set) / 2;
-                moon.zero = moon.noon - 0.5;
+                moon.zero = (moon.rise + moon.set) / 2 - 0.5;
                 moon.rise -= moon.zero;
                 moon.set -= moon.zero;
 
                 var sunTimes = SunCalc.getTimes(date, geoloc.lat, geoloc.long);
-                sun.noon = dayFrac(sunTimes.solarNoon);
-                sun.zero = sun.noon - 0.5;
+                sun.zero = dayFrac(sunTimes.solarNoon) - 0.5;
                 sun.dawn = dayFrac(sunTimes.dawn) - sun.zero;
                 sun.dusk = dayFrac(sunTimes.dusk) - sun.zero;
                 sun.gol = dayFrac(sunTimes.goldenHour) - sun.zero;
                 sun.golEnd = dayFrac(sunTimes.goldenHourEnd) - sun.zero;
                 sun.rise = dayFrac(sunTimes.sunrise) - sun.zero;
-                sun.set = dayFrac(sunTimes.sunsetStart) - sun.zero;
+                sun.risen = dayFrac(sunTimes.sunriseEnd) - sun.zero;
+                sun.set = dayFrac(sunTimes.sunset) - sun.zero;
+                sun.setting = dayFrac(sunTimes.sunsetStart) - sun.zero;
 
                 setLightRing($("sunBarDawn"), sun.dawn, sun.golEnd, 9);
                 setLightRing($("sunBarDay"), sun.golEnd, sun.gol, 9);
                 setLightRing($("sunBarDusk"), sun.gol, sun.dusk, 9);
                 setLightRing($("sunBarNight"), sun.dusk, sun.dawn, 9);
-                setLightRing($("sunTickRise"), sun.rise, sun.rise + 0.00227, 9);
-                setLightRing($("sunTickSet"), sun.set, sun.set + 0.00227, 9);
+                setLightRing($("sunTickRise"), sun.rise, sun.risen, 9);
+                setLightRing($("sunTickSet"), sun.setting, sun.set, 9);
                 $("sunRing").style.display = "block";
 
                 setLightRing($("moonBarNight"), moon.set, moon.rise, 6);
                 setLightRing($("moonBarDay"), moon.rise, moon.set, 6);
                 $("moonRing").style.display = "block";
 
-                placeBodies(date);
+                $("eventRing").style.display = "block";
+
+                placeBodies(dayFrac(date));
             };
             xhr.onerror = function () {
                 console.error("Error getting location from https://geolocation-db.com/json/");
@@ -222,12 +253,14 @@
             xhr.send(null);
         }
 
-        function placeBodies(date) {
-            var mrad = (dayFrac(date) - moon.zero) * Math.PI * 2;
+        function placeBodies(frac) {
+            var mrad = (frac - moon.zero) * Math.PI * 2;
             $("moon").style.transform = "translate(" + -Math.sin(mrad) * 6 + "em, " + Math.cos(mrad) * 6 + "em)";
+            $("moonEventText").textContent = celestialEvent(frac - moon.zero, moon);
 
-            var srad = (dayFrac(date) - sun.zero) * Math.PI * 2;
+            var srad = (frac - sun.zero) * Math.PI * 2;
             $("sun").style.transform = "translate(" + -Math.sin(srad) * 9 + "em, " + Math.cos(srad) * 9 + "em)";
+            $("sunEventText").textContent = celestialEvent(frac - sun.zero, sun);
         }
 
         function setLightRing(element, start, end, radius) {
@@ -256,11 +289,16 @@
             $("clockFace").innerHTML = hh + "<br>" + mm;
 
             if (mm == 0) getSkyData();
-            else placeBodies(date);
+            else placeBodies(dayFrac(date));
         }
 
         function setupClock() {
             applyConfig($("container"), ["font-size"]);
+            var scale = parseFloat(getComputedStyle($("container")).fontSize) /
+                parseFloat(getComputedStyle(document.body).fontSize);
+            $("sunEvent").setAttribute("transform", "scale(" + scale + ")");
+            $("moonEvent").setAttribute("transform", "scale(" + scale + ")");
+
             setTimeout(() => {
                 setInterval(setTime, 60000);
                 setTime();
@@ -276,11 +314,26 @@
         <div id="locationOuter">
             <div id="locationInner"></div>
         </div>
-        <span id="locationTooltip">This applet uses location services to determine the local timing of solar and lunar events.<br>
+        <span id="locationTooltip">This applet uses location services to determine
+            the local timing of solar and lunar events.<br>
             No information is saved or forwarded to third parties.</span>
     </div>
     <div id="container">
-        <svg id="sunRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <svg id="eventRing" class="orbitSVG" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <path id="sunEvent" d="M 40,160 C 40,93.77 93.77,40 160,40 C 226.23,40 280,93.77 280,160"></path>
+            <path id="moonEvent" d="M 40,160 C 40,226.23 93.77,280 160,280 C 226.23,280 280,226.23 280,160"></path>
+            <text fill="white">
+                <textPath startOffset="50%" text-anchor="middle" xlink:href="#sunEvent">
+                    <tspan id="sunEventText" dy="0.375em"></tspan>
+                </textPath>
+            </text>
+            <text fill="white">
+                <textPath startOffset="50%" text-anchor="middle" xlink:href="#moonEvent">
+                    <tspan id="moonEventText" dy="0.375em"></tspan>
+                </textPath>
+            </text>
+        </svg>
+        <svg id="sunRing" class="orbitSVG" xmlns="http://www.w3.org/2000/svg" version="1.1">
             <circle id="sunTickHour" cx="10em" cy="10em" r="9em"></circle>
             <circle id="sunBarDawn" cx="10em" cy="10em" r="9em"></circle>
             <circle id="sunBarDay" cx="10em" cy="10em" r="9em"></circle>
@@ -290,7 +343,7 @@
             <circle id="sunTickRise" cx="10em" cy="10em" r="9em"></circle>
             <circle id="sun" cx="10em" cy="10em" r="0.625em"></circle>
         </svg>
-        <svg id="moonRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <svg id="moonRing" class="orbitSVG" xmlns="http://www.w3.org/2000/svg" version="1.1">
             <circle id="moonTickHour" cx="10em" cy="10em" r="6em"></circle>
             <circle id="moonBarNight" cx="10em" cy="10em" r="6em"></circle>
             <circle id="moonBarDay" cx="10em" cy="10em" r="6em"></circle>
