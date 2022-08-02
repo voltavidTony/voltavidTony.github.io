@@ -28,7 +28,6 @@
         }
 
         #clockFace {
-            color: white;
             font-family: Impact;
             font-size: 4em;
             position: absolute;
@@ -37,6 +36,7 @@
         }
 
         #container {
+            color: white;
             left: 50%;
             position: absolute;
             top: 50%;
@@ -258,6 +258,7 @@
         }
 
         function setupClock() {
+            applyConfig($("container"), ["color", "font-size"]);
             setTimeout(() => {
                 setInterval(setTime, 60000);
                 setTime();
@@ -273,7 +274,8 @@
         <div id="locationOuter">
             <div id="locationInner"></div>
         </div>
-        <span id="locationTooltip">This clock uses location services.<br>No information is saved or forwarded to third parties.</span>
+        <span id="locationTooltip">This clock uses location services.<br>
+            No information is saved or forwarded to third parties.</span>
     </div>
     <div id="container">
         <svg id="sunRing" class="orbitSVG" version="1.1" xmlns="http://www.w3.org/2000/svg">
