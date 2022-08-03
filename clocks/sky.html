@@ -157,14 +157,14 @@
     </style>
     <script src="suncalc.js"></script>
     <script>
-        var geoloc = null;
-        var moon = { adj: "lunar", name: "moon", rise: 0, set: 0, zero: 0 };
-        var sun = { adj: "solar", dawn: 0, dusk: 0, gol: 0, golEnd: 0, name: "sun", rise: 0, set: 0, zero: 0 };
+        const geoloc = { lat: 0, long: 0 };
+        const moon = { adj: "lunar", name: "moon", rise: 0, set: 0, zero: 0 };
+        const sun = { adj: "solar", dawn: 0, dusk: 0, gol: 0, golEnd: 0, name: "sun", rise: 0, set: 0, zero: 0 };
 
         function $(id) { return document.getElementById(id); }
 
         function applyConfig(element, keys) {
-            var params = new URLSearchParams(location.search);
+            let params = new URLSearchParams(location.search);
             keys.forEach(key => {
                 if (params.has(key))
                     element.style.setProperty(key, params.get(key));
@@ -172,16 +172,16 @@
         }
 
         function celestialEvent(frac, body) {
-            var times = [0, 0.5, body.rise, body.set];
-            var timeNames = [
+            let times = [0, 0.5, body.rise, body.set];
+            let timeNames = [
                 body.adj + " midnight",
                 body.adj + " noon",
                 body.name + "rise",
                 body.name + "set"
             ];
 
-            for (i = 0; i < 4; i++) {
-                var working = (frac - times[i] + 1) % 1;
+            for (let i = 0; i < 4; i++) {
+                let working = (frac - times[i] + 1) % 1;
                 if (0.958 <= working && working < 0.9993)
                     return "approaching " + timeNames[i];
                 if (0.9993 <= working || working <= 0.0007)
@@ -202,25 +202,23 @@
         }
 
         function getSkyData() {
-            var xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
             xhr.open("GET", "https://geolocation-db.com/json/", true);
             xhr.onload = function (e) {
-                var loc = JSON.parse(xhr.responseText);
-                geoloc = {
-                    lat: loc.latitude,
-                    long: loc.longitude
-                };
+                let date = new Date();
 
-                var date = new Date();
+                let loc = JSON.parse(xhr.responseText);
+                geoloc.lat = loc.latitude;
+                geoloc.long = loc.longitude;
 
-                var mTime = SunCalc.getMoonTimes(date, geoloc.lat, geoloc.long);
+                let mTime = SunCalc.getMoonTimes(date, geoloc.lat, geoloc.long);
                 moon.rise = dayFrac(mTime.rise);
                 moon.set = dayFrac(mTime.set);
                 moon.zero = (moon.rise + moon.set) / 2 - 0.5;
                 moon.rise -= moon.zero;
                 moon.set -= moon.zero;
 
-                var sunTimes = SunCalc.getTimes(date, geoloc.lat, geoloc.long);
+                let sunTimes = SunCalc.getTimes(date, geoloc.lat, geoloc.long);
                 sun.zero = dayFrac(sunTimes.solarNoon) - 0.5;
                 sun.dawn = dayFrac(sunTimes.dawn) - sun.zero;
                 sun.dusk = dayFrac(sunTimes.dusk) - sun.zero;
@@ -254,11 +252,11 @@
         }
 
         function placeBodies(frac) {
-            var mrad = (frac - moon.zero) * Math.PI * 2;
+            let mrad = (frac - moon.zero) * Math.PI * 2;
             $("moon").style.transform = "translate(" + -Math.sin(mrad) * 6 + "em, " + Math.cos(mrad) * 6 + "em)";
             $("moonEventText").textContent = celestialEvent(frac - moon.zero, moon);
 
-            var srad = (frac - sun.zero) * Math.PI * 2;
+            let srad = (frac - sun.zero) * Math.PI * 2;
             $("sun").style.transform = "translate(" + -Math.sin(srad) * 9 + "em, " + Math.cos(srad) * 9 + "em)";
             $("sunEventText").textContent = celestialEvent(frac - sun.zero, sun);
         }
@@ -269,32 +267,32 @@
             radius *= Math.PI * 2;
 
             if (end < start) {
-                var a = end * radius - 0.03125;
-                var b = (start - end) * radius + 0.0625;
-                var c = (1 - start) * radius;
+                let a = end * radius - 0.03125;
+                let b = (start - end) * radius + 0.0625;
+                let c = (1 - start) * radius;
                 element.style.strokeDasharray = a + "em " + b + "em " + c + "em";
             } else {
-                var a = start * radius + 0.03125;
-                var b = (end - start) * radius - 0.0625;
-                var c = (1 - end) * radius;
+                let a = start * radius + 0.03125;
+                let b = (end - start) * radius - 0.0625;
+                let c = (1 - end) * radius;
                 element.style.strokeDasharray = "0 " + a + "em " + b + "em " + c + "em";
             }
         }
 
         function setTime() {
-            var date = new Date();
+            let date = new Date();
 
-            var hh = date.getHours().toString().padStart(2, "0");
-            var mm = date.getMinutes().toString().padStart(2, "0");
+            let hh = date.getHours().toString().padStart(2, "0");
+            let mm = date.getMinutes().toString().padStart(2, "0");
             $("clockFace").innerHTML = hh + "<br>" + mm;
 
-            if (mm == 0) getSkyData();
+            if (date.getMinutes() == 0) getSkyData();
             else placeBodies(dayFrac(date));
         }
 
         function setupClock() {
             applyConfig($("container"), ["font-size"]);
-            var scale = parseFloat(getComputedStyle($("container")).fontSize) /
+            let scale = parseFloat(getComputedStyle($("container")).fontSize) /
                 parseFloat(getComputedStyle(document.body).fontSize);
             $("sunEvent").setAttribute("transform", "scale(" + scale + ")");
             $("moonEvent").setAttribute("transform", "scale(" + scale + ")");

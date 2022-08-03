@@ -65,7 +65,7 @@
         function $(id) { return document.getElementById(id); }
 
         function applyConfig(element, keys) {
-            var params = new URLSearchParams(location.search);
+            let params = new URLSearchParams(location.search);
             keys.forEach(key => {
                 if (params.has(key))
                     element.style.setProperty(key, params.get(key));
@@ -73,15 +73,12 @@
         }
 
         function setTime() {
-            var date = new Date();
-            var h = date.getHours();
-            var m = date.getMinutes();
-            var s = date.getSeconds();
+            let date = new Date();
+            let drw = $("dimsRef").clientWidth;
 
-            var drw = $("dimsRef").clientWidth;
-            $("minute").style.width = (s * drw / 59 + 0.5 >> 0) + "px";
-            $("hour").style.width = (m * drw / 59 + 0.5 >> 0) + "px";
-            $("day").style.width = (h * drw / 23 + 0.5 >> 0) + "px";
+            $("minute").style.width = (date.getSeconds() * drw / 59 + 0.5 >> 0) + "px";
+            $("hour").style.width = (date.getMinutes() * drw / 59 + 0.5 >> 0) + "px";
+            $("day").style.width = (date.getHours() * drw / 23 + 0.5 >> 0) + "px";
         }
 
         function setupClock() {

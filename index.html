@@ -2,60 +2,57 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <title>voltavidTony's Page</title>
-  <meta name="author" content="voltavidTony">
-  <meta name="description" content="My about me page">
-  <meta name="keywords" content="voltavidTony, about me, content">
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <style>
-    div {
-      width: fit-content;
-    }
+    <meta charset='utf-8'>
+    <title>voltavidTony's Page</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="My about me page">
+    <meta name="keywords" content="voltavidTony, about me, content">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #content {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Courier New', Courier, monospace;
+            gap: 0 1rem;
+            margin: 0 auto;
+            width: fit-content;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        function $(id) { return document.getElementById(id); }
 
-    #content {
-      display: flex;
-      flex-direction: column;
-      font-family: 'Courier New', Courier, monospace;
-      gap: 0 1rem;
-      margin: 0 auto;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    function $(id) { return document.getElementById(id); }
+        function getMD(id, url) {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onload = function (e) {
+                $(id).innerHTML = marked.parse(xhr.responseText);
+                let separator = parseFloat(getComputedStyle(document.body).fontSize) * 2 + 2;
+                let cutoff = $("readme").clientWidth + $("sites").clientWidth + separator;
+                onresize = event => {
+                    $("content").style.flexDirection = document.body.clientWidth < cutoff ? "column" : "row";
+                };
+                window.dispatchEvent(new Event("resize"));
+            };
+            xhr.onerror = function () {
+                console.error("Error loading content from " + url);
+            };
+            xhr.send(null);
+        }
 
-    function getMD(id, url) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url, true);
-      xhr.onload = function (e) {
-        $(id).innerHTML = marked.parse(xhr.responseText);
-        var separator = parseFloat(getComputedStyle(document.body).fontSize) * 2 + 2;
-        var cutoff = $("readme").clientWidth + $("sites").clientWidth + separator;
-        onresize = event => {
-          $("content").style.flexDirection = document.body.clientWidth < cutoff ? "column" : "row";
-        };
-        window.dispatchEvent(new Event("resize"));
-      };
-      xhr.onerror = function () {
-        console.error("Error loading content from " + url);
-      };
-      xhr.send(null);
-    }
-
-    function loadContent() {
-      getMD("readme", "https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md");
-      getMD("sites", "https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md");
-    }
-  </script>
+        function loadContent() {
+            getMD("readme", "https://raw.githubusercontent.com/voltavidTony/voltavidTony/main/README.md");
+            getMD("sites", "https://raw.githubusercontent.com/voltavidTony/voltavidTony.github.io/main/README.md");
+        }
+    </script>
 </head>
 
 <body onload="loadContent();">
-  <div id="content">
-    <div id="readme"></div>
-    <hr style="margin: 0;" />
-    <div id="sites"></div>
-  </div>
+    <div id="content">
+        <div id="readme"></div>
+        <hr style="margin: 0;" />
+        <div id="sites"></div>
+    </div>
 </body>
 
 </html>

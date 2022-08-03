@@ -2,77 +2,77 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <title>English Clock</title>
-  <meta name="author" content="voltavidTony">
-  <meta name="description" content="A clock that tells the time in english">
-  <meta name="keywords" content="JS, clock, english, word">
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <style>
-    body {
-      background: black;
-    }
-
-    #clock {
-      color: white;
-      font-family: Impact;
-      font-size: 60px;
-      left: 50%;
-      letter-spacing: 0.125em;
-      position: absolute;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      width: fit-content
-    }
-  </style>
-  <script>
-    function $(id) { return document.getElementById(id); }
-
-    function applyConfig(element, keys) {
-      var params = new URLSearchParams(location.search);
-      keys.forEach(key => {
-        if (params.has(key))
-          element.style.setProperty(key, params.get(key));
-      });
-    }
-
-    function setTime() {
-      const simples = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three"]
-      const tens = ["zero", "ten", "twenty", "thirty", "fourty", "fifty"]
-
-      var date = new Date();
-      var h = date.getHours();
-      var m = date.getMinutes();
-
-      var time = "midnight";
-      if (h != 0 || m != 0) {
-        time = simples[h];
-        if (m == 0) time = time + " o'clock";
-        else if (m < 10) time = time + " O-" + simples[m];
-        else if (m < 24) time = time + " " + simples[m];
-        else {
-          time = time + " " + tens[m / 10 >> 0];
-          if (m % 10 != 0) time = time + "-" + simples[m % 10];
+    <meta charset='utf-8'>
+    <title>English Clock</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="A clock that tells the time in english">
+    <meta name="keywords" content="JS, clock, english, word">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background: black;
         }
-      }
 
-      $("clock").textContent = "It is " + time;
-    }
+        #clock {
+            color: white;
+            font-family: Impact;
+            font-size: 60px;
+            left: 50%;
+            letter-spacing: 0.125em;
+            position: absolute;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: fit-content
+        }
+    </style>
+    <script>
+        function $(id) { return document.getElementById(id); }
 
-    function setupClock() {
-      applyConfig($("clock"), ["color", "font-size"]);
+        function applyConfig(element, keys) {
+            let params = new URLSearchParams(location.search);
+            keys.forEach(key => {
+                if (params.has(key))
+                    element.style.setProperty(key, params.get(key));
+            });
+        }
 
-      setTimeout(() => {
-        setInterval(setTime, 60000);
-        setTime();
-      }, (60 - (new Date()).getSeconds()) * 1000);
-      setTime();
-    }
-  </script>
+        function setTime() {
+            const simples = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three"]
+            const tens = ["zero", "ten", "twenty", "thirty", "fourty", "fifty"]
+
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+
+            let time = "midnight";
+            if (h != 0 || m != 0) {
+                time = simples[h];
+                if (m == 0) time = time + " o'clock";
+                else if (m < 10) time = time + " O-" + simples[m];
+                else if (m < 24) time = time + " " + simples[m];
+                else {
+                    time = time + " " + tens[m / 10 >> 0];
+                    if (m % 10 != 0) time = time + "-" + simples[m % 10];
+                }
+            }
+
+            $("clock").textContent = "It is " + time;
+        }
+
+        function setupClock() {
+            applyConfig($("clock"), ["color", "font-size"]);
+
+            setTimeout(() => {
+                setInterval(setTime, 60000);
+                setTime();
+            }, (60 - (new Date()).getSeconds()) * 1000);
+            setTime();
+        }
+    </script>
 </head>
 
 <body onload="setupClock();">
-  <div id="clock">Please enable JavaScript</div>
+    <div id="clock">Please enable JavaScript</div>
 </body>
 
 </html>

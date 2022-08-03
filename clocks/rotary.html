@@ -2,159 +2,160 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <title>Rotary Clock</title>
-  <meta name="author" content="voltavidTony">
-  <meta name="description" content="A clock with rotating dial design">
-  <meta name="keywords" content="JS, clock, rotor, rotate">
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <style>
-    body {
-      background: black;
-    }
-
-    .animated {
-      transition: transform 0.75s ease-in;
-    }
-
-    .border {
-      background-color: black;
-      height: 2px;
-      margin: -1px 0;
-    }
-
-    .digit {
-      font-family: Impact;
-      text-align: center;
-      width: 1.5ch;
-      z-index: -1;
-    }
-
-    .separator {
-      border: 0.125rem solid;
-      margin: -1px 0;
-    }
-
-    #clockFace {
-      border: 0.25rem solid;
-      display: none;
-      height: 1.25em;
-    }
-
-    #container {
-      color: white;
-      font-size: 88px;
-      height: fit-content;
-      line-height: 1.25;
-      overflow: hidden;
-      width: fit-content;
-    }
-
-    #gradientBottom {
-      background-image: linear-gradient(0, black, #0007);
-      height: 0.625em;
-      position: relative;
-    }
-
-    #gradientTop {
-      background-image: linear-gradient(0, #0007, black);
-      height: 0.625em;
-      position: relative;
-    }
-
-    #layoutWrapper {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-  </style>
-  <script>
-    function $(id) { return document.getElementById(id); }
-    function $$(id) { return Array.from(document.getElementsByClassName(id)); }
-
-    function applyConfig(element, keys) {
-      var params = new URLSearchParams(location.search);
-      keys.forEach(key => {
-        if (params.has(key))
-          element.style.setProperty(key, params.get(key));
-      });
-    }
-
-    function clockLoop() {
-      var date = new Date();
-      var h = date.getHours();
-      var m = date.getMinutes();
-      var s = date.getSeconds() + date.getMilliseconds() / 1000 + 0.5 >> 0;
-
-      $("colon").style.color = (s % 2 == 0) ? "" : "black";
-
-      if (s <= 1) setTime(h, m);
-      else if (s == 59) {
-        moveDigit($("MinuteOne"));
-        if (m % 10 == 9) {
-          moveDigit($("MinuteTen"));
-          if (m == 59) {
-            moveDigit($("HourOne"));
-            if (h == 9 || h == 19 || h == 23)
-              moveDigit($("HourTen"));
-          }
+    <meta charset='utf-8'>
+    <title>Rotary Clock</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="A clock with rotating dial design">
+    <meta name="keywords" content="JS, clock, rotor, rotate">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background: black;
         }
-      }
-    }
 
-    function moveDigit(element) {
-      element.classList.add("animated");
-      var trans = parseFloat(element.style.transform.replace(/[^0-9.]/g, "")) + 1.25;
-      element.style.transform = "translateY(-" + trans + "em)";
-    }
+        .animated {
+            transition: transform 0.75s ease-in;
+        }
 
-    function setTime(h, m) {
-      $$("digit").forEach(item => item.classList.remove("animated"));
+        .border {
+            background-color: black;
+            height: 2px;
+            margin: -1px 0;
+        }
 
-      $("MinuteOne").style.transform = "translateY(-" + ((m % 10 + 1) * 1.25) + "em)";
-      $("MinuteTen").style.transform = "translateY(-" + (((m / 10 >> 0) + 1) * 1.25) + "em)";
-      $("HourOne").style.transform = "translateY(-" + ((h + 1) * 1.25) + "em)";
-      $("HourTen").style.transform = "translateY(-" + (((h / 10 >> 0) + 1) * 1.25) + "em)";
-    }
+        .digit {
+            font-family: Impact;
+            text-align: center;
+            width: 1.5ch;
+            z-index: -1;
+        }
 
-    function setupClock() {
-      $("JSmsg").remove();
-      $("clockFace").style.display = "flex";
+        .separator {
+            background-color: currentColor;
+            border: 0.125rem solid;
+            margin: -1px 0;
+        }
 
-      applyConfig($("container"), ["color", "font-size"]);
+        #clockFace {
+            border: 0.25rem solid;
+            display: none;
+            height: 1.25em;
+        }
 
-      var date = new Date();
-      setTime(date.getHours(), date.getMinutes());
+        #container {
+            color: white;
+            font-size: 88px;
+            height: fit-content;
+            line-height: 1.25;
+            overflow: hidden;
+            width: fit-content;
+        }
 
-      setInterval(clockLoop, 1000);
-    }
-  </script>
+        #gradientBottom {
+            background-image: linear-gradient(0, black, #0007);
+            height: 0.625em;
+            position: relative;
+        }
+
+        #gradientTop {
+            background-image: linear-gradient(0, #0007, black);
+            height: 0.625em;
+            position: relative;
+        }
+
+        #layoutWrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        function $(id) { return document.getElementById(id); }
+        function $$(id) { return Array.from(document.getElementsByClassName(id)); }
+
+        function applyConfig(element, keys) {
+            let params = new URLSearchParams(location.search);
+            keys.forEach(key => {
+                if (params.has(key))
+                    element.style.setProperty(key, params.get(key));
+            });
+        }
+
+        function clockLoop() {
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds() + date.getMilliseconds() / 1000 + 0.5 >> 0;
+
+            $("colon").style.color = (s % 2 == 0) ? "" : "black";
+
+            if (s <= 1) setTime(h, m);
+            else if (s == 59) {
+                moveDigit($("MinuteOne"));
+                if (m % 10 == 9) {
+                    moveDigit($("MinuteTen"));
+                    if (m == 59) {
+                        moveDigit($("HourOne"));
+                        if (h == 9 || h == 19 || h == 23)
+                            moveDigit($("HourTen"));
+                    }
+                }
+            }
+        }
+
+        function moveDigit(element) {
+            element.classList.add("animated");
+            let trans = parseFloat(element.style.transform.replace(/[^0-9.]/g, "")) + 1.25;
+            element.style.transform = "translateY(-" + trans + "em)";
+        }
+
+        function setTime(h, m) {
+            $$("digit").forEach(item => item.classList.remove("animated"));
+
+            $("MinuteOne").style.transform = "translateY(-" + ((m % 10 + 1) * 1.25) + "em)";
+            $("MinuteTen").style.transform = "translateY(-" + (((m / 10 >> 0) + 1) * 1.25) + "em)";
+            $("HourOne").style.transform = "translateY(-" + ((h + 1) * 1.25) + "em)";
+            $("HourTen").style.transform = "translateY(-" + (((h / 10 >> 0) + 1) * 1.25) + "em)";
+        }
+
+        function setupClock() {
+            $("JSmsg").remove();
+            $("clockFace").style.display = "flex";
+
+            applyConfig($("container"), ["color", "font-size"]);
+
+            let date = new Date();
+            setTime(date.getHours(), date.getMinutes());
+
+            setInterval(clockLoop, 1000);
+        }
+    </script>
 </head>
 
 <body onload="setupClock();">
-  <div id="layoutWrapper">
-    <div class="border"></div>
-    <div id="container">
-      <div id="gradientTop"></div>
-      <div id="JSmsg" style="color: white; margin: 10px;">Please enable JavaScript</div>
-      <div id="clockFace">
-        <div id="HourTen" class="digit">2<br>0<br>1<br>2<br>0<br>1</div>
-        <div class="separator"></div>
-        <div id="HourOne" class="digit">
-          3<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>0<br>1
+    <div id="layoutWrapper">
+        <div class="border"></div>
+        <div id="container">
+            <div id="gradientTop"></div>
+            <div id="JSmsg" style="color: white; margin: 10px;">Please enable JavaScript</div>
+            <div id="clockFace">
+                <div id="HourTen" class="digit">2<br>0<br>1<br>2<br>0<br>1</div>
+                <div class="separator"></div>
+                <div id="HourOne" class="digit">
+                    3<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1<br>2<br>3<br>0<br>1
+                </div>
+                <div class="separator"></div>
+                <div id="colon" class="digit">:</div>
+                <div class="separator"></div>
+                <div id="MinuteTen" class="digit">5<br>0<br>1<br>2<br>3<br>4<br>5<br>0<br>1</div>
+                <div class="separator"></div>
+                <div id="MinuteOne" class="digit">9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1</div>
+            </div>
+            <div id="gradientBottom"></div>
         </div>
-        <div class="separator"></div>
-        <div id="colon" class="digit">:</div>
-        <div class="separator"></div>
-        <div id="MinuteTen" class="digit">5<br>0<br>1<br>2<br>3<br>4<br>5<br>0<br>1</div>
-        <div class="separator"></div>
-        <div id="MinuteOne" class="digit">9<br>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>1</div>
-      </div>
-      <div id="gradientBottom"></div>
+        <div class="border"></div>
     </div>
-    <div class="border"></div>
-  </div>
 </body>
 
 </html>
