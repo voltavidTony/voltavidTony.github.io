@@ -170,20 +170,17 @@
         }
 
         function celestialEvent(frac, body) {
-            let times = [-2, -1.5, body.rise - 2, body.set - 2];
-            let timeNames = [
-                body.adj + " midnight",
-                body.adj + " noon",
-                body.name + "rise",
-                body.name + "set"
-            ];
-
-            for (let i = 0; i < 4; i++) {
-                let working = (frac - times[i]) % 1;
+            for (let time of [
+                [1, body.adj + " midnight"],
+                [1.5, body.adj + " noon"],
+                [2 - body.rise, body.name + "rise"],
+                [2 - body.set, body.name + "set"]
+            ]) {
+                let working = (frac + time[0]) % 1;
                 if (0.958 <= working && working < 0.9993)
-                    return "approaching " + timeNames[i];
+                    return "approaching " + time[1];
                 if (0.9993 <= working || working <= 0.0007)
-                    return timeNames[i];
+                    return time[1];
                 if (0.0007 < working && working <= 0.042)
                     return "leaving " + timeNames[i];
             }
