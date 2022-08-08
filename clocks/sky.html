@@ -51,18 +51,19 @@
          * Location Elements
          */
 
-        #location {
-            display: table;
-            width: fit-content;
+        #location:hover #locationTooltip {
+            display: block;
         }
 
-        #location:hover #locationTooltip {
-            display: table-cell;
+        #locationCity {
+            min-width: 3em;
+            text-align: center;
         }
 
         #locationInner {
             background-color: black;
             border-radius: 50%;
+            display: inline-block;
             height: 1em;
             margin: 0.5em;
             width: 1em;
@@ -71,17 +72,15 @@
         #locationOuter {
             background-color: currentColor;
             border-radius: 50% 50% 50% 0;
-            display: inline-block;
             height: 2em;
-            margin: 0.5em;
+            margin: 0.5em auto;
             transform: rotate(-45deg);
             width: 2em;
         }
 
         #locationTooltip {
             display: none;
-            font-size: 1em;
-            vertical-align: middle;
+            margin-left: 0.5em;
         }
 
         /* 
@@ -206,6 +205,8 @@
             xhr.open("GET", "https://geolocation-db.com/json/", true);
             xhr.onload = e => {
                 let loc = JSON.parse(xhr.responseText);
+                $("locationCity").textContent = loc.city;
+
                 let date = new Date();
 
                 let mTime = SunCalc.getMoonTimes(date, loc.latitude, loc.longitude);
@@ -305,14 +306,23 @@
 </head>
 
 <body onload="setupClock();">
-    <div id="location">
-        <div id="locationOuter">
-            <div id="locationInner"></div>
-        </div>
-        <span id="locationTooltip">This applet uses location services to determine
-            the local timing of solar and lunar events.<br>
-            No information is saved or forwarded to third parties.</span>
-    </div>
+    <table id="location">
+        <tr>
+            <td>
+                <div id="locationOuter">
+                    <div id="locationInner"></div>
+                </div>
+            </td>
+            <td rowspan="2">
+                <span id="locationTooltip">This applet uses location services to determine
+                    the local timing of solar and lunar events.<br>
+                    No information is saved or forwarded to third parties.</span>
+            </td>
+        </tr>
+        <tr>
+            <td id="locationCity"></td>
+        </tr>
+    </table>
     <div id="container">
         <svg id="eventRing" class="orbitSVG" xmlns="http://www.w3.org/2000/svg" version="1.1">
             <path id="sunEvent" d="M 40,160 C 40,93.77 93.77,40 160,40 C 226.23,40 280,93.77 280,160"></path>
