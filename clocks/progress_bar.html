@@ -62,14 +62,13 @@
         }
     </style>
     <script>
-        function $(id) { return document.getElementById(id); }
+        let $ = id => document.getElementById(id);
 
         function applyConfig(element, keys) {
             let params = new URLSearchParams(location.search);
-            keys.forEach(key => {
+            for (let key of keys)
                 if (params.has(key))
                     element.style.setProperty(key, params.get(key));
-            });
         }
 
         function setTime() {

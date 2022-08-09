@@ -159,14 +159,13 @@
         const moon = { adj: "lunar", name: "moon", rise: 0, set: 0, zero: 0 };
         const sun = { adj: "solar", name: "sun", rise: 0, set: 0, zero: 0 };
 
-        function $(id) { return document.getElementById(id); }
+        const $ = id => document.getElementById(id);
 
         function applyConfig(element, keys) {
             let params = new URLSearchParams(location.search);
-            keys.forEach(key => {
+            for (let key of keys)
                 if (params.has(key))
                     element.style.setProperty(key, params.get(key));
-            });
         }
 
         function celestialEvent(frac, body) {
@@ -188,14 +187,12 @@
             return "";
         }
 
-        function dayFrac(date, offset = 0) {
-            return ((((
-                date.getMilliseconds() / 1000
-                + date.getSeconds()) / 60
-                + date.getMinutes()) / 60
-                + date.getHours()) / 24
-                - offset + 1) % 1;
-        }
+        const dayFrac = (date, offset = 0) => ((((
+            date.getMilliseconds() / 1000
+            + date.getSeconds()) / 60
+            + date.getMinutes()) / 60
+            + date.getHours()) / 24
+            - offset + 1) % 1;
 
         function getSkyData() {
             let xhr = new XMLHttpRequest();

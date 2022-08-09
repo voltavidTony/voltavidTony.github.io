@@ -71,15 +71,14 @@
         }
     </style>
     <script>
-        function $(id) { return document.getElementById(id); }
-        function $$(id) { return Array.from(document.getElementsByClassName(id)); }
+        const $ = id => document.getElementById(id);
+        const $$ = id => Array.from(document.getElementsByClassName(id));
 
         function applyConfig(element, keys) {
             let params = new URLSearchParams(location.search);
-            keys.forEach(key => {
+            for (let key of keys)
                 if (params.has(key))
                     element.style.setProperty(key, params.get(key));
-            });
         }
 
         function clockLoop() {
