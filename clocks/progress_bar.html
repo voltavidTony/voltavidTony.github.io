@@ -64,11 +64,9 @@
     <script>
         let $ = id => document.getElementById(id);
 
-        function applyConfig(element, keys) {
+        function applyConfig(element, ...keys) {
             let params = new URLSearchParams(location.search);
-            for (let key of keys)
-                if (params.has(key))
-                    element.style.setProperty(key, params.get(key));
+            keys.forEach(key => element.style.setProperty(key, params.get(key)));
         }
 
         function setTime() {
@@ -84,7 +82,7 @@
             $("JSmsg").remove();
             $("clockFace").style.display = "block";
             $("second").addEventListener("animationiteration", setTime, false);
-            applyConfig($("container"), ["color", "font-size"]);
+            applyConfig($("container"), "color", "font-size");
             setTime();
         }
     </script>

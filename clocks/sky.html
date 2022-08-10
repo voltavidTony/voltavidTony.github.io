@@ -161,11 +161,9 @@
 
         const $ = id => document.getElementById(id);
 
-        function applyConfig(element, keys) {
+        function applyConfig(element, ...keys) {
             let params = new URLSearchParams(location.search);
-            for (let key of keys)
-                if (params.has(key))
-                    element.style.setProperty(key, params.get(key));
+            keys.forEach(key => element.style.setProperty(key, params.get(key)));
         }
 
         function celestialEvent(frac, body) {
@@ -283,18 +281,18 @@
         }
 
         function setupClock() {
-            applyConfig($("container"), ["font-size"]);
+            applyConfig($("container"), "font-size");
             let scale = parseFloat(getComputedStyle($("container")).fontSize) /
                 parseFloat(getComputedStyle(document.body).fontSize);
             $("sunEvent").setAttribute("transform", "scale(" + scale + ")");
             $("moonEvent").setAttribute("transform", "scale(" + scale + ")");
 
-            setTimeout(() => {
-                setInterval(setTime, 60000);
-                setTime();
-            }, (60 - (new Date()).getSeconds()) * 1000);
             getSkyData();
             setTime();
+            setTimeout(() => {
+                setTime();
+                setInterval(setTime, 60000);
+            }, 60000 - new Date().getTime() % 60000);
         }
     </script>
 </head>

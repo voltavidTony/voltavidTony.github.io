@@ -28,11 +28,9 @@
     <script>
         const $ = id => document.getElementById(id);
 
-        function applyConfig(element, keys) {
+        function applyConfig(element, ...keys) {
             let params = new URLSearchParams(location.search);
-            for (let key of keys)
-                if (params.has(key))
-                    element.style.setProperty(key, params.get(key));
+            keys.forEach(key => element.style.setProperty(key, params.get(key)));
         }
 
         function setTime() {
@@ -59,13 +57,13 @@
         }
 
         function setupClock() {
-            applyConfig($("clock"), ["color", "font-size"]);
+            applyConfig($("clock"), "color", "font-size");
 
-            setTimeout(() => {
-                setInterval(setTime, 60000);
-                setTime();
-            }, (60 - (new Date()).getSeconds()) * 1000);
             setTime();
+            setTimeout(() => {
+                setTime();
+                setInterval(setTime, 60000);
+            }, 60000 - new Date().getTime() % 60000);
         }
     </script>
 </head>
