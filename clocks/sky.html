@@ -159,17 +159,14 @@
         // (c) 2011-2015, Vladimir Agafonkin
         function getMoonPosition(date, lat, lng) {
             var d = date.valueOf() / 86400000 - 10957.5,
-                l = (218.316 + 13.176396 * d + 6.289 * Math.sin((134.963 + 13.064993 * d) * Math.PI / 180)) * Math.PI / 180, // longitude
-                b = 5.128 * Math.sin((93.272 + 13.229350 * d) * Math.PI / 180) * Math.PI / 180, // latitude
+                l = (218.316 + 13.176396 * d + 6.289 * Math.sin((134.963 + 13.064993 * d) * Math.PI / 180)) * Math.PI / 180,
+                b = 5.128 * Math.sin((93.272 + 13.229350 * d) * Math.PI / 180) * Math.PI / 180,
                 dec = Math.asin(Math.sin(b) * Math.cos(0.4091) + Math.cos(b) * Math.sin(0.4091) * Math.sin(l)),
-                H = (280.16 + 360.9856235 * d + lng) * Math.PI / 180 - Math.atan2(Math.sin(l) * Math.cos(0.4091) - Math.tan(b) * Math.sin(0.4091), Math.cos(l)),
-                h = Math.asin(Math.sin(lat * Math.PI / 180) * Math.sin(dec) + Math.cos(lat * Math.PI / 180) * Math.cos(dec) * Math.cos(H));
+                H = (280.16 + 360.9856235 * d + lng) * Math.PI / 180 - Math.atan2(Math.sin(l) * Math.cos(0.4091) - Math.tan(b) * Math.sin(0.4091), Math.cos(l))
 
             return {
                 azimuth: Math.atan2(Math.sin(H), Math.cos(H) * Math.sin(lat * Math.PI / 180) - Math.tan(dec) * Math.cos(lat * Math.PI / 180)),
-                altitude: h + (h > 0
-                    ? 0.0002967 / Math.tan(h + 0.00312536 / (h + 0.08901179))
-                    : 0.008446689)
+                altitude: Math.asin(Math.sin(lat * Math.PI / 180) * Math.sin(dec) + Math.cos(lat * Math.PI / 180) * Math.cos(dec) * Math.cos(H))
             };
         }
 
@@ -251,7 +248,7 @@
                 [6, 'goldenHourEnd', 'goldenHour']
             ]) {
                 var Jset = 2451545 + 0.0009 + Math.acos(
-                    (Math.sin((time[0]) * Math.PI / 180)
+                    (Math.sin(time[0] * Math.PI / 180)
                         - Math.sin(lat * Math.PI / 180) * Math.sin(dec))
                     / (Math.cos(lat * Math.PI / 180) * Math.cos(dec))
                 ) / (2 * Math.PI) - lng / 360 + n + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L)
