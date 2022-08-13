@@ -201,9 +201,9 @@
 
                 let date = new Date();
 
-                let mTime = SunCalc.getMoonTimes(date, loc.latitude, loc.longitude);
-                moon.rise = dayFrac(mTime.rise);
-                moon.set = dayFrac(mTime.set);
+                let moonTimes = SkyCalc.getMoonTimes(date, loc.latitude, loc.longitude);
+                moon.rise = dayFrac(moonTimes.rise);
+                moon.set = dayFrac(moonTimes.set);
                 moon.zero = (moon.rise + moon.set + (moon.rise < moon.set)) / 2 % 1;
                 moon.rise = (moon.rise - moon.zero + 1) % 1;
                 moon.set = (moon.set - moon.zero + 1) % 1;
@@ -211,8 +211,8 @@
                 setLightRing($("moonBarDay"), moon.rise, moon.set, 6);
                 $("moonRing").style.display = "block";
 
-                let sunTimes = SunCalc.getTimes(date, loc.latitude, loc.longitude);
-                sun.zero = dayFrac(sunTimes.solarNoon, 0.5);
+                let sunTimes = SkyCalc.getSunTimes(date, loc.latitude, loc.longitude);
+                sun.zero = dayFrac(sunTimes.nadir);
                 let dawn = dayFrac(sunTimes.dawn, sun.zero);
                 let dusk = dayFrac(sunTimes.dusk, sun.zero);
                 let gol = dayFrac(sunTimes.goldenHour, sun.zero);
