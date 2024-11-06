@@ -1,4 +1,4 @@
-### My web applets:
+### My web applets and pages:
 
 ht<span>tps:/</span>/voltavidTony.github.io/<br/>
  ┣ 📦clocks/<br>
@@ -6,4 +6,6 @@ ht<span>tps:/</span>/voltavidTony.github.io/<br/>
  ┃  ┣ 📜[progress_bar.html](clocks/progress_bar.html)<br>
  ┃  ┣ 📜[rotary.html](clocks/rotary.html)<br>
  ┃  ┗ 📜[sky.html](clocks/sky.html)<br>
+ ┣ 📦electronics/<br>
+ ┃  ┗ 📜[Vref-with-impedance.html](electronics/Vref-with-impedance.html)<br>
  ┗ 📜[index.html](index.html)<br>
