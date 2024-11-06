@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>NXT/EV3 RJ12 Jack Breakout Board</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="Quick connection tutorial for the NXT/EV3 connector">
+    <meta name="keywords" content="NXT, EV3, pinout">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        span {
+            align-items: center;
+            display: inline-flex;
+        }
+
+        .equation {
+            height: 43px;
+            margin: 1rem 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DIY V<sub>REF</sub></h1>
+    <hr>
+
+    <p>
+        Some applications require a reference voltage that isn't V<sub>CC</sub> or Gnd. For instance, a tristate line
+        where the floating value is neither hi nor low.<br>
+        One can always use an absolute reference device, which may work for some applications, but sometimes a relative
+        reference voltage is required or the designer of a circuit doesn't have access to such a device.<br>
+        When dealing with electronic circuits, there is usually already a fixed voltage source, V<sub>CC</sub>. All that
+        remains is constructing a resistor divider and you get your V<sub>REF</sub>, such as the one below:
+    </p>
+
+    <figure>
+        <img src="Vref-with-impedance/actual_circuit.png">
+        <figcaption>Fig. 1: Voltage divider circuit</figcaption>
+    </figure>
+
+    <p>
+        The problem with this approach is it can be difficult to imagine its behavior and requires a node calculation
+        for i<sub>O</sub>.<br>
+        A much easier version to understand is if V<sub>REF</sub> could be modeled simply as a voltage source with
+        non-zero impedance, like in the image below:
+    </p>
+
+    <figure>
+        <img src="Vref-with-impedance/equivalent_circuit.png">
+        <figcaption>Fig. 2: V<sub>REF</sub> as a real voltage source</figcaption>
+    </figure>
+
+    <hr>
+    <h2>Derivation</h2>
+
+    <p>
+        So let's check if the two circuits above are equivalent by setting i<sub>O</sub> equal to i<sub>REF</sub>. If
+        the resulting equation has a solution, then the two circuits are indeed equivalent.<br>
+        <img class="equation" src="Vref-with-impedance/derive_1.png"><br>
+        After some rearranging, we arrive at the following:<br>
+        <span>
+            (1)
+            <img class="equation" src="Vref-with-impedance/derive_2.png">
+        </span><br>
+        In order for equation 1 to have a solution, the two terms containing V<sub>O</sub> must be equal, i.e.:<br>
+        <span>
+            (2)
+            <img class="equation" src="Vref-with-impedance/derive_3.png">
+        </span><br>
+        We can thus solve for R<sub>REF</sub>, and find that it is simply the parallel combination of R<sub>A</sub> and
+        R<sub>B</sub>:<br>
+        <span>
+            (3)
+            <img class="equation" src="Vref-with-impedance/derive_4.png">
+        </span><br>
+        We got the equation for R<sub>REF</sub>, now we can find V<sub>REF</sub> with the remaining parts of equation
+        1:<br>
+        <img class="equation" src="Vref-with-impedance/derive_5.png"><br>
+        <span>
+            (4)
+            <img class="equation" src="Vref-with-impedance/derive_6.png">
+        </span><br>
+        Okay, so we know how to calculate V<sub>REF</sub> and R<sub>REF</sub>, but usually we define those values and
+        work backwards to determine R<sub>A</sub> and R<sub>B</sub>, so let's find those values now.
+    </p>
+
+    <hr>
+    <h2>Construction</h2>
+
+    <p>
+        As mentioned before, we'll work backwards to derive the equations for R<sub>A</sub> and R<sub>B</sub>.<br>
+        If we can solve equation 4 for the ratio of R<sub>A</sub> and R<sub>B</sub>, then we'll be able to substitute
+        the one for the other (this will become important further down).<br>
+        <img class="equation" src="Vref-with-impedance/derive_7.png"><br>
+        <span>
+            (5)
+            <img class="equation" src="Vref-with-impedance/derive_8.png">
+        </span><br>
+        Using equation 5, we can define each resistor in terms of the other, solving for their inverses so we can
+        substitute them in equation 2 more easily:<br>
+        <span>
+            (6)
+            <img class="equation" src="Vref-with-impedance/derive_9.png">
+        </span><br>
+        <span>
+            (7)
+            <img class="equation" src="Vref-with-impedance/derive_10.png">
+        </span><br>
+        By solving for their inverses, we can easily substitute equations 6 and 7 into equation 2:<br>
+        <img class="equation" src="Vref-with-impedance/derive_11.png"><br>
+        <span>
+            (8)
+            <img class="equation" src="Vref-with-impedance/derive_12.png">
+        </span><br>
+        <img class="equation" src="Vref-with-impedance/derive_13.png"><br>
+        <span>
+            (9)
+            <img class="equation" src="Vref-with-impedance/derive_14.png">
+        </span><br>
+        And there we go! We now have R<sub>A</sub> and R<sub>B</sub> in terms of V<sub>REF</sub>, R<sub>REF</sub>, and
+        V<sub>CC</sub>.
+    </p>
+
+    <hr>
+    <h2>Concluding Remarks</h2>
+
+    <p>
+        Naturally, selecting resistors will limit you to certain values, so the best approach would be to define
+        V<sub>REF</sub> and use equations 6 and 7 to find the best pair of resistors for your application.
+        After calculating R<sub>REF</sub> with equation 3, you can switch to the equivalent model for any
+        calculations or to just make thinking about the reference's behavior easier.
+    </p>
+
+    <p>
+        This model assumes that V<sub>CC</sub> is constant, which is true in most cases. Otherwise, V<sub>REF</sub>
+        would change with V<sub>CC</sub> as it is a relative reference voltage.
+    </p>
+
+    <p>
+        Keep in mind that there is a current flowing through R<sub>A</sub> and R<sub>B</sub>, even if nothing is
+        connected to V<sub>O</sub>! This device is intended to act as a high-impedance reference, and setting
+        R<sub>A</sub> and R<sub>B</sub> too low can result in a large amount of waste current flowing though them.<br>
+        The worst-case scenario is when V<sub>O</sub> is equal to V<sub>REF</sub>, in which case:<br>
+        <span>
+            (10)
+            <img class="equation" src="Vref-with-impedance/i_waste.png">
+        </span><br>
+        It does, hoever, have an upper bound as seen in equation 10, so the higher your reference impedance, the less
+        waste current there will be. If you need a reference voltage with low output impedance, use a buffer.
+    </p>
+
+    <p>
+        Lastly, if you decide to use a potentiometer to create an adjustable V<sub>REF</sub>, just remember that the
+        maximum impedance is at 50%, which will be 1/4 the potentiometer's resistance. As you turn the knob further to
+        the side, the impedance will lower until it reaches zero at 0% and 100%.
+    </p>
+</body>
+
+</html>
