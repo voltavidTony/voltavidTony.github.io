@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>NXT/EV3 RJ12 Jack Breakout Board</title>
+    <meta name="author" content="voltavidTony">
+    <meta name="description" content="Quick connection tutorial for the NXT/EV3 connector">
+    <meta name="keywords" content="NXT, EV3, pinout">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        span.white {
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        span.black {
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+        }
+
+        span.red {
+            background-color: red;
+            border: 1px solid black;
+        }
+
+        span.green {
+            background-color: green;
+            border: 1px solid black;
+            color: white;
+        }
+
+        span.yellow {
+            background-color: yellow;
+            border: 1px solid black;
+        }
+
+        span.blue {
+            background-color: blue;
+            border: 1px solid black;
+            color: white;
+        }
+
+        table.pinout {
+            outline: 1px solid;
+        }
+
+        table.pinout td,
+        th {
+            padding: 0 1rem;
+        }
+
+        table.pinout tr:nth-child(odd) {
+            background-color: #D6EEEE;
+        }
+
+        table.pinout tr:nth-child(2) td:first-child {
+            background-color: white;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table.pinout tr:nth-child(3) td:first-child {
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+            text-align: center;
+        }
+
+        table.pinout tr:nth-child(4) td:first-child {
+            background-color: red;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table.pinout tr:nth-child(5) td:first-child {
+            background-color: green;
+            border: 1px solid black;
+            color: white;
+            text-align: center;
+        }
+
+        table.pinout tr:nth-child(6) td:first-child {
+            background-color: yellow;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table.pinout tr:nth-child(7) td:first-child {
+            background-color: blue;
+            border: 1px solid black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NXT/EV3 RJ12 Jack Breakout Board</h1>
+    <hr>
+
+    <p>
+        This breakout board, which adapts the NXT/EV3 specific RJ12 jack to standard 0.1" pitch headers, streamlines
+        device prototyping with the NXT/EV3 by allowing it to work with standard breadboards and be reused across
+        multiple PCBs via standard header receptacle mounting points.
+    </p>
+
+    <h2>Parts</h2>
+
+    <ul>
+        <li>1x PCB (<a href="nxt-rj12/NXT-RJ12-Breakout-Rev1.1.zip">gerber file</a>)</li>
+        <li>1x <a href="https://www.adafruit.com/product/4434">RJ12 Jack (NXT/EV3 compatible)</a></li>
+        <li>1x 1x2 Header<sup><a href="#footnotes">1,2</a></sup> 0.1" pitch</li>
+        <li>2x 1x4 Header<sup><a href="#footnotes">1,2</a></sup> 0.1" pitch</li>
+    </ul>
+
+    <figure>
+        <img src="nxt-rj12/pcb-bare.jpg" style="width: 500px;">
+        <figcaption>Fig. 1: Bare PCB</figcaption>
+    </figure>
+
+    <figure>
+        <img src="nxt-rj12/nxt-ev3-rj12-jack.jpg" style="width: 200px;">
+        <figcaption>Fig. 2: NXT/EV3 compatible RJ12 jack</figcaption>
+    </figure>
+
+    <h2>Assembly</h2>
+
+    <p>
+        The RJ12 jack only fits one way, which is on the side of the board with the wire colors. It snaps into the
+        mounting holes and holds its position on its own, making it easy to solder in place.<br>
+        The three headers are inserted in such a way that the male ends are on the side with the QR code. A breadboard
+        can be used to hold two of the three headers in place for soldering, placing the 1x2 header in the power rails
+        and one of the 1x4 headers in the regular rails. Either a second breadboard or the other set of power rails
+        after being detached can hold the second 1x4 header in place.
+    </p>
+
+    <figure>
+        <img src="nxt-rj12/pcb-populated.jpg" style="width: 500px;">
+        <figcaption>Fig. 3: Completed breakout board, stacking and normal header variants</figcaption>
+    </figure>
+
+    <hr>
+
+    <h2>Pinout</h2>
+
+    <p>When looking into the RJ12 Jack, each of its pins map to the following breakout points on the PCB:</p>
+
+    <figure>
+        <table style="border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td style="border-left: 1px solid; border-top: 1px solid; padding: 0.25rem 0;"></td>
+                    <td style="border-top: 1px solid;"></td>
+                    <td style="border-top: 1px solid;"></td>
+                    <td style="border-top: 1px solid;"></td>
+                    <td style="border-top: 1px solid;"></td>
+                    <td style="border-top: 1px solid;"></td>
+                    <td style="border-right: 1px solid; border-top: 1px solid;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid; border-top: 1px solid; padding: 0 0.25rem;">
+                    </td>
+                    <td style="border: 1px solid; border-left: 0; padding: 1rem 0;"></td>
+                    <td style="border-top: 1px solid;"></td>
+                    <td style="border-right: 1px solid; border-top: 1px solid;"></td>
+                    <td></td>
+                    <td></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid;"></td>
+                    <td style="border-left: 1px solid; border-right: 1px solid;">-----</td>
+                    <td style="padding-right: 1rem;">---&nbsp;&nbsp;1</td>
+                    <td>WHITE</td>
+                    <td style="border-right: 1px solid; border-top: 1px solid;"></td>
+                    <td></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid;"></td>
+                    <td style="border-left: 1px solid; border-right: 1px solid;">-----</td>
+                    <td style="padding-right: 1rem;">---&nbsp;&nbsp;2</td>
+                    <td>BLACK</td>
+                    <td style="border-right: 1px solid;"></td>
+                    <td></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid;"></td>
+                    <td style="border-left: 1px solid; border-right: 1px solid;">-----</td>
+                    <td style="padding-right: 1rem;">---&nbsp;&nbsp;3</td>
+                    <td>GND</td>
+                    <td style="border-right: 1px solid;"></td>
+                    <td></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid;"></td>
+                    <td style="border-left: 1px solid; border-right: 1px solid;">-----</td>
+                    <td style="padding-right: 1rem;">---&nbsp;&nbsp;4</td>
+                    <td>VCC</td>
+                    <td style="padding: 0 0.75rem;"></td>
+                    <td style="border-right: 1px solid; border-top: 1px solid; padding: 0 0.65rem;"></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid;"></td>
+                    <td style="border-left: 1px solid; border-right: 1px solid;">-----</td>
+                    <td style="padding-right: 1rem;">---&nbsp;&nbsp;5</td>
+                    <td style="padding-right: 1rem;">YELLOW</td>
+                    <td></td>
+                    <td style="border-right: 1px solid;"></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid;"></td>
+                    <td style="border-left: 1px solid; border-right: 1px solid;">-----</td>
+                    <td style="padding-right: 1rem;">---&nbsp;&nbsp;6</td>
+                    <td>BLUE</td>
+                    <td></td>
+                    <td style="border-bottom: 1px solid; border-right: 1px solid;"></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid; border-left: 1px solid;"></td>
+                    <td style="border: 1px solid; border-left: 0; padding: 0.75rem 0;">
+                    </td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-bottom: 1px solid; border-right: 1px solid;"></td>
+                    <td></td>
+                    <td style="border-right: 1px solid; padding: 0 0.25rem;"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid; border-bottom: 1px solid; padding: 0.25rem 0;"></td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-bottom: 1px solid;"></td>
+                    <td style="border-right: 1px solid; border-bottom: 1px solid;"></td>
+                </tr>
+            </tbody>
+        </table>
+        <figcaption>Fig 4. Layout of the pins in the NXT/EV3 compatible RJ12 jack</figcaption>
+    </figure>
+
+    <p>
+        The 1x2 header connects to the standard 5V supply lines, red and green, GND and VCC. These pins are positioned
+        to fit into the power rails of a breadboard. They can be used to power any 5V tolerant low-power devices, such
+        as LEDs, sensor modules, MCUs, and other ICs.<br>
+        <span style="color: red; font-weight: bold;">Note:</span> <strong>Do not use these pins for high-power
+            applications such as motors! Instead, refer to the 'Dumb/Tachometer Output' sections below.</strong>
+    </p>
+
+    <p>
+        The two 1x4 headers break out the remaining four wires, and thus share a common pinout. They are labeled with
+        their corresponding wire colors since referring to the wires by by number is the least common method, and the
+        wire function changes depending on the device and NXT/EV3 port used. The reason that they exist twice is because
+        the power rails on some breadboards is aligned with the regular rails, while on others it is offset by half a
+        pitch. To accomodate all types of breadboards, the header on the right is pitch-aligned while the header on the
+        left is offset. The issue is illustrated in the image below. Note how on the right the VCC and GND pins do not
+        quite fit into the breadboard:
+    </p>
+
+    <figure>
+        <img src="nxt-rj12/breadboard-aligned.jpg" style="width: 400px;">
+        <img src="nxt-rj12/breadboard-offset.jpg" style="width: 400px;">
+        <figcaption>
+            Fig 5. Breadboards with aligned vs offset power rails. The orange rectangle indicates the power rail
+            alignment
+        </figcaption>
+    </figure>
+
+    <h2>Port Internals</h2>
+
+    <p>
+        The electrical characteristics will vary depending on which port of the NXT or EV3 you utilize. It is important
+        to know what these devices look like on the inside so that when designing your electronic circuit you do not
+        encounter any unexpected behavior or even cause damage. The following table lists each port's electrical
+        internals. The logical functions of each pin are explained in the next section.
+    </p>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>NXT Sensor</th>
+                <th>NXT Motor</th>
+                <th>EV3 Sensor</th>
+                <th>EV3 Motor</th>
+                <th>Breakout Board</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>10k pullup</td>
+                <td>-</td>
+                <td>10k pullup</td>
+                <td>-</td>
+                <td>WHITE</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>GND</td>
+                <td>-</td>
+                <td>6.4k pull to 3.2V<sup><a href="#footnotes">3</a></sup></td>
+                <td>100k pullup</td>
+                <td>BLACK</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+                <td>GND</td>
+                <td>GND</td>
+                <td>GND</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>4.3V</td>
+                <td>4.3V</td>
+                <td>5.0V</td>
+                <td>5.0V</td>
+                <td>VCC</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>4.7k series; 1.0M pulldown</td>
+                <td>10k series; 1.0M pulldown</td>
+                <td>100k pull to 3.3V</td>
+                <td>50k pull to 2.5V<sup><a href="#footnotes">4</a></sup></td>
+                <td>YELLOW</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>4.7k series; 1.0M pulldown</td>
+                <td>10k series; 1.0M pulldown</td>
+                <td>220k pulldown</td>
+                <td>-</td>
+                <td>BLUE</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>The series resistors in the NXT ports are connected between the pins and the pulldown resistors.</li>
+        <li>Pull-up resistors pull up to 5.0V</li>
+        <li>Pull-down resistors pull down to GND</li>
+        <li>
+            Additionally, there is a 100k resistor connecting <span class="black">black</span> and
+            <span class="blue">blue</span> of the EV3 motor port.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Modes of Operation</h2>
+
+    <p>
+        Across the NXT and EV3 there are 7 total types of devices. All NXT devices are usable with the EV3, but only
+        the EV3 motors work with the NXT. The 7 types and their pinouts are listed below. Pins with no function are not
+        connected to anything.
+    </p>
+
+    <h3>NXT Dumb Sensor</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>Analog in</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>4.3V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td style="opacity: 0.5;">Digital 0</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td style="opacity: 0.5;">Digital 1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The NXT dumb sensor provides an analog value on <span class="white">white</span>. In order to create an analog
+        sensor, <span class="black">black</span> is shorted to <span class="red">red</span> in your electronic
+        circuit.<br> Some analog sensors use <span class="yellow">yellow</span> and <span class="blue">blue</span> for
+        additional features, however, these functions are specific to the type of sensor and not programmable.
+    </p>
+
+    <h3>NXT I2C Sensor</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>Vbat</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>4.3V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>SCL</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>SDA</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The NXT I2C sensor provides enhanced features via bi-directional digital communication (I2C). To create an I2C
+        sensor, pullup resistors are required on the I2C lines. The official recommended pullup resistors are 82k, which
+        the ultrasonic sensor uses in addition to 4.7k series resistors on its MCU pins.<br>
+        The only official NXT I2C sensors are the ultrasonic sensor which is documented in the NXT hardware developer
+        kit and the LEGO NXT temperature sensor which uses the Texas Instruments TMP275.
+    </p>
+
+    <h3>NXT Tacho Motor</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>Motor 0</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>Motor 1</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>4.3V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>Encoder 0</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>Encoder 1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The NXT only supports a single mode of operation on the motor ports and expects the presence of a rotary
+        encoder. However, with an appropriate splitter, the motor and encoder can be two separate devices. Just make
+        sure that the "motor control" checkbox is unchecked if you do that.<br>
+        Motor 0 and Motor 1 are directly connected to the NXT battery via H-bridge motor controller. Encoder 0 and
+        Encoder 1 expect a standard 2-bit Gray-code encoder signal (0-1-3-2).
+    </p>
+
+    <h3>EV3 Dumb Sensor</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>ID Resistor</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>5.0V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>Analog in</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The EV3 dumb sensor provides an analog value on <span class="blue">blue</span>. In order to create an analog
+        sensor, <span class="yellow">yellow</span> is shorted to <span class="red">red</span> in your electronic
+        circuit.<br> Since dumb sensors can only provide a generic analog value, a pulldown resistor connected to
+        <span class="white">white</span> (ID resistor) together with the internal 10k pullup resistor creates an voltage
+        level that the EV3 uses to identify the specific type of sensor<sup><a href="#footnotes">5</a></sup>.<br>
+        A 13k ID resistor specifies a third party input device.
+    </p>
+
+    <h3>EV3 UART Sensor</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>ID Resistor</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>5.0V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>RXD</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>TXD</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The EV3 UART sensor provides enhanced features via bi-directional digital communication (UART). Similar to the
+        EV3 dumb sensor, <span class="white">white</span> provides the means to identify the type of sensor. However, in
+        this case it simply determines that the sensor uses UART to communicate. Any further details are communicated
+        via the UART connection.<br> To create a UART sensor, short <span class="white">white</span> to
+        <span class="red">red</span>. RXD and TXD apply to the EV3, that is <span class="yellow">yellow</span> is for
+        sending data to the EV3, <span class="blue">blue</span> is for sending data to the sensor.
+    </p>
+
+    <h3>EV3 Dumb Output</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>Motor 0</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>Motor 1</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>5.0V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>ID Resistor</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The EV3 dumb output is a motor without rotary encoder. Like the EV3 dumb sensor, a pulldown resistor connected
+        to <span class="yellow">yellow</span> (ID resistor) together with the internal 50k pull resistor to 2.5V creates
+        an voltage level that the EV3 uses to identify the specific type of sensor<sup><a href="#footnotes">5</a></sup>.
+        <br>A 390k ID resistor specifies a third party motor. Additionally, if the motor's impedance is greater than
+        1.0k, then a 22k pulldown is needed on <span class="white">white</span>.
+    </p>
+
+    <h3>EV3 Tacho Motor</h3>
+
+    <table class="pinout">
+        <tbody>
+            <tr>
+                <th>Pin</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>White</td>
+                <td>Motor 0</td>
+            </tr>
+            <tr>
+                <td>Black</td>
+                <td>Motor 1</td>
+            </tr>
+            <tr>
+                <td>Red</td>
+                <td>GND</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>5.0V</td>
+            </tr>
+            <tr>
+                <td>Yellow</td>
+                <td>Encoder 0 & ID resistor</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>Encoder 1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The EV3 tacho motor is a motor with rotary encoder. This time, the ID resistor is a series resistance between
+        <span class="yellow">yellow</span> and one of the encoder phases. Additionally, there is a 3.3k resistor between
+        <span class="blue">blue</span> and the other encoder phase.<br>
+        Since <span class="yellow">yellow</span> provides a high-impedance 2.5V output, the voltage level created by the
+        ID resistor is symmetric, that is Vid and 5.0V - Vid map to the same motor ID. That way the current state of the
+        encoder is irrelevant.<br>
+        Motor 0 and Motor 1 are directly connected to the EV3 battery via H-bridge motor controller. Encoder 0 and
+        Encoder 1 expect a standard 2-bit Gray-code encoder signal (0-1-3-2).
+    </p>
+
+    <hr>
+    <div id="sources">
+        <h3>Sources</h3>
+
+        <ol>
+            <li>
+                <a href="https://github.com/7Robot/RobAFIS/">7Robot/RobAFIS Repo</a>
+                - This repo is the source for the NXT hardware schematics used to determine the port internals.
+                Specifically, the file "2010/LEGO MINDSTORMS NXT Hardware Developer Kit/Appendix 1-LEGO MINDSTORMS NXT
+                hardware schematic.pdf"
+            </li>
+            <li>
+                <a href="https://github.com/decker502/arducuber/">decker502/arducuber Repo</a>
+                - This repo is the source for the EV3 hardware schematics used to determine the port internals.
+                Specifically, the file "kit/1. Appendix LEGO MINDSTORMS EV3 programmable brick main hardware
+                schematics.pdf"
+            </li>
+            <li>
+                <a href="https://bjr2016.neocities.org/legodevicedesign">LEGO Device Design Guidelines</a>
+                - This page contains schematics for EV3 devices (unfortunately the NXT schematics seem to be
+                unavailable)
+            </li>
+            <li>
+                <a href="https://bjr2016.neocities.org/thirdpartydevicedesign">Third Party Device Design Guidelines</a>
+                - This page contains schematics for third party EV3 devices (unfortunately the NXT schematics seem to be
+                unavailable)
+            </li>
+            <li>
+                <a href="https://picaxe.com/circuit-creator/sensors/lego-nxt-temperature/">Lego NXT Temperature</a>
+                - This site reveals the IC used in the LEGO NXT temperature sensor
+            </li>
+        </ol>
+    </div>
+
+    <div id="footnotes">
+        <h3>Footnotes</h3>
+
+        <ol>
+            <li>
+                The choice of specific type of header is up to you, I think that the two sensible options are regular
+                male headers and female stacking headers. Extra long double-ended male headers can also be used, but I
+                think female stacking headers are more useful as you can always convert a female header to a male header
+                with double-ended pins. The two variants can be seen in figure 3.
+            </li>
+            <li>
+                The headers can be made by dividing larger headers into the correct size. Male headers can simply be
+                snapped off at the correct points, while the female stacking headers will require sacrificing one
+                position as the point where the header is cut apart and then filed smooth.
+            </li>
+            <li>
+                The actual internals are a 10k pullup to 5.0V and 18k pulldown to GND. For more information on how that
+                achieves an effective 6.4k pull to 3.2V, check out my guide
+                <a href="../electronics/Vref-with-impedance.html">DIY Vref</a>
+            </li>
+            <li>
+                The actual internals are a 100k pullup to 5.0V and 100k pulldown to GND. For more information on how
+                that achieves an effective 50k pull to 2.5V, check out my guide
+                <a href="../electronics/Vref-with-impedance.html">DIY Vref</a>
+            </li>
+            <li>
+                For a comprehensive list of sensor IDs, see the EV3's
+                <a href="https://bjr2016.neocities.org/DcmDriver">Device Connection Manager Driver</a>
+            </li>
+        </ol>
+    </div>
+
+</body>
+
+</html>
