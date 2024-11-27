@@ -8,4 +8,6 @@ ht<span>tps:/</span>/voltavidTony.github.io/<br/>
  ┃  ┗ 📜[sky.html](clocks/sky.html)<br>
  ┣ 📦electronics/<br>
  ┃  ┗ 📜[Vref-with-impedance.html](electronics/Vref-with-impedance.html)<br>
+ ┣ 📦pcbs/<br>
+ ┃  ┗ 📜[nxt-rj12.html](pcbs/nxt-rj12.html)<br>
  ┗ 📜[index.html](index.html)<br>
