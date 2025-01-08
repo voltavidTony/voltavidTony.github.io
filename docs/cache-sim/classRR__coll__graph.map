@@ -1,0 +1,5 @@
+<map id="RR" name="RR">
+<area shape="rect" id="node1" title="The RR replacement policy." alt="" coords="59,171,99,197"/>
+<area shape="rect" id="node2" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="5,95,152,121"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="34,5,123,32"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="src/replacement/fifo.h" name="src/replacement/fifo.h">
+<area shape="rect" id="node1" title="Declaration of the FIFO replacement policy." alt="" coords="201,5,365,32"/>
+<area shape="rect" id="node2" href="$replacement__policy_8h.html" title="Declaration of the replacement policy base class." alt="" coords="203,80,363,107"/>
+<area shape="rect" id="node3" href="$cache__abc_8h.html" title="Declaration of the cache interface class." alt="" coords="231,155,334,181"/>
+<area shape="rect" id="node4" href="$typedefs_8h.html" title="Global type definitions." alt="" coords="237,229,328,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,304,72,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="96,304,163,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="187,304,274,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="299,304,373,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="397,304,477,331"/>
+<area shape="rect" id="node10" title=" " alt="" coords="501,304,552,331"/>
+</map>

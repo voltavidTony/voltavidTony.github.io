@@ -1,0 +1,13 @@
+<map id="src/coherence/write_through.cc" name="src/coherence/write_through.cc">
+<area shape="rect" id="node1" title="Implementation of the WriteThrough coherence protocol." alt="" coords="208,5,357,47"/>
+<area shape="rect" id="node2" href="$write__through_8h.html" title="Declaration of the WriteThrough coherence protocol." alt="" coords="221,95,345,121"/>
+<area shape="rect" id="node3" href="$coherence__protocol_8h.html" title="Definition of the coherence protocol base class." alt="" coords="202,169,363,196"/>
+<area shape="rect" id="node4" href="$cache__abc_8h.html" title="Declaration of the cache interface class." alt="" coords="231,244,334,271"/>
+<area shape="rect" id="node5" href="$typedefs_8h.html" title="Global type definitions." alt="" coords="237,319,328,345"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,393,72,420"/>
+<area shape="rect" id="node7" title=" " alt="" coords="96,393,163,420"/>
+<area shape="rect" id="node8" title=" " alt="" coords="187,393,274,420"/>
+<area shape="rect" id="node9" title=" " alt="" coords="299,393,373,420"/>
+<area shape="rect" id="node10" title=" " alt="" coords="397,393,477,420"/>
+<area shape="rect" id="node11" title=" " alt="" coords="501,393,552,420"/>
+</map>

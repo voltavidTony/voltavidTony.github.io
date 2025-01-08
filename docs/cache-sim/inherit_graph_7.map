@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="5,56,152,83"/>
+<area shape="rect" id="node2" href="$classFIFO.html" title="The FIFO replacement policy." alt="" coords="200,5,252,32"/>
+<area shape="rect" id="node3" href="$classLRU.html" title="The LRU replacement policy." alt="" coords="202,56,250,83"/>
+<area shape="rect" id="node4" href="$classRR.html" title="The RR replacement policy." alt="" coords="206,107,246,133"/>
+</map>

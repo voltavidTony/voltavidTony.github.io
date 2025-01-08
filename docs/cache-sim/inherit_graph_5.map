@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="5,132,149,159"/>
+<area shape="rect" id="node2" href="$classDragon.html" title="The Dragon coherence protocol." alt="" coords="218,5,287,32"/>
+<area shape="rect" id="node3" href="$classMESI.html" title="The MESI coherence protocol." alt="" coords="225,56,280,83"/>
+<area shape="rect" id="node4" href="$classMOESI.html" title="The MOESI coherence protocol." alt="" coords="221,107,285,133"/>
+<area shape="rect" id="node5" href="$classMSI.html" title="The MSI coherence protocol." alt="" coords="229,157,276,184"/>
+<area shape="rect" id="node6" href="$classMSIUpgr.html" title="The MSI with BusUpgr message coherence protocol." alt="" coords="214,208,291,235"/>
+<area shape="rect" id="node7" href="$classWriteThrough.html" title="The WriteThrough coherence protocol." alt="" coords="197,259,308,285"/>
+</map>

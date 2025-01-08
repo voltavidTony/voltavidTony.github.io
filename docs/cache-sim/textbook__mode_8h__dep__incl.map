@@ -1,0 +1,8 @@
+<map id="src/textbook/textbook_mode.h" name="src/textbook/textbook_mode.h">
+<area shape="rect" id="node1" title="Declaration of the TextbookMode base class." alt="" coords="180,5,345,47"/>
+<area shape="rect" id="node2" href="$textbook__mode__coherence_8h.html" title="Declaration of the TextbookModeCoherence and BusEvent classes." alt="" coords="85,95,251,136"/>
+<area shape="rect" id="node5" href="$textbook__mode__replacer_8h.html" title="Declaration of the TextbookModeReplacer class." alt="" coords="275,95,440,136"/>
+<area shape="rect" id="node3" href="$run__modes_8cc.html" title="Implementation of the three modes of operation: Single Metrics, Batch Metrics, and Textbook." alt="" coords="195,191,330,218"/>
+<area shape="rect" id="node4" href="$textbook__mode__coherence_8cc.html" title="Implementation of the TextbookModeCoherence and BusEvent classes." alt="" coords="5,184,171,225"/>
+<area shape="rect" id="node6" href="$textbook__mode__replacer_8cc.html" title="Implementation of the TextbookModeReplacer class." alt="" coords="355,184,520,225"/>
+</map>

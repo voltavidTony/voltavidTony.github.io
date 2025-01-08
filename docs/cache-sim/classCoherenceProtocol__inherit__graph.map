@@ -1,0 +1,9 @@
+<map id="CoherenceProtocol" name="CoherenceProtocol">
+<area shape="rect" id="node1" title="The base class for coherence protocols." alt="" coords="179,5,323,32"/>
+<area shape="rect" id="node2" href="$classDragon.html" title="The Dragon coherence protocol." alt="" coords="5,80,75,107"/>
+<area shape="rect" id="node3" href="$classMESI.html" title="The MESI coherence protocol." alt="" coords="99,80,154,107"/>
+<area shape="rect" id="node4" href="$classMOESI.html" title="The MOESI coherence protocol." alt="" coords="179,80,243,107"/>
+<area shape="rect" id="node5" href="$classMSI.html" title="The MSI coherence protocol." alt="" coords="267,80,314,107"/>
+<area shape="rect" id="node6" href="$classMSIUpgr.html" title="The MSI with BusUpgr message coherence protocol." alt="" coords="339,80,416,107"/>
+<area shape="rect" id="node7" href="$classWriteThrough.html" title="The WriteThrough coherence protocol." alt="" coords="441,80,551,107"/>
+</map>

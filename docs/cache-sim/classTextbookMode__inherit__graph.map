@@ -1,0 +1,6 @@
+<map id="TextbookMode" name="TextbookMode">
+<area shape="rect" id="node1" title="The TextbookMode abstract base class." alt="" coords="143,80,260,107"/>
+<area shape="rect" id="node3" href="$classTextbookModeCoherence.html" title="The TextbookMode class for coherence protocols." alt="" coords="5,155,192,181"/>
+<area shape="rect" id="node4" href="$classTextbookModeReplacer.html" title="The TextbookMode class for replacement policies." alt="" coords="217,155,391,181"/>
+<area shape="rect" id="node2" href="$classCacheABC.html" title="The cache interface." alt="" coords="157,5,246,32"/>
+</map>

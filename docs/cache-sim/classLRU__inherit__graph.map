@@ -1,0 +1,4 @@
+<map id="LRU" name="LRU">
+<area shape="rect" id="node1" title="The LRU replacement policy." alt="" coords="55,80,103,107"/>
+<area shape="rect" id="node2" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="5,5,152,32"/>
+</map>

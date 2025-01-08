@@ -1,0 +1,15 @@
+<map id="src/textbook/textbook_mode_coherence.cc" name="src/textbook/textbook_mode_coherence.cc">
+<area shape="rect" id="node1" title="Implementation of the TextbookModeCoherence and BusEvent classes." alt="" coords="200,5,365,47"/>
+<area shape="rect" id="node2" href="$coherence__protocol_8h.html" title="Definition of the coherence protocol base class." alt="" coords="97,95,258,121"/>
+<area shape="rect" id="node11" href="$textbook__mode__coherence_8h.html" title="Declaration of the TextbookModeCoherence and BusEvent classes." alt="" coords="283,95,493,121"/>
+<area shape="rect" id="node3" href="$cache__abc_8h.html" title="Declaration of the cache interface class." alt="" coords="231,244,334,271"/>
+<area shape="rect" id="node4" href="$typedefs_8h.html" title="Global type definitions." alt="" coords="237,319,328,345"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,393,72,420"/>
+<area shape="rect" id="node6" title=" " alt="" coords="96,393,163,420"/>
+<area shape="rect" id="node7" title=" " alt="" coords="187,393,274,420"/>
+<area shape="rect" id="node8" title=" " alt="" coords="299,393,373,420"/>
+<area shape="rect" id="node9" title=" " alt="" coords="397,393,477,420"/>
+<area shape="rect" id="node10" title=" " alt="" coords="501,393,552,420"/>
+<area shape="rect" id="node12" title=" " alt="" coords="233,169,295,196"/>
+<area shape="rect" id="node13" href="$textbook__mode_8h.html" title="Declaration of the TextbookMode base class." alt="" coords="320,169,456,196"/>
+</map>

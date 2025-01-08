@@ -1,0 +1,4 @@
+<map id="FIFO" name="FIFO">
+<area shape="rect" id="node1" title="The FIFO replacement policy." alt="" coords="53,80,105,107"/>
+<area shape="rect" id="node2" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="5,5,152,32"/>
+</map>

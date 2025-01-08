@@ -1,0 +1,5 @@
+<map id="WriteThrough" name="WriteThrough">
+<area shape="rect" id="node1" title="The WriteThrough coherence protocol." alt="" coords="22,171,133,197"/>
+<area shape="rect" id="node2" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="5,95,149,121"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="33,5,122,32"/>
+</map>

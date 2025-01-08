@@ -1,0 +1,4 @@
+<map id="Cache" name="Cache">
+<area shape="rect" id="node1" title="An L1 Cache with coherence protocol and replacement policy." alt="" coords="19,80,81,107"/>
+<area shape="rect" id="node2" href="$classCacheABC.html" title="The cache interface." alt="" coords="5,5,95,32"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="src/coherence/msi.cc" name="src/coherence/msi.cc">
+<area shape="rect" id="node1" title="Implementation of the MSI coherence protocol." alt="" coords="203,5,362,32"/>
+<area shape="rect" id="node2" href="$msi_8h.html" title="Declaration of the MSI coherence protocol." alt="" coords="253,80,312,107"/>
+<area shape="rect" id="node3" href="$coherence__protocol_8h.html" title="Definition of the coherence protocol base class." alt="" coords="202,155,363,181"/>
+<area shape="rect" id="node4" href="$cache__abc_8h.html" title="Declaration of the cache interface class." alt="" coords="231,229,334,256"/>
+<area shape="rect" id="node5" href="$typedefs_8h.html" title="Global type definitions." alt="" coords="237,304,328,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,379,72,405"/>
+<area shape="rect" id="node7" title=" " alt="" coords="96,379,163,405"/>
+<area shape="rect" id="node8" title=" " alt="" coords="187,379,274,405"/>
+<area shape="rect" id="node9" title=" " alt="" coords="299,379,373,405"/>
+<area shape="rect" id="node10" title=" " alt="" coords="397,379,477,405"/>
+<area shape="rect" id="node11" title=" " alt="" coords="501,379,552,405"/>
+</map>

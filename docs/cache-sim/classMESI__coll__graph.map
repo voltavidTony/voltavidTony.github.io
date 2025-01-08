@@ -1,0 +1,5 @@
+<map id="MESI" name="MESI">
+<area shape="rect" id="node1" title="The MESI coherence protocol." alt="" coords="50,171,105,197"/>
+<area shape="rect" id="node2" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="5,95,149,121"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="33,5,122,32"/>
+</map>

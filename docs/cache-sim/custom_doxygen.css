@@ -1,0 +1,11 @@
+code {
+    background-color: #FBFCFD;
+    border: 1px solid #DFE2E3;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+h1 {
+    border-bottom: 1px solid #4A6AAA;
+    padding-bottom: 5px;
+}
