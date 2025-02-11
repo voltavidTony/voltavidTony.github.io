@@ -65,7 +65,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">TextbookModeReplacer Class Reference</div>  </div>
 </div><!--header-->
@@ -90,10 +92,11 @@ Collaboration diagram for TextbookModeReplacer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTextbookModeReplacer__coll__graph.png" border="0" usemap="#aTextbookModeReplacer_coll__map" alt="Collaboration graph"/></div>
 <map name="aTextbookModeReplacer_coll__map" id="aTextbookModeReplacer_coll__map">
-<area shape="rect" title="The TextbookMode class for replacement policies." alt="" coords="20,171,195,197"/>
-<area shape="rect" href="classTextbookMode.html" title="The TextbookMode abstract base class." alt="" coords="49,95,166,121"/>
-<area shape="rect" href="classCacheABC.html" title="The cache interface." alt="" coords="5,5,95,32"/>
-<area shape="rect" href="structcache__line.html" title="Cache line fields (without data field)" alt="" coords="119,5,210,32"/>
+<area shape="rect" title="The TextbookMode class for replacement policies." alt="" coords="69,184,243,211"/>
+<area shape="rect" href="classTextbookMode.html" title="The TextbookMode abstract base class." alt="" coords="176,95,293,121"/>
+<area shape="rect" href="classCacheABC.html" title="The cache interface." alt="" coords="65,5,154,32"/>
+<area shape="rect" href="classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="5,95,152,121"/>
+<area shape="rect" href="structcache__line.html" title="Cache line fields (without data field)" alt="" coords="189,5,280,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -121,12 +124,45 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#ae133dfa74461f27ecfc22d0e3760d554">~TextbookMode</a> ()</td></tr>
 <tr class="memdesc:ae133dfa74461f27ecfc22d0e3760d554 inherit pub_methods_classTextbookMode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the textbook mode output. <br /></td></tr>
 <tr class="separator:ae133dfa74461f27ecfc22d0e3760d554 inherit pub_methods_classTextbookMode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47c65269dd33c2e74ce9a2e71793adb6 inherit pub_methods_classTextbookMode"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a47c65269dd33c2e74ce9a2e71793adb6">issueBusMsg</a> (<a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a> bus_msg, <a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a> <a class="el" href="typedefs_8h.html#a30427669daebce380590ca46efbaf79c">addr</a>)</td></tr>
-<tr class="memdesc:a47c65269dd33c2e74ce9a2e71793adb6 inherit pub_methods_classTextbookMode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a BusRd message to neighboring caches.  <a href="classTextbookMode.html#a47c65269dd33c2e74ce9a2e71793adb6">More...</a><br /></td></tr>
-<tr class="separator:a47c65269dd33c2e74ce9a2e71793adb6 inherit pub_methods_classTextbookMode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69dffb7b97b297f3ab5896c43a01acc0 inherit pub_methods_classTextbookMode"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a69dffb7b97b297f3ab5896c43a01acc0">issueBusMsg</a> (<a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a> bus_msg)</td></tr>
+<tr class="memdesc:a69dffb7b97b297f3ab5896c43a01acc0 inherit pub_methods_classTextbookMode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a BusRd message to neighboring caches.  <a href="classTextbookMode.html#a69dffb7b97b297f3ab5896c43a01acc0">More...</a><br /></td></tr>
+<tr class="separator:a69dffb7b97b297f3ab5896c43a01acc0 inherit pub_methods_classTextbookMode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353fb4c48975388d69f984916abcb287 inherit pub_methods_classTextbookMode"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a52b77dcd6180d54d314b8cbf0b4dc2d9">state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a353fb4c48975388d69f984916abcb287">getLineState</a> (uint32_t set_idx, uint32_t way_idx)</td></tr>
 <tr class="memdesc:a353fb4c48975388d69f984916abcb287 inherit pub_methods_classTextbookMode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of a line in the cache.  <a href="classTextbookMode.html#a353fb4c48975388d69f984916abcb287">More...</a><br /></td></tr>
 <tr class="separator:a353fb4c48975388d69f984916abcb287 inherit pub_methods_classTextbookMode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab5fce6f2a32d7937dbffb93b9f594021"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#ab5fce6f2a32d7937dbffb93b9f594021">receiveAccess</a> (<a class="el" href="typedefs_8h.html#af9eb0d7b171b922829c7db9caaf7c6b1">tag_t</a> tag)</td></tr>
+<tr class="memdesc:ab5fce6f2a32d7937dbffb93b9f594021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue an access to a cache block.  <a href="classTextbookModeReplacer.html#ab5fce6f2a32d7937dbffb93b9f594021">More...</a><br /></td></tr>
+<tr class="separator:ab5fce6f2a32d7937dbffb93b9f594021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7941f66dc8bd3032fe22543970b8f3"><td class="memItemLeft" align="right" valign="top"><a id="aac7941f66dc8bd3032fe22543970b8f3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#aac7941f66dc8bd3032fe22543970b8f3">reset</a> ()</td></tr>
+<tr class="memdesc:aac7941f66dc8bd3032fe22543970b8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Revert the system back to the initial state. <br /></td></tr>
+<tr class="separator:aac7941f66dc8bd3032fe22543970b8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d879cc89b461219b13d80c2e72a7266"><td class="memItemLeft" align="right" valign="top"><a id="a2d879cc89b461219b13d80c2e72a7266"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#a2d879cc89b461219b13d80c2e72a7266">printSeparator</a> ()</td></tr>
+<tr class="memdesc:a2d879cc89b461219b13d80c2e72a7266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a horizontal line in the table. <br /></td></tr>
+<tr class="separator:a2d879cc89b461219b13d80c2e72a7266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303d01239e2fe1941d6a7803fa1dc43a"><td class="memItemLeft" align="right" valign="top"><a id="a303d01239e2fe1941d6a7803fa1dc43a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#a303d01239e2fe1941d6a7803fa1dc43a">printStats</a> ()</td></tr>
+<tr class="memdesc:a303d01239e2fe1941d6a7803fa1dc43a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print simulation run statistics in CSV format (headerless) <br /></td></tr>
+<tr class="separator:a303d01239e2fe1941d6a7803fa1dc43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aca3aedb9784f62e050ff04736a225473"><td class="memItemLeft" align="right" valign="top"><a id="aca3aedb9784f62e050ff04736a225473"></a>
+<a class="el" href="classReplacementPolicy.html">ReplacementPolicy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#aca3aedb9784f62e050ff04736a225473">replacement_policy</a></td></tr>
+<tr class="memdesc:aca3aedb9784f62e050ff04736a225473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coherence protocol used by this cache. <br /></td></tr>
+<tr class="separator:aca3aedb9784f62e050ff04736a225473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab77c90db4462f46e076ac46856410c4"><td class="memItemLeft" align="right" valign="top"><a id="aab77c90db4462f46e076ac46856410c4"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#aab77c90db4462f46e076ac46856410c4">accessee</a></td></tr>
+<tr class="memdesc:aab77c90db4462f46e076ac46856410c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The most recent command issued. <br /></td></tr>
+<tr class="separator:aab77c90db4462f46e076ac46856410c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac158ef5860c6975a2896a9253cc5033a"><td class="memItemLeft" align="right" valign="top"><a id="ac158ef5860c6975a2896a9253cc5033a"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookModeReplacer.html#ac158ef5860c6975a2896a9253cc5033a">victim</a></td></tr>
+<tr class="memdesc:ac158ef5860c6975a2896a9253cc5033a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The most recent victim. <br /></td></tr>
+<tr class="separator:ac158ef5860c6975a2896a9253cc5033a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -204,6 +240,40 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <dl class="section return"><dt>Returns</dt><dd>True if the command was successful </dd></dl>
 
 <p>Implements <a class="el" href="classTextbookMode.html#ae6041128d4b1209d132a286535fe8a8f">TextbookMode</a>.</p>
+
+</div>
+</div>
+<a id="ab5fce6f2a32d7937dbffb93b9f594021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5fce6f2a32d7937dbffb93b9f594021">&#9670;&nbsp;</a></span>receiveAccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextbookModeReplacer::receiveAccess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#af9eb0d7b171b922829c7db9caaf7c6b1">tag_t</a>&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Issue an access to a cache block. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>The tag of the block </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

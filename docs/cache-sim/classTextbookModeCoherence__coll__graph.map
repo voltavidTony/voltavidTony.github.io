@@ -1,6 +1,8 @@
 <map id="TextbookModeCoherence" name="TextbookModeCoherence">
-<area shape="rect" id="node1" title="The TextbookMode class for coherence protocols." alt="" coords="14,171,201,197"/>
-<area shape="rect" id="node2" href="$classTextbookMode.html" title="The TextbookMode abstract base class." alt="" coords="49,95,166,121"/>
-<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="5,5,95,32"/>
-<area shape="rect" id="node4" href="$structcache__line.html" title="Cache line fields (without data field)" alt="" coords="119,5,210,32"/>
+<area shape="rect" id="node1" title="The TextbookMode class for coherence protocols." alt="" coords="139,184,325,211"/>
+<area shape="rect" id="node2" href="$classTextbookMode.html" title="The TextbookMode abstract base class." alt="" coords="173,95,291,121"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="63,5,153,32"/>
+<area shape="rect" id="node6" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="5,95,149,121"/>
+<area shape="rect" id="node4" href="$structcache__line.html" title="Cache line fields (without data field)" alt="" coords="187,5,277,32"/>
+<area shape="rect" id="node5" href="$structbus__event.html" title="The BusEvent class." alt="" coords="315,95,405,121"/>
 </map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['replacementpolicy_199',['ReplacementPolicy',['../classReplacementPolicy.html',1,'']]],
-  ['rr_200',['RR',['../classRR.html',1,'']]]
+  ['replacementpolicy_230',['ReplacementPolicy',['../classReplacementPolicy.html',1,'']]],
+  ['rr_231',['RR',['../classRR.html',1,'']]]
 ];

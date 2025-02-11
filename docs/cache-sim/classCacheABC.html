@@ -90,9 +90,9 @@ Inheritance diagram for CacheABC:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0fc87195df2c557305cc30e2c030daaa"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCacheABC.html#a0fc87195df2c557305cc30e2c030daaa">issueBusMsg</a> (<a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a> bus_msg, <a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a> <a class="el" href="typedefs_8h.html#a30427669daebce380590ca46efbaf79c">addr</a>)=0</td></tr>
-<tr class="memdesc:a0fc87195df2c557305cc30e2c030daaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a BusRd message to neighboring caches.  <a href="classCacheABC.html#a0fc87195df2c557305cc30e2c030daaa">More...</a><br /></td></tr>
-<tr class="separator:a0fc87195df2c557305cc30e2c030daaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a537517291b33eb2d06287dd9d0f321b9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCacheABC.html#a537517291b33eb2d06287dd9d0f321b9">issueBusMsg</a> (<a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a> bus_msg)=0</td></tr>
+<tr class="memdesc:a537517291b33eb2d06287dd9d0f321b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a BusRd message to neighboring caches.  <a href="classCacheABC.html#a537517291b33eb2d06287dd9d0f321b9">More...</a><br /></td></tr>
+<tr class="separator:a537517291b33eb2d06287dd9d0f321b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f1554f17d0090f72eb7bef4bf4a0ecf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="typedefs_8h.html#a52b77dcd6180d54d314b8cbf0b4dc2d9">state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCacheABC.html#a3f1554f17d0090f72eb7bef4bf4a0ecf">getLineState</a> (uint32_t set_idx, uint32_t way_idx)=0</td></tr>
 <tr class="memdesc:a3f1554f17d0090f72eb7bef4bf4a0ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of a line in the cache.  <a href="classCacheABC.html#a3f1554f17d0090f72eb7bef4bf4a0ecf">More...</a><br /></td></tr>
 <tr class="separator:a3f1554f17d0090f72eb7bef4bf4a0ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,8 +148,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0fc87195df2c557305cc30e2c030daaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fc87195df2c557305cc30e2c030daaa">&#9670;&nbsp;</a></span>issueBusMsg()</h2>
+<a id="a537517291b33eb2d06287dd9d0f321b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a537517291b33eb2d06287dd9d0f321b9">&#9670;&nbsp;</a></span>issueBusMsg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,18 +161,8 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual bool CacheABC::issueBusMsg </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a>&#160;</td>
-          <td class="paramname"><em>bus_msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>bus_msg</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a>&#160;</td>
-          <td class="paramname"><em>addr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -186,13 +176,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bus_msg</td><td>The specific bus message </td></tr>
-    <tr><td class="paramname">addr</td><td>The address accessed </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the 'COPIES-EXIST' line was asserted </dd></dl>
 
-<p>Implemented in <a class="el" href="classTextbookModeCoherence.html#ac90a74f15a7a67d746ec05f7cb7b9dba">TextbookModeCoherence</a>, <a class="el" href="classTextbookMode.html#a47c65269dd33c2e74ce9a2e71793adb6">TextbookMode</a>, and <a class="el" href="classCache.html#a9acf33cbd499c5ec65b0633f0b235cbe">Cache</a>.</p>
+<p>Implemented in <a class="el" href="classTextbookModeCoherence.html#a0e3b3d2ae1b0582e17e8f8dc40df95f6">TextbookModeCoherence</a>, <a class="el" href="classTextbookMode.html#a69dffb7b97b297f3ab5896c43a01acc0">TextbookMode</a>, and <a class="el" href="classCache.html#a938d27b50cad98a6d2bdc05af9918346">Cache</a>.</p>
 
 </div>
 </div>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['doesdirtysharing_250',['doesDirtySharing',['../classCoherenceProtocol.html#a567a4972701ed100f73f19be978a5387',1,'CoherenceProtocol::doesDirtySharing()'],['../classDragon.html#acf96fdcf36f5a6ce461b84922e453995',1,'Dragon::doesDirtySharing()'],['../classMOESI.html#a4b6341e871f427f29c962a0e36782650',1,'MOESI::doesDirtySharing()']]],
-  ['doeswritenoallocate_251',['doesWriteNoAllocate',['../classCoherenceProtocol.html#a606f0397816e3c641cef636e1c4a7298',1,'CoherenceProtocol::doesWriteNoAllocate()'],['../classWriteThrough.html#abadaab74b5a9d2ac00142d0fa87e8cba',1,'WriteThrough::doesWriteNoAllocate()']]],
-  ['dragon_252',['Dragon',['../classDragon.html#a100c4be6e5702bc3dc46ec960240ab64',1,'Dragon']]]
+  ['cache_280',['Cache',['../classCache.html#ad985625ada675a653568d3e5036451ae',1,'Cache']]],
+  ['coherenceprotocol_281',['CoherenceProtocol',['../classCoherenceProtocol.html#aa5c103f2aec83c19b628097218e7af76',1,'CoherenceProtocol']]]
 ];

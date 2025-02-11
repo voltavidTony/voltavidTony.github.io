@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exit_20codes_381',['Exit codes',['../md_docs_pages_exit_codes.html',1,'']]]
+  ['developer_20manual_441',['Developer Manual',['../md_docs_pages_development.html',1,'']]]
 ];

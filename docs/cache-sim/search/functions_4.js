@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fifo_255',['FIFO',['../classFIFO.html#adcfa4f5c5e50136c010e873ab1349266',1,'FIFO']]],
-  ['fprintfcomma_256',['fprintfcomma',['../extractor_8c.html#a24726eebea6566ac362c3a4a0554a1f9',1,'extractor.c']]]
+  ['evalutatecommand_285',['evalutateCommand',['../classTextbookMode.html#ae6041128d4b1209d132a286535fe8a8f',1,'TextbookMode::evalutateCommand()'],['../classTextbookModeCoherence.html#acd4d18bd55051944e8ed1bbf3bbaf804',1,'TextbookModeCoherence::evalutateCommand()'],['../classTextbookModeReplacer.html#a57863ff2fb455a11ed1d89933b17bb86',1,'TextbookModeReplacer::evalutateCommand()']]],
+  ['exitif_286',['exitIf',['../main_8cc.html#abde8d99eaab28d1f1e5e585e16d6475c',1,'main.cc']]]
 ];

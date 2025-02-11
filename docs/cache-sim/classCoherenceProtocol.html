@@ -105,12 +105,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa5c103f2aec83c19b628097218e7af76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoherenceProtocol.html#aa5c103f2aec83c19b628097218e7af76">CoherenceProtocol</a> (<a class="el" href="classCacheABC.html">CacheABC</a> &amp;<a class="el" href="classCoherenceProtocol.html#a01e3502c753cb30d233c14faac79ba82">cache</a>)</td></tr>
 <tr class="memdesc:aa5c103f2aec83c19b628097218e7af76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new coherence protocol.  <a href="classCoherenceProtocol.html#aa5c103f2aec83c19b628097218e7af76">More...</a><br /></td></tr>
 <tr class="separator:aa5c103f2aec83c19b628097218e7af76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad02fe9dc98d4b978617093359bb0793e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoherenceProtocol.html#ad02fe9dc98d4b978617093359bb0793e">PrRd</a> (<a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a> <a class="el" href="typedefs_8h.html#a30427669daebce380590ca46efbaf79c">addr</a>, <a class="el" href="structcache__line.html">cache_line</a> *line)=0</td></tr>
-<tr class="memdesc:ad02fe9dc98d4b978617093359bb0793e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a PrRd message.  <a href="classCoherenceProtocol.html#ad02fe9dc98d4b978617093359bb0793e">More...</a><br /></td></tr>
-<tr class="separator:ad02fe9dc98d4b978617093359bb0793e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8176828060dc4b6d7114ae8045fc54a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoherenceProtocol.html#ad8176828060dc4b6d7114ae8045fc54a">PrWr</a> (<a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a> <a class="el" href="typedefs_8h.html#a30427669daebce380590ca46efbaf79c">addr</a>, <a class="el" href="structcache__line.html">cache_line</a> *line)=0</td></tr>
-<tr class="memdesc:ad8176828060dc4b6d7114ae8045fc54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a PrWr message.  <a href="classCoherenceProtocol.html#ad8176828060dc4b6d7114ae8045fc54a">More...</a><br /></td></tr>
-<tr class="separator:ad8176828060dc4b6d7114ae8045fc54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dd85728d8f271246ddc4cd1280a16d0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoherenceProtocol.html#a8dd85728d8f271246ddc4cd1280a16d0">PrRd</a> (<a class="el" href="structcache__line.html">cache_line</a> *line)=0</td></tr>
+<tr class="memdesc:a8dd85728d8f271246ddc4cd1280a16d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a PrRd message.  <a href="classCoherenceProtocol.html#a8dd85728d8f271246ddc4cd1280a16d0">More...</a><br /></td></tr>
+<tr class="separator:a8dd85728d8f271246ddc4cd1280a16d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7eaf8a314aafd25da429c25f43cd901"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoherenceProtocol.html#ac7eaf8a314aafd25da429c25f43cd901">PrWr</a> (<a class="el" href="structcache__line.html">cache_line</a> *line)=0</td></tr>
+<tr class="memdesc:ac7eaf8a314aafd25da429c25f43cd901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a PrWr message.  <a href="classCoherenceProtocol.html#ac7eaf8a314aafd25da429c25f43cd901">More...</a><br /></td></tr>
+<tr class="separator:ac7eaf8a314aafd25da429c25f43cd901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae25fe271fd4a7254081997a6a2aeffd6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCoherenceProtocol.html#ae25fe271fd4a7254081997a6a2aeffd6">BusRd</a> (<a class="el" href="structcache__line.html">cache_line</a> *line)=0</td></tr>
 <tr class="memdesc:ae25fe271fd4a7254081997a6a2aeffd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a BusRd message.  <a href="classCoherenceProtocol.html#ae25fe271fd4a7254081997a6a2aeffd6">More...</a><br /></td></tr>
 <tr class="separator:ae25fe271fd4a7254081997a6a2aeffd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -463,8 +463,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad02fe9dc98d4b978617093359bb0793e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad02fe9dc98d4b978617093359bb0793e">&#9670;&nbsp;</a></span>PrRd()</h2>
+<a id="a8dd85728d8f271246ddc4cd1280a16d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd85728d8f271246ddc4cd1280a16d0">&#9670;&nbsp;</a></span>PrRd()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -475,19 +475,9 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual void CoherenceProtocol::PrRd </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a>&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="structcache__line.html">cache_line</a> *&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>line</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -500,18 +490,17 @@ Protected Attributes</h2></td></tr>
 <p>Receive a PrRd message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>The address accessed </td></tr>
     <tr><td class="paramname">line</td><td>The cache line accessed (non-null) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classWriteThrough.html#a930dd56384af7bca282c691150befb79">WriteThrough</a>, <a class="el" href="classMSIUpgr.html#ab4dd7efdceddcab5c8787a81e5eb6bb6">MSIUpgr</a>, <a class="el" href="classMSI.html#a61f5c7bbfb7e7a83111d1fc5e1d4c922">MSI</a>, <a class="el" href="classMOESI.html#a85aa2a2ce7ea766ce5a66b1efdcd8de2">MOESI</a>, <a class="el" href="classMESI.html#a885b31ecdccd06a1bafc03ec3bd4d325">MESI</a>, and <a class="el" href="classDragon.html#a3841f0d15d7b91f6dfaee78337cde2a5">Dragon</a>.</p>
+<p>Implemented in <a class="el" href="classWriteThrough.html#a3701b064861f6e973f5403010db9d8dd">WriteThrough</a>, <a class="el" href="classMSIUpgr.html#aa77218089077fd479f73df8c8ece3d4d">MSIUpgr</a>, <a class="el" href="classMSI.html#ac29a00119433e45093e519afe40da397">MSI</a>, <a class="el" href="classMOESI.html#a9f94f7fb60a1094d5f8e760d9bff3de0">MOESI</a>, <a class="el" href="classMESI.html#a36543da2fb72c15bedd7967afff0d89b">MESI</a>, and <a class="el" href="classDragon.html#a560399be4f904c2f7e498f2dc24bc5f3">Dragon</a>.</p>
 
 </div>
 </div>
-<a id="ad8176828060dc4b6d7114ae8045fc54a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8176828060dc4b6d7114ae8045fc54a">&#9670;&nbsp;</a></span>PrWr()</h2>
+<a id="ac7eaf8a314aafd25da429c25f43cd901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7eaf8a314aafd25da429c25f43cd901">&#9670;&nbsp;</a></span>PrWr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,19 +511,9 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual void CoherenceProtocol::PrWr </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a>&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="structcache__line.html">cache_line</a> *&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>line</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -547,13 +526,12 @@ Protected Attributes</h2></td></tr>
 <p>Receive a PrWr message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>The address accessed </td></tr>
     <tr><td class="paramname">line</td><td>The cache line accessed </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classWriteThrough.html#a2b9b90dc504ceb71f794d9ea09e94626">WriteThrough</a>, <a class="el" href="classMSIUpgr.html#a5e8af70c15763bd02d9524fc250e5e8c">MSIUpgr</a>, <a class="el" href="classMSI.html#a12cb5e745315b68b8cad9cbbbbb9fd97">MSI</a>, <a class="el" href="classMOESI.html#a6c2169a6682318d0b63d78cf466daa3e">MOESI</a>, <a class="el" href="classMESI.html#a95e2949b202fcd1efbb04ed83c64fe82">MESI</a>, and <a class="el" href="classDragon.html#aabb2a504e60a3c089a2a6eb8813cd7e0">Dragon</a>.</p>
+<p>Implemented in <a class="el" href="classWriteThrough.html#a7c982471dbca73bae3a39bc4678e50c7">WriteThrough</a>, <a class="el" href="classMSIUpgr.html#a5505f67948b68959263ef6df8826fc9a">MSIUpgr</a>, <a class="el" href="classMSI.html#a53ba915121194d19e1bad4a81608c478">MSI</a>, <a class="el" href="classMOESI.html#a7258dfa4c3297d70a1f37a1590ebb35a">MOESI</a>, <a class="el" href="classMESI.html#a76dc97082e53867555a83efd2e0b7a8c">MESI</a>, and <a class="el" href="classDragon.html#aff08b7ba648b4fa6fa1d9a6497d5c6c2">Dragon</a>.</p>
 
 </div>
 </div>

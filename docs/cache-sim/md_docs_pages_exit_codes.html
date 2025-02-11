@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Bus-based Cache Simulator: Exit codes</title>
+<title>Bus-based Cache Simulator: Exit Codes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,30 +65,38 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Exit codes </div>  </div>
+<div class="title">Exit Codes </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><ul><li class="level2"><a href="#autotoc_md9">Specific Values</a></li>
+<li class="level2"><a href="#autotoc_md10">General Format</a></li>
+<li class="level2"><a href="#autotoc_md11">Limitations</a></li>
+<li class="level2"><a href="#autotoc_md12">Examples</a></li>
+</ul>
+</ul>
+</div>
 <div class="textblock"><p>The exit code provides an indicator as to which exact argument has caused an error. This value may seem redundant as this information is also printed to <code>stderr</code>, but it's purpose is to make programmatic interaction with the simulator (scripting) easier.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Specific values</h2>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Specific Values</h2>
 <ul>
 <li><code>-1</code> (<code>255</code> in Linux): The number of arguments passed does not match any valid argument list</li>
 <li><code>0</code>: The program has executed normally</li>
 <li><code>1-8</code>: The nth argument on the command line is invalid</li>
 <li>Any other value falls under the general format category</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-General format</h2>
+<h2><a class="anchor" id="autotoc_md10"></a>
+General Format</h2>
 <p>The general format is used when running the program in batch metrics mode, that is, a file containing multiple cache configurations was specified. It is comprised of two bit fields:</p><ul>
 <li>The lower 3 bits deterimine the index of the offending argument</li>
 <li>The remaining bits determine which configuration has caused the error (5 bits on Linux)</li>
 </ul>
 <p>The numbering of the arguments, which gets stored in the lower 3 bits, is <code>1-6</code> as defined in <a class="el" href="main_8cc.html" title="This file processes the command line arguments, provides helper methods for processing the command li...">main.cc</a>, specifically <a class="el" href="typedefs_8h.html#aa834463d5eede84365ab37c5d3d1ac70" title="Argument indices for single metrics run.">args_single_e</a>.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Limitations</h2>
 <p>It is worth noting that in Linux, the exit code of a program or shell script is only 8 bits. For instance, if a program returns <code>-1</code>, then the value stored in the <code>$?</code> variable will be <code>255</code>. This means that a maximum of 31 (5 bit count starting at 1) configurations are supported without the potential for overflow in the exit code. For this reason, the exit code is also printed to <code>stderr</code> in the format <code>arg@conf</code>, where <code>arg</code> indicates which argument and <code>conf</code> which configuration (0 for command line) caused the error.</p>
 <p>On Windows, this issue does not exist as the full 32 bits of the exit code are available to the shell.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Examples</h2>
 <p>After issuing <code>echo $?</code>, the output was:</p><ul>
 <li><code>3</code> -&gt; Specific value: The 3rd argument on the command line caused an issue</li>

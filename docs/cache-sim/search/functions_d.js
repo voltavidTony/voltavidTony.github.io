@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usagemsg_292',['usageMsg',['../main_8cc.html#a0cddb9f775c76972d7493c7146b22927',1,'main.cc']]]
+  ['statechangestatistic_326',['stateChangeStatistic',['../classCache.html#af9daee833c517fb6282ad11b5fd3c8d0',1,'Cache']]]
 ];

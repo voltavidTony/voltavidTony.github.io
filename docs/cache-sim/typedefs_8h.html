@@ -73,7 +73,6 @@ $(function() {
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">typedefs.h File Reference</div>  </div>
@@ -167,10 +166,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedefs_8h.html#a4f5064e2923215b1485cd78262a56eca">N_TEXTBOOK_LINES</a>&#160;&#160;&#160;5</td></tr>
 <tr class="memdesc:a4f5064e2923215b1485cd78262a56eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of cache lines that textbook mode uses. <br /></td></tr>
 <tr class="separator:a4f5064e2923215b1485cd78262a56eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb61a4e8fff2f4624a632a3189cbd3a0"><td class="memItemLeft" align="right" valign="top"><a id="aeb61a4e8fff2f4624a632a3189cbd3a0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedefs_8h.html#aeb61a4e8fff2f4624a632a3189cbd3a0">MSB</a>(x)&#160;&#160;&#160;(8 * sizeof(x) - 1 - __builtin_clz(x))</td></tr>
-<tr class="memdesc:aeb61a4e8fff2f4624a632a3189cbd3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the position of the MSB (for int32, a range of 0-31) <br /></td></tr>
-<tr class="separator:aeb61a4e8fff2f4624a632a3189cbd3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -278,22 +273,8 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:a59b9f0509556ef62507aae83719a2805"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> runtime statistic IDs.  <a href="typedefs_8h.html#a59b9f0509556ef62507aae83719a2805">More...</a><br /></td></tr>
 <tr class="separator:a59b9f0509556ef62507aae83719a2805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a19734b7fd569813347e4f7a547693bf3"><td class="memItemLeft" align="right" valign="top"><a id="a19734b7fd569813347e4f7a547693bf3"></a>
-struct <a class="el" href="structtrace__t.html">trace_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((packed))</td></tr>
-<tr class="separator:a19734b7fd569813347e4f7a547693bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3fe410a28ee11b520d9dd574d2139f4b"><td class="memItemLeft" align="right" valign="top"><a id="a3fe410a28ee11b520d9dd574d2139f4b"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedefs_8h.html#a3fe410a28ee11b520d9dd574d2139f4b">op</a></td></tr>
-<tr class="memdesc:a3fe410a28ee11b520d9dd574d2139f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The first byte of a trace; the 7-bit CPU ID combined with the 1-bit R/W mode. <br /></td></tr>
-<tr class="separator:a3fe410a28ee11b520d9dd574d2139f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30427669daebce380590ca46efbaf79c"><td class="memItemLeft" align="right" valign="top"><a id="a30427669daebce380590ca46efbaf79c"></a>
-<a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedefs_8h.html#a30427669daebce380590ca46efbaf79c">addr</a></td></tr>
-<tr class="memdesc:a30427669daebce380590ca46efbaf79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The address that is accessed. <br /></td></tr>
-<tr class="separator:a30427669daebce380590ca46efbaf79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af881c956a2acb98c962bedf2e372537b"><td class="memItemLeft" align="right" valign="top"><a id="af881c956a2acb98c962bedf2e372537b"></a>
 std::map&lt; std::string, <a class="el" href="typedefs_8h.html#a26de8d076d2e647a05362ed0c991cbde">coh_factory_t</a>, <a class="el" href="structci__less.html">ci_less</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedefs_8h.html#af881c956a2acb98c962bedf2e372537b">coherence_map</a></td></tr>
 <tr class="memdesc:af881c956a2acb98c962bedf2e372537b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map from coherence protocol names to their factory functions. <br /></td></tr>

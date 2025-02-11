@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Bus-based Cache Simulator: Bus-based L1 cache simulator suite</title>
+<title>Bus-based Cache Simulator: Bus-based L1 Cache Simulator Suite</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,26 +65,27 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Bus-based L1 cache simulator suite </div>  </div>
+<div class="title">Bus-based L1 <a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> Simulator Suite </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md26">About</a></li>
-<li class="level1"><a href="#autotoc_md27">Roadmap</a></li>
-<li class="level1"><a href="#autotoc_md28">Cache simulator</a><ul><li class="level2"><a href="#autotoc_md29">Installation</a></li>
-<li class="level2"><a href="#autotoc_md30">Build &amp; Run</a></li>
+<ul><li class="level1"><a href="#autotoc_md29">About</a></li>
+<li class="level1"><a href="#autotoc_md30">Roadmap</a></li>
+<li class="level1"><a href="#autotoc_md31">Cache Simulator</a><ul><li class="level2"><a href="#autotoc_md32">Installation</a></li>
+<li class="level2"><a href="#autotoc_md33">Build &amp; Run</a></li>
+<li class="level2"><a href="#autotoc_md34">Development</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md31">Tool Suite</a><ul><li class="level2"><a href="#autotoc_md32">Doxygen documentation</a></li>
-<li class="level2"><a href="#autotoc_md33">Template file generation</a></li>
-<li class="level2"><a href="#autotoc_md34">Trace file generation</a></li>
+<li class="level1"><a href="#autotoc_md35">Tool Suite</a><ul><li class="level2"><a href="#autotoc_md36">Doxygen Documentation</a></li>
+<li class="level2"><a href="#autotoc_md37">Template File Generation</a></li>
+<li class="level2"><a href="#autotoc_md38">Trace File Generation</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md35">Folder Structure</a></li>
+<li class="level1"><a href="#autotoc_md39">Folder Structure</a></li>
 </ul>
 </div>
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<h1><a class="anchor" id="autotoc_md26"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 About</h1>
 <ul>
 <li>Course: NC State University CSC/ECE 506</li>
@@ -103,29 +104,30 @@ About</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">3.1   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Add batch mode (parallel execution)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">3.1.1   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Trace file chunks are "double buffered" in batch mode   </td></tr>
+<td class="markdownTableBodyLeft">3.1.1   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Trace file chunks are "double buffered" in batch mode    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">3.2   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Added write timestamp debugging feature, consistency refactorings, bugfixes, portability and cross-platform edits   </td></tr>
 </table>
 <p>(Version history begins with v3.0)</p>
 <p>This software operates under the GNU General Public License v3.0.</p>
 <p>A copy of this documentation is hosted on <a href="https://voltavidtony.github.io/docs/cache-sim/index.html">my GitHub Pages</a>.</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 Roadmap</h1>
 <ul>
 <li>Implement Directory Protocols</li>
-<li>Cross-Platform Support</li>
 <li>Compressed Trace Files</li>
 <li>More Protocols and Policies</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md28"></a>
-Cache simulator</h1>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md31"></a>
+Cache Simulator</h1>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Installation</h2>
 <p>This repository uses sub-modules to generate trace files for the simulation. If you do not wish to generate trace files, then the sub-modules can be left empty (uninitialized). If you do want to generate trace files, then:</p>
 <ul>
 <li>If you already downloaded this repo, then run <code>git submodule update --init</code> from the root directory.</li>
 <li>If not, then simply include the <code>--recurse-submodules</code> option in the <code>git clone</code> command.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Build &amp; Run</h2>
 <p>The provided make file in the root directory is used to build the cache simulator. It currently has four targets:</p>
 <ul>
@@ -135,17 +137,20 @@ Build &amp; Run</h2>
 <li><code>*.bin</code>: Run the simulator in batch metrics mode, using <code>configs.txt</code> as the configuration list and <code>*.bin</code> as the trace file</li>
 </ul>
 <p>For more information on running the simulator and its modes of operation, see the <a class="el" href="md_docs_pages_cache_sim.html">cache simulator manual</a>.</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
+Development</h2>
+<p>For further development, a <a class="el" href="md_docs_pages_development.html">development manual</a> is included in this documentation.</p>
+<h1><a class="anchor" id="autotoc_md35"></a>
 Tool Suite</h1>
-<h2><a class="anchor" id="autotoc_md32"></a>
-Doxygen documentation</h2>
+<h2><a class="anchor" id="autotoc_md36"></a>
+Doxygen Documentation</h2>
 <p>The codebase and tool suite are documented using Doxygen style comments. As such, the Doxyfile is provided at the root directory and configured to generate HTML documentation of this software suite. To generate this documentation, simply issue <code>doxygen</code> on the command line in the same directory as this file. The resulting documentation will be available at <code>docs/html/index.html</code>.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
-Template file generation</h2>
+<h2><a class="anchor" id="autotoc_md37"></a>
+Template File Generation</h2>
 <p>The simulator was built to be extended, and thus template files and a template generator script are provided to automate the boilerplate code.</p>
 <p>See the <a class="el" href="md_docs_pages_templates.html">template file generation guide</a> to learn how to create new source files using the provided templates.</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
-Trace file generation</h2>
+<h2><a class="anchor" id="autotoc_md38"></a>
+Trace File Generation</h2>
 <p>The cache simulator reads in memory trace files to simulate cache behavior and record statistics. These are binary files comprised of a series of 5-byte memory accesses. Each memory access is structured as follows:</p>
 <ul>
 <li>The first 7 bits (7 high bits) are the CPU core ID that performs the memory access</li>
@@ -154,7 +159,7 @@ Trace file generation</h2>
 </ul>
 <p>For example, a trace of <code>09 70 7D 11 00</code> evaluates to a write operation by CPU core 4 at address 0x00117D70.</p>
 <p>See the <a class="el" href="md_docs_pages_gen_traces.html">trace file generation guide</a> to learn how to create your own trace files.</p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Folder Structure</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

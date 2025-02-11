@@ -1,4 +1,9 @@
 <map id="Cache" name="Cache">
-<area shape="rect" id="node1" title="An L1 Cache with coherence protocol and replacement policy." alt="" coords="19,80,81,107"/>
-<area shape="rect" id="node2" href="$classCacheABC.html" title="The cache interface." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node1" title="An L1 Cache with coherence protocol and replacement policy." alt="" coords="181,184,243,211"/>
+<area shape="rect" id="node5" href="$classMemoryBus.html" title="The MemoryBus class connecting multiple caches and main memory." alt="" coords="82,273,182,300"/>
+<area shape="rect" id="node2" href="$classCacheABC.html" title="The cache interface." alt="" coords="222,5,311,32"/>
+<area shape="rect" id="node3" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="195,95,339,121"/>
+<area shape="rect" id="node4" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="363,95,509,121"/>
+<area shape="rect" id="node6" href="$structcache__config.html" title="Configuration for the caches in an instance of MemoryBus." alt="" coords="5,95,112,121"/>
+<area shape="rect" id="node7" href="$structcache__line.html" title="Cache line fields (without data field)" alt="" coords="533,95,624,121"/>
 </map>

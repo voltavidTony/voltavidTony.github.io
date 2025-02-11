@@ -66,7 +66,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">TextbookMode Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
@@ -110,9 +111,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:ae6041128d4b1209d132a286535fe8a8f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#ae6041128d4b1209d132a286535fe8a8f">evalutateCommand</a> (std::string &amp;cmd)=0</td></tr>
 <tr class="memdesc:ae6041128d4b1209d132a286535fe8a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a command received from the input.  <a href="classTextbookMode.html#ae6041128d4b1209d132a286535fe8a8f">More...</a><br /></td></tr>
 <tr class="separator:ae6041128d4b1209d132a286535fe8a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47c65269dd33c2e74ce9a2e71793adb6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a47c65269dd33c2e74ce9a2e71793adb6">issueBusMsg</a> (<a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a> bus_msg, <a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a> <a class="el" href="typedefs_8h.html#a30427669daebce380590ca46efbaf79c">addr</a>)</td></tr>
-<tr class="memdesc:a47c65269dd33c2e74ce9a2e71793adb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a BusRd message to neighboring caches.  <a href="classTextbookMode.html#a47c65269dd33c2e74ce9a2e71793adb6">More...</a><br /></td></tr>
-<tr class="separator:a47c65269dd33c2e74ce9a2e71793adb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69dffb7b97b297f3ab5896c43a01acc0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a69dffb7b97b297f3ab5896c43a01acc0">issueBusMsg</a> (<a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a> bus_msg)</td></tr>
+<tr class="memdesc:a69dffb7b97b297f3ab5896c43a01acc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a BusRd message to neighboring caches.  <a href="classTextbookMode.html#a69dffb7b97b297f3ab5896c43a01acc0">More...</a><br /></td></tr>
+<tr class="separator:a69dffb7b97b297f3ab5896c43a01acc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353fb4c48975388d69f984916abcb287"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a52b77dcd6180d54d314b8cbf0b4dc2d9">state_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a353fb4c48975388d69f984916abcb287">getLineState</a> (uint32_t set_idx, uint32_t way_idx)</td></tr>
 <tr class="memdesc:a353fb4c48975388d69f984916abcb287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of a line in the cache.  <a href="classTextbookMode.html#a353fb4c48975388d69f984916abcb287">More...</a><br /></td></tr>
 <tr class="separator:a353fb4c48975388d69f984916abcb287"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +132,21 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <a class="el" href="structcache__line.html">cache_line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a62935db59592c3a65b75670ecdf7c48d">lines</a> [<a class="el" href="typedefs_8h.html#a4f5064e2923215b1485cd78262a56eca">N_TEXTBOOK_LINES</a>]</td></tr>
 <tr class="memdesc:a62935db59592c3a65b75670ecdf7c48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cache lines in textbook mode. <br /></td></tr>
 <tr class="separator:a62935db59592c3a65b75670ecdf7c48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6d2e38e34494029ef0bf95a64a544a02"><td class="memItemLeft" align="right" valign="top"><a id="a6d2e38e34494029ef0bf95a64a544a02"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a6d2e38e34494029ef0bf95a64a544a02">reset</a> ()=0</td></tr>
+<tr class="memdesc:a6d2e38e34494029ef0bf95a64a544a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Revert the system back to the initial state. <br /></td></tr>
+<tr class="separator:a6d2e38e34494029ef0bf95a64a544a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9d49fba9b61754132de63e655deca0"><td class="memItemLeft" align="right" valign="top"><a id="afb9d49fba9b61754132de63e655deca0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#afb9d49fba9b61754132de63e655deca0">printSeparator</a> ()=0</td></tr>
+<tr class="memdesc:afb9d49fba9b61754132de63e655deca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a horizontal line in the table. <br /></td></tr>
+<tr class="separator:afb9d49fba9b61754132de63e655deca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e9c660f8a309e1f43e5b59cd79f0380"><td class="memItemLeft" align="right" valign="top"><a id="a5e9c660f8a309e1f43e5b59cd79f0380"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextbookMode.html#a5e9c660f8a309e1f43e5b59cd79f0380">printStats</a> ()=0</td></tr>
+<tr class="memdesc:a5e9c660f8a309e1f43e5b59cd79f0380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print results after each operation to the table. <br /></td></tr>
+<tr class="separator:a5e9c660f8a309e1f43e5b59cd79f0380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classTextbookMode.html" title="The TextbookMode abstract base class.">TextbookMode</a> abstract base class. </p>
@@ -255,8 +271,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
-<a id="a47c65269dd33c2e74ce9a2e71793adb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47c65269dd33c2e74ce9a2e71793adb6">&#9670;&nbsp;</a></span>issueBusMsg()</h2>
+<a id="a69dffb7b97b297f3ab5896c43a01acc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69dffb7b97b297f3ab5896c43a01acc0">&#9670;&nbsp;</a></span>issueBusMsg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,18 +284,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
           <td class="memname">virtual bool TextbookMode::issueBusMsg </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="typedefs_8h.html#aa10a9b8c96eca72d094ff96cb6df0157">bus_msg_e</a>&#160;</td>
-          <td class="paramname"><em>bus_msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>bus_msg</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="typedefs_8h.html#a9ebd1e228aedd29e18d3dffa6f49e75a">addr_t</a>&#160;</td>
-          <td class="paramname"><em>addr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -293,15 +299,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bus_msg</td><td>The specific bus message </td></tr>
-    <tr><td class="paramname">addr</td><td>The address accessed </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the 'COPIES-EXIST' line was asserted </dd></dl>
 
-<p>Implements <a class="el" href="classCacheABC.html#a0fc87195df2c557305cc30e2c030daaa">CacheABC</a>.</p>
+<p>Implements <a class="el" href="classCacheABC.html#a537517291b33eb2d06287dd9d0f321b9">CacheABC</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classTextbookModeCoherence.html#ac90a74f15a7a67d746ec05f7cb7b9dba">TextbookModeCoherence</a>.</p>
+<p>Reimplemented in <a class="el" href="classTextbookModeCoherence.html#a0e3b3d2ae1b0582e17e8f8dc40df95f6">TextbookModeCoherence</a>.</p>
 
 </div>
 </div>
