@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['up_5fnext_377',['up_next',['../classFIFO.html#ae5e35cf15bfab00131d0fe6491d9a062',1,'FIFO']]]
+  ['tag_387',['tag',['../structcache__line.html#aa743d9c3007c8db27f4d9d85774a7fda',1,'cache_line']]],
+  ['tag_5foffset_388',['tag_offset',['../classCache.html#a2507bcbd8cbb3998b683a50bcc93ebd0',1,'Cache']]],
+  ['timestamp_389',['timestamp',['../structcache__line.html#abf96b47cc3542dce76c268cd723b640d',1,'cache_line']]]
 ];

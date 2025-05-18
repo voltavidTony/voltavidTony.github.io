@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['victim_378',['victim',['../classTextbookModeReplacer.html#ac158ef5860c6975a2896a9253cc5033a',1,'TextbookModeReplacer']]]
+  ['up_5fnext_390',['up_next',['../classFIFO.html#ae5e35cf15bfab00131d0fe6491d9a062',1,'FIFO']]]
 ];

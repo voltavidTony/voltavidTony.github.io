@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['memory_5fbus_362',['memory_bus',['../classCache.html#ad1f52f104e36ba39d36f39d80ddc0d38',1,'Cache']]],
-  ['most_5frecent_5fsibling_363',['most_recent_sibling',['../classMemoryBus.html#a78f0286e4339fc5d13ae8ff23b7c8f89',1,'MemoryBus']]]
+  ['line_5foffset_372',['line_offset',['../classCache.html#a681c9e444ec7119279269cbc5330f6f2',1,'Cache']]],
+  ['line_5fsize_373',['line_size',['../structcache__config.html#a18e2295a9aab499d33cc7f1286a7e868',1,'cache_config']]],
+  ['lines_374',['lines',['../classCache.html#a726d2b40fcfef6168ddafbd1ae834c45',1,'Cache::lines()'],['../classTextbookMode.html#a62935db59592c3a65b75670ecdf7c48d',1,'TextbookMode::lines()']]]
 ];

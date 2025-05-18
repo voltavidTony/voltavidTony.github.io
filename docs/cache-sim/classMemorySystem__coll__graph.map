@@ -1,0 +1,9 @@
+<map id="MemorySystem" name="MemorySystem">
+<area shape="rect" id="node1" title="The MemorySystem class connecting multiple caches and main memory." alt="" coords="42,95,168,121"/>
+<area shape="rect" id="node3" href="$classCache.html" title="An L1 Cache with coherence protocol and replacement policy." alt="" coords="266,184,328,211"/>
+<area shape="rect" id="node2" href="$structcache__config.html" title="Configuration for an individual memory system." alt="" coords="120,5,226,32"/>
+<area shape="rect" id="node4" href="$classCacheABC.html" title="The cache interface." alt="" coords="362,5,451,32"/>
+<area shape="rect" id="node5" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="334,95,478,121"/>
+<area shape="rect" id="node6" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="502,95,649,121"/>
+<area shape="rect" id="node7" href="$structcache__line.html" title="Cache line fields (without data field)" alt="" coords="673,95,764,121"/>
+</map>

@@ -123,7 +123,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:abde8d99eaab28d1f1e5e585e16d6475c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide error message and exit code on condition.  <a href="main_8cc.html#abde8d99eaab28d1f1e5e585e16d6475c">More...</a><br /></td></tr>
 <tr class="separator:abde8d99eaab28d1f1e5e585e16d6475c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae129c051fcf1359dad6d90a0be359059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#ae129c051fcf1359dad6d90a0be359059">getConfig</a> (int argc, char *argv[], <a class="el" href="structcache__config.html">cache_config</a> &amp;config)</td></tr>
-<tr class="memdesc:ae129c051fcf1359dad6d90a0be359059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the given arguments into a memory bus configuration.  <a href="main_8cc.html#ae129c051fcf1359dad6d90a0be359059">More...</a><br /></td></tr>
+<tr class="memdesc:ae129c051fcf1359dad6d90a0be359059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the given arguments into a memory system configuration.  <a href="main_8cc.html#ae129c051fcf1359dad6d90a0be359059">More...</a><br /></td></tr>
 <tr class="separator:ae129c051fcf1359dad6d90a0be359059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e9a9cb49350c2ebb80c98068e9f87a1"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#a8e9a9cb49350c2ebb80c98068e9f87a1">getTrace</a> (int argc, char *argv[], std::ifstream &amp;trace_file, int arg_max_count)</td></tr>
 <tr class="memdesc:a8e9a9cb49350c2ebb80c98068e9f87a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the trace file and read the trace limit.  <a href="main_8cc.html#a8e9a9cb49350c2ebb80c98068e9f87a1">More...</a><br /></td></tr>
@@ -149,6 +149,10 @@ Variables</h2></td></tr>
 std::map&lt; std::string, <a class="el" href="typedefs_8h.html#a26de8d076d2e647a05362ed0c991cbde">coh_factory_t</a>, <a class="el" href="structci__less.html">ci_less</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#af881c956a2acb98c962bedf2e372537b">coherence_map</a> = nullptr</td></tr>
 <tr class="memdesc:af881c956a2acb98c962bedf2e372537b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map from coherence protocol names to their factory functions. <br /></td></tr>
 <tr class="separator:af881c956a2acb98c962bedf2e372537b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3cf261913dcfde52376bf5d856c493"><td class="memItemLeft" align="right" valign="top"><a id="afb3cf261913dcfde52376bf5d856c493"></a>
+std::map&lt; std::string, <a class="el" href="typedefs_8h.html#ae69c874edbc431190245c91e14e9691a">dir_factory_t</a>, <a class="el" href="structci__less.html">ci_less</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#afb3cf261913dcfde52376bf5d856c493">directory_map</a> = nullptr</td></tr>
+<tr class="memdesc:afb3cf261913dcfde52376bf5d856c493"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map from directory protocol names to their factory functions. <br /></td></tr>
+<tr class="separator:afb3cf261913dcfde52376bf5d856c493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d51eee17d603604bbdeaa26e4f7f9b9"><td class="memItemLeft" align="right" valign="top"><a id="a3d51eee17d603604bbdeaa26e4f7f9b9"></a>
 std::map&lt; std::string, <a class="el" href="typedefs_8h.html#a44fc58b401d986d8ae49f0592d77f96a">rep_factory_t</a>, <a class="el" href="structci__less.html">ci_less</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cc.html#a3d51eee17d603604bbdeaa26e4f7f9b9">replacement_map</a> = nullptr</td></tr>
 <tr class="memdesc:a3d51eee17d603604bbdeaa26e4f7f9b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map from replacement policy names to their factory functions. <br /></td></tr>
@@ -244,7 +248,7 @@ std::map&lt; std::string, <a class="el" href="typedefs_8h.html#a44fc58b401d986d8
       </table>
 </div><div class="memdoc">
 
-<p>Parse the given arguments into a memory bus configuration. </p>
+<p>Parse the given arguments into a memory system configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">argc</td><td>The number of program arguments </td></tr>

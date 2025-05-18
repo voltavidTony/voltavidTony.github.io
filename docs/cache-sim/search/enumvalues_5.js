@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['linefetch_411',['LineFetch',['../typedefs_8h.html#a59b9f0509556ef62507aae83719a2805a0d536ceda4aafcc5d8eab10f444e5b6c',1,'typedefs.h']]],
-  ['lineflush_412',['LineFlush',['../typedefs_8h.html#a59b9f0509556ef62507aae83719a2805a09c9973f41b4cffb117f5cd24f6cdc6b',1,'typedefs.h']]]
+  ['linefetch_425',['LineFetch',['../typedefs_8h.html#a59b9f0509556ef62507aae83719a2805a0d536ceda4aafcc5d8eab10f444e5b6c',1,'typedefs.h']]],
+  ['lineflush_426',['LineFlush',['../typedefs_8h.html#a59b9f0509556ef62507aae83719a2805a09c9973f41b4cffb117f5cd24f6cdc6b',1,'typedefs.h']]]
 ];

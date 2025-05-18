@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flushed_356',['flushed',['../classMemoryBus.html#a55f96b272be423fb7ad6600ba80013c8',1,'MemoryBus']]]
+  ['event_368',['event',['../structbus__event.html#affa3ad8a8477164d6bfdfa2217cce422',1,'bus_event']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['tag_374',['tag',['../structcache__line.html#aa743d9c3007c8db27f4d9d85774a7fda',1,'cache_line']]],
-  ['tag_5foffset_375',['tag_offset',['../classCache.html#a2507bcbd8cbb3998b683a50bcc93ebd0',1,'Cache']]],
-  ['timestamp_376',['timestamp',['../structcache__line.html#abf96b47cc3542dce76c268cd723b640d',1,'cache_line']]]
+  ['stat_5fnames_383',['stat_names',['../main_8cc.html#ad6b97595c8f7ee123a6c3cdb366557a5',1,'main.cc']]],
+  ['state_384',['state',['../structcache__line.html#ad9fa309f0d3980a97ca59af7db995e50',1,'cache_line']]],
+  ['state_5fnames_385',['state_names',['../textbook__mode__coherence_8cc.html#ae50fa6a8214a9adb5cc02bc9e7f57914',1,'textbook_mode_coherence.cc']]],
+  ['statistics_386',['statistics',['../classCache.html#a91563d08af0d237f269d4707226fb65a',1,'Cache']]]
 ];

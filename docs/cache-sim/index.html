@@ -69,24 +69,25 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md29">About</a></li>
-<li class="level1"><a href="#autotoc_md30">Roadmap</a></li>
-<li class="level1"><a href="#autotoc_md31">Cache Simulator</a><ul><li class="level2"><a href="#autotoc_md32">Installation</a></li>
-<li class="level2"><a href="#autotoc_md33">Build &amp; Run</a></li>
-<li class="level2"><a href="#autotoc_md34">Development</a></li>
+<ul><li class="level1"><a href="#autotoc_md30">About</a></li>
+<li class="level1"><a href="#autotoc_md31">Roadmap</a></li>
+<li class="level1"><a href="#autotoc_md32">Cache Simulator</a><ul><li class="level2"><a href="#autotoc_md33">Installation</a></li>
+<li class="level2"><a href="#autotoc_md34">Build &amp; Run</a></li>
+<li class="level2"><a href="#autotoc_md35">Development</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md35">Tool Suite</a><ul><li class="level2"><a href="#autotoc_md36">Doxygen Documentation</a></li>
-<li class="level2"><a href="#autotoc_md37">Template File Generation</a></li>
-<li class="level2"><a href="#autotoc_md38">Trace File Generation</a></li>
+<li class="level1"><a href="#autotoc_md36">Tool Suite</a><ul><li class="level2"><a href="#autotoc_md37">Doxygen Documentation</a></li>
+<li class="level2"><a href="#autotoc_md38">Template File Generation</a></li>
+<li class="level2"><a href="#autotoc_md39">Trace File Generation</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md39">Folder Structure</a></li>
+<li class="level1"><a href="#autotoc_md40">Folder Structure</a></li>
 </ul>
 </div>
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 About</h1>
+<p>The cache simulator is aimed at providing runtime metrics of a DSM processor to enhance education in computer architecture, wherein it enables students to compare a variety of caches and draw conclusions about the impact of the cache size, line size, associativity, coherence protocol and replacement policy.</p>
 <ul>
 <li>Course: NC State University CSC/ECE 506</li>
 <li>Instructor: Ed Gehringer</li>
@@ -106,28 +107,30 @@ About</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">3.1.1   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Trace file chunks are "double buffered" in batch mode    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">3.2   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Added write timestamp debugging feature, consistency refactorings, bugfixes, portability and cross-platform edits   </td></tr>
+<td class="markdownTableBodyLeft">3.2   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Added write timestamp debugging feature, consistency refactorings, bugfixes, portability and cross-platform edits    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">3.3   </td><td class="markdownTableBodyNone">Anthony Spendlove   </td><td class="markdownTableBodyNone">Added directory protocol program structure   </td></tr>
 </table>
 <p>(Version history begins with v3.0)</p>
 <p>This software operates under the GNU General Public License v3.0.</p>
 <p>A copy of this documentation is hosted on <a href="https://voltavidtony.github.io/docs/cache-sim/index.html">my GitHub Pages</a>.</p>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md31"></a>
 Roadmap</h1>
 <ul>
 <li>Implement Directory Protocols</li>
 <li>Compressed Trace Files</li>
 <li>More Protocols and Policies</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Cache Simulator</h1>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Installation</h2>
 <p>This repository uses sub-modules to generate trace files for the simulation. If you do not wish to generate trace files, then the sub-modules can be left empty (uninitialized). If you do want to generate trace files, then:</p>
 <ul>
 <li>If you already downloaded this repo, then run <code>git submodule update --init</code> from the root directory.</li>
 <li>If not, then simply include the <code>--recurse-submodules</code> option in the <code>git clone</code> command.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Build &amp; Run</h2>
 <p>The provided make file in the root directory is used to build the cache simulator. It currently has four targets:</p>
 <ul>
@@ -137,19 +140,19 @@ Build &amp; Run</h2>
 <li><code>*.bin</code>: Run the simulator in batch metrics mode, using <code>configs.txt</code> as the configuration list and <code>*.bin</code> as the trace file</li>
 </ul>
 <p>For more information on running the simulator and its modes of operation, see the <a class="el" href="md_docs_pages_cache_sim.html">cache simulator manual</a>.</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Development</h2>
 <p>For further development, a <a class="el" href="md_docs_pages_development.html">development manual</a> is included in this documentation.</p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md36"></a>
 Tool Suite</h1>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md37"></a>
 Doxygen Documentation</h2>
 <p>The codebase and tool suite are documented using Doxygen style comments. As such, the Doxyfile is provided at the root directory and configured to generate HTML documentation of this software suite. To generate this documentation, simply issue <code>doxygen</code> on the command line in the same directory as this file. The resulting documentation will be available at <code>docs/html/index.html</code>.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md38"></a>
 Template File Generation</h2>
 <p>The simulator was built to be extended, and thus template files and a template generator script are provided to automate the boilerplate code.</p>
 <p>See the <a class="el" href="md_docs_pages_templates.html">template file generation guide</a> to learn how to create new source files using the provided templates.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 Trace File Generation</h2>
 <p>The cache simulator reads in memory trace files to simulate cache behavior and record statistics. These are binary files comprised of a series of 5-byte memory accesses. Each memory access is structured as follows:</p>
 <ul>
@@ -159,7 +162,7 @@ Trace File Generation</h2>
 </ul>
 <p>For example, a trace of <code>09 70 7D 11 00</code> evaluates to a write operation by CPU core 4 at address 0x00117D70.</p>
 <p>See the <a class="el" href="md_docs_pages_gen_traces.html">trace file generation guide</a> to learn how to create your own trace files.</p>
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md40"></a>
 Folder Structure</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -175,66 +178,72 @@ Folder Structure</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">📄 cache_sim.md   </td><td class="markdownTableBodyNone"><a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> simulator operation manual    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">📄 development.md   </td><td class="markdownTableBodyNone">Developer manual    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">📄 exit_codes.md   </td><td class="markdownTableBodyNone"><a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> simulator exit code explanation    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">📄 gen_traces.md   </td><td class="markdownTableBodyNone">Trace file generation manual    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">📄 templates.md   </td><td class="markdownTableBodyNone">Template file generation manual    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 custom_doxygen.css   </td><td class="markdownTableBodyNone">Stylesheet for doxygen documentation    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone" colspan="3">📂 src/   </td><td class="markdownTableBodyNone">Simulator source files (<a href="files.html">see file list</a>)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone" colspan="3">📂 template/   </td><td class="markdownTableBodyNone">Template files &amp; generator script    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 coherence_c.tmplt   </td><td class="markdownTableBodyNone">Coherence protocol source file template    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 coherence_h.tmplt   </td><td class="markdownTableBodyNone">Coherence protocol header file template    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 directory_c.tmplt   </td><td class="markdownTableBodyNone">Directory protocol source file template    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 directory_h.tmplt   </td><td class="markdownTableBodyNone">Directory protocol header file template    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📜 mksrc.sh   </td><td class="markdownTableBodyNone">Source file generator script    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 replacement_c.tmplt   </td><td class="markdownTableBodyNone">Replacement policy source file template    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 replacement_h.tmplt   </td><td class="markdownTableBodyNone">Replacement policy header file template    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 textbook_c.tmplt   </td><td class="markdownTableBodyNone">Textbook mode source file template    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 textbook_h.tmplt   </td><td class="markdownTableBodyNone">Textbook mode header file template    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone" colspan="3">📂 tools/   </td><td class="markdownTableBodyNone">First- and third-party tool suite for trace file generation    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📦 gem5/   </td><td class="markdownTableBodyNone">gem5 computer hardware simulator    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📦 parsec-benchmark/   </td><td class="markdownTableBodyNone">PARSEC benchmark suite    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📄 <a class="el" href="extractor_8c.html" title="This program will intercept the output of gem5 and redirect the traces to a binary file.">extractor.c</a>   </td><td class="markdownTableBodyNone">Translator program from gem5 output into trace file binary format    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📜 gem5_config.py   </td><td class="markdownTableBodyNone">gem5 configuration for trace file generation    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📜 gen_trace.sh   </td><td class="markdownTableBodyNone">Trace file generation script    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">📜 get_platform.sh   </td><td class="markdownTableBodyNone">Platform string generator    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone" colspan="3">🗁 traces/   </td><td class="markdownTableBodyNone">Generated trace files    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone" colspan="3">📄 .gitignore   </td><td class="markdownTableBodyNone">Git ignore list    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone" colspan="3">📄 .gitmodules   </td><td class="markdownTableBodyNone">Git sub-module list    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone" colspan="3">📄 configs.txt   </td><td class="markdownTableBodyNone">Example configs file    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone" colspan="3">📜 Doxyfile   </td><td class="markdownTableBodyNone">Doxygen script for generating documentation    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone" colspan="3">🔗 index.html   </td><td class="markdownTableBodyNone">Link to generated HTML documentation    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone" colspan="3">📄 LICENSE   </td><td class="markdownTableBodyNone">License file    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone" colspan="3">📜 Makefile   </td><td class="markdownTableBodyNone">Make script for building and running the cache simulator    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone" colspan="3">📄 README.md   </td><td class="markdownTableBodyNone">Readme file    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone" colspan="3">📄 sequence7.2.txt   </td><td class="markdownTableBodyNone"><a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> line access sequence from the textbook    </td></tr>
+<td class="markdownTableBodyNone" colspan="3">📄 README.md   </td><td class="markdownTableBodyNone">Readme file    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone" colspan="3">📄 sequence7.2.txt   </td><td class="markdownTableBodyNone"><a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> line access sequence from the textbook    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone" colspan="3">📄 sequence7.6.txt   </td><td class="markdownTableBodyNone"><a class="el" href="classCache.html" title="An L1 Cache with coherence protocol and replacement policy.">Cache</a> line access sequence from the textbook   </td></tr>
 </table>
 <ul>
