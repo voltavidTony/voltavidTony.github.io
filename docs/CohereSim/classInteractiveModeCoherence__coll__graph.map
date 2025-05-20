@@ -1,0 +1,8 @@
+<map id="InteractiveModeCoherence" name="InteractiveModeCoherence">
+<area shape="rect" id="node1" title="The InteractiveMode class for coherence protocols." alt="" coords="139,184,336,211"/>
+<area shape="rect" id="node2" href="$classInteractiveMode.html" title="The InteractiveMode abstract base class." alt="" coords="173,95,301,121"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="67,5,157,32"/>
+<area shape="rect" id="node6" href="$classCoherenceProtocol.html" title="The base class for coherence protocols." alt="" coords="5,95,149,121"/>
+<area shape="rect" id="node4" href="$structcache__line.html" title="Cache line fields (without data field)" alt="" coords="192,5,283,32"/>
+<area shape="rect" id="node5" href="$structbus__event.html" title="The BusEvent class." alt="" coords="326,95,415,121"/>
+</map>

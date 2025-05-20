@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['interactivemode_305',['InteractiveMode',['../classInteractiveMode.html#ac51bfabcc2794812fd9bec9edee09000',1,'InteractiveMode']]],
+  ['interactivemodecoherence_306',['InteractiveModeCoherence',['../classInteractiveModeCoherence.html#a264d0b941f3e8c9e7ad9b4e3a1957562',1,'InteractiveModeCoherence']]],
+  ['interactivemodereplacer_307',['InteractiveModeReplacer',['../classInteractiveModeReplacer.html#af7a756ee251749aefcd81ae202d80e99',1,'InteractiveModeReplacer']]],
+  ['issuebusmsg_308',['issueBusMsg',['../classCache.html#a938d27b50cad98a6d2bdc05af9918346',1,'Cache::issueBusMsg()'],['../classCacheABC.html#a537517291b33eb2d06287dd9d0f321b9',1,'CacheABC::issueBusMsg()'],['../classBroadcast.html#afd595c02474cec70b353960529f10f92',1,'Broadcast::issueBusMsg()'],['../classInteractiveMode.html#ab2a64adbe718c6ae1aaebdb932860588',1,'InteractiveMode::issueBusMsg()'],['../classInteractiveModeCoherence.html#a640e00129c7b45ce39c7faa288fb47fb',1,'InteractiveModeCoherence::issueBusMsg()'],['../classMemorySystem.html#a13052a5711ea0996511e1fe4fcfabb04',1,'MemorySystem::issueBusMsg(bus_msg_e bus_msg, addr_t addr, uint32_t cache_id)=0']]],
+  ['issueprrd_309',['issuePrRd',['../classMemorySystem.html#a896f510ecb3d1a96e6d1eaefd49b46a5',1,'MemorySystem']]],
+  ['issueprwr_310',['issuePrWr',['../classMemorySystem.html#a39f24bf4b1062583cf62d64a662b72a3',1,'MemorySystem']]],
+  ['iswritebackneeded_311',['isWriteBackNeeded',['../classCoherenceProtocol.html#a0fc2bc048dffa6b82b179d089f351551',1,'CoherenceProtocol::isWriteBackNeeded()'],['../classDragon.html#a03c81f55c42f226962e50952e5c7589a',1,'Dragon::isWriteBackNeeded()'],['../classMESI.html#ad197829fc6a20a25deeace5a3069a6c1',1,'MESI::isWriteBackNeeded()'],['../classMOESI.html#aec536c36a51b762ba946353a90a23417',1,'MOESI::isWriteBackNeeded()'],['../classMSI.html#a17d0a40d681b8fe49f43ae8784d808fd',1,'MSI::isWriteBackNeeded()'],['../classMSIUpgr.html#aa098c382a5e5291d634360806c673127',1,'MSIUpgr::isWriteBackNeeded()'],['../classWriteThrough.html#abd841675f3ac171bb2d0c9f68d9a4746',1,'WriteThrough::isWriteBackNeeded()']]]
+];

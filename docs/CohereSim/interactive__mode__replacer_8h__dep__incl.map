@@ -1,0 +1,5 @@
+<map id="src/interactive/interactive_mode_replacer.h" name="src/interactive/interactive_mode_replacer.h">
+<area shape="rect" id="node1" title="Declaration of the InteractiveModeReplacer class." alt="" coords="99,5,288,47"/>
+<area shape="rect" id="node2" href="$interactive__mode__replacer_8cc.html" title="Implementation of the InteractiveModeReplacer class." alt="" coords="5,95,195,136"/>
+<area shape="rect" id="node3" href="$run__modes_8cc.html" title="Implementation of the three modes of operation: Single Metrics, Batch Metrics, and Interactive." alt="" coords="219,102,354,129"/>
+</map>

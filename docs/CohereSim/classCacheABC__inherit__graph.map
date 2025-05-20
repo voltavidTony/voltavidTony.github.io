@@ -1,0 +1,7 @@
+<map id="CacheABC" name="CacheABC">
+<area shape="rect" id="node1" title="The cache interface." alt="" coords="107,5,197,32"/>
+<area shape="rect" id="node2" href="$classCache.html" title="An L1 Cache with coherence protocol and replacement policy." alt="" coords="61,80,123,107"/>
+<area shape="rect" id="node3" href="$classInteractiveMode.html" title="The InteractiveMode abstract base class." alt="" coords="148,80,276,107"/>
+<area shape="rect" id="node4" href="$classInteractiveModeCoherence.html" title="The InteractiveMode class for coherence protocols." alt="" coords="5,155,203,181"/>
+<area shape="rect" id="node5" href="$classInteractiveModeReplacer.html" title="The InteractiveMode class for replacement policies." alt="" coords="227,155,413,181"/>
+</map>

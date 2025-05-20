@@ -1,0 +1,11 @@
+<map id="src/replacement/replacement_policy.h" name="src/replacement/replacement_policy.h">
+<area shape="rect" id="node1" title="Declaration of the replacement policy base class." alt="" coords="320,5,533,47"/>
+<area shape="rect" id="node2" href="$cache_8cc.html" title="Definition of the Cache class methods." alt="" coords="5,102,107,129"/>
+<area shape="rect" id="node3" href="$interactive__mode__replacer_8cc.html" title="Implementation of the InteractiveModeReplacer class." alt="" coords="131,95,320,136"/>
+<area shape="rect" id="node4" href="$fifo_8h.html" title="Declaration of the FIFO replacement policy." alt="" coords="345,102,509,129"/>
+<area shape="rect" id="node6" href="$lru_8h.html" title="Declaration of the least recently used replacement policy." alt="" coords="533,102,693,129"/>
+<area shape="rect" id="node8" href="$rr_8h.html" title="Declaration of the random replacement policy." alt="" coords="721,102,873,129"/>
+<area shape="rect" id="node5" href="$fifo_8cc.html" title="Implementation of the FIFO replacement policy." alt="" coords="335,184,505,211"/>
+<area shape="rect" id="node7" href="$lru_8cc.html" title="Implementation of the least recently used replacement policy." alt="" coords="530,184,697,211"/>
+<area shape="rect" id="node9" href="$rr_8cc.html" title="Implementation of the random replacement policy." alt="" coords="721,184,879,211"/>
+</map>

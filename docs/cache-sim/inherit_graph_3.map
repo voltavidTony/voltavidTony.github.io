@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classCacheABC.html" title="The cache interface." alt="" coords="5,31,95,57"/>
-<area shape="rect" id="node2" href="$classCache.html" title="An L1 Cache with coherence protocol and replacement policy." alt="" coords="170,5,233,32"/>
-<area shape="rect" id="node3" href="$classTextbookMode.html" title="The TextbookMode abstract base class." alt="" coords="143,56,260,83"/>
-<area shape="rect" id="node4" href="$classTextbookModeCoherence.html" title="The TextbookMode class for coherence protocols." alt="" coords="308,31,495,57"/>
-<area shape="rect" id="node5" href="$classTextbookModeReplacer.html" title="The TextbookMode class for replacement policies." alt="" coords="314,81,489,108"/>
-</map>

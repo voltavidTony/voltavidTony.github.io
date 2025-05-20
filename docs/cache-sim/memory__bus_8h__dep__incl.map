@@ -1,6 +1,0 @@
-<map id="src/memory_bus.h" name="src/memory_bus.h">
-<area shape="rect" id="node1" title="Declaration of the MemoryBus class." alt="" coords="134,5,277,32"/>
-<area shape="rect" id="node2" href="$cache_8cc.html" title="Definition of the Cache class methods." alt="" coords="5,80,107,107"/>
-<area shape="rect" id="node3" href="$memory__bus_8cc.html" title="Implementation of the MemoryBus class methods." alt="" coords="131,80,279,107"/>
-<area shape="rect" id="node4" href="$run__modes_8cc.html" title="Implementation of the three modes of operation: Single Metrics, Batch Metrics, and Textbook." alt="" coords="303,80,438,107"/>
-</map>

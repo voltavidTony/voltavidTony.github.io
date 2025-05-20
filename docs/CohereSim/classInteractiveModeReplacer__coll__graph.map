@@ -1,0 +1,7 @@
+<map id="InteractiveModeReplacer" name="InteractiveModeReplacer">
+<area shape="rect" id="node1" title="The InteractiveMode class for replacement policies." alt="" coords="67,184,253,211"/>
+<area shape="rect" id="node2" href="$classInteractiveMode.html" title="The InteractiveMode abstract base class." alt="" coords="176,95,304,121"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="69,5,158,32"/>
+<area shape="rect" id="node5" href="$classReplacementPolicy.html" title="The base class for replacement policies." alt="" coords="5,95,152,121"/>
+<area shape="rect" id="node4" href="$structcache__line.html" title="Cache line fields (without data field)" alt="" coords="195,5,285,32"/>
+</map>

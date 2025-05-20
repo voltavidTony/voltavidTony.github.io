@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['i_95',['I',['../typedefs_8h.html#a52b77dcd6180d54d314b8cbf0b4dc2d9ad091b8e376f7cf432dc367e1eda65e85',1,'typedefs.h']]],
+  ['id_96',['id',['../structcache__config.html#ab8e87e655d8f61fc35d2d794484a732e',1,'cache_config']]],
+  ['interactive_5fmode_2eh_97',['interactive_mode.h',['../interactive__mode_8h.html',1,'']]],
+  ['interactive_5fmode_5fcoherence_2ecc_98',['interactive_mode_coherence.cc',['../interactive__mode__coherence_8cc.html',1,'']]],
+  ['interactive_5fmode_5fcoherence_2eh_99',['interactive_mode_coherence.h',['../interactive__mode__coherence_8h.html',1,'']]],
+  ['interactive_5fmode_5freplacer_2ecc_100',['interactive_mode_replacer.cc',['../interactive__mode__replacer_8cc.html',1,'']]],
+  ['interactive_5fmode_5freplacer_2eh_101',['interactive_mode_replacer.h',['../interactive__mode__replacer_8h.html',1,'']]],
+  ['interactivemode_102',['InteractiveMode',['../classInteractiveMode.html#ac51bfabcc2794812fd9bec9edee09000',1,'InteractiveMode::InteractiveMode()'],['../classInteractiveMode.html',1,'InteractiveMode']]],
+  ['interactivemodecoherence_103',['InteractiveModeCoherence',['../classInteractiveModeCoherence.html',1,'InteractiveModeCoherence'],['../classInteractiveModeCoherence.html#a264d0b941f3e8c9e7ad9b4e3a1957562',1,'InteractiveModeCoherence::InteractiveModeCoherence()']]],
+  ['interactivemodereplacer_104',['InteractiveModeReplacer',['../classInteractiveModeReplacer.html',1,'InteractiveModeReplacer'],['../classInteractiveModeReplacer.html#af7a756ee251749aefcd81ae202d80e99',1,'InteractiveModeReplacer::InteractiveModeReplacer()']]],
+  ['intervention_105',['Intervention',['../typedefs_8h.html#a59b9f0509556ef62507aae83719a2805a6ce75ba17a84097dd63721a3821fa7d0',1,'typedefs.h']]],
+  ['invalidation_106',['Invalidation',['../typedefs_8h.html#a59b9f0509556ef62507aae83719a2805a0df570e483b512960607f665ed7dc353',1,'typedefs.h']]],
+  ['issuebusmsg_107',['issueBusMsg',['../classInteractiveMode.html#ab2a64adbe718c6ae1aaebdb932860588',1,'InteractiveMode::issueBusMsg()'],['../classInteractiveModeCoherence.html#a640e00129c7b45ce39c7faa288fb47fb',1,'InteractiveModeCoherence::issueBusMsg()'],['../classMemorySystem.html#a13052a5711ea0996511e1fe4fcfabb04',1,'MemorySystem::issueBusMsg()'],['../classBroadcast.html#afd595c02474cec70b353960529f10f92',1,'Broadcast::issueBusMsg()'],['../classCacheABC.html#a537517291b33eb2d06287dd9d0f321b9',1,'CacheABC::issueBusMsg()'],['../classCache.html#a938d27b50cad98a6d2bdc05af9918346',1,'Cache::issueBusMsg()']]],
+  ['issueprrd_108',['issuePrRd',['../classMemorySystem.html#a896f510ecb3d1a96e6d1eaefd49b46a5',1,'MemorySystem']]],
+  ['issueprwr_109',['issuePrWr',['../classMemorySystem.html#a39f24bf4b1062583cf62d64a662b72a3',1,'MemorySystem']]],
+  ['issuer_110',['issuer',['../structbus__event.html#a804b9f2b827cee4c1aff461327023846',1,'bus_event']]],
+  ['iswritebackneeded_111',['isWriteBackNeeded',['../classCoherenceProtocol.html#a0fc2bc048dffa6b82b179d089f351551',1,'CoherenceProtocol::isWriteBackNeeded()'],['../classDragon.html#a03c81f55c42f226962e50952e5c7589a',1,'Dragon::isWriteBackNeeded()'],['../classMESI.html#ad197829fc6a20a25deeace5a3069a6c1',1,'MESI::isWriteBackNeeded()'],['../classMOESI.html#aec536c36a51b762ba946353a90a23417',1,'MOESI::isWriteBackNeeded()'],['../classMSI.html#a17d0a40d681b8fe49f43ae8784d808fd',1,'MSI::isWriteBackNeeded()'],['../classMSIUpgr.html#aa098c382a5e5291d634360806c673127',1,'MSIUpgr::isWriteBackNeeded()'],['../classWriteThrough.html#abd841675f3ac171bb2d0c9f68d9a4746',1,'WriteThrough::isWriteBackNeeded()']]]
+];

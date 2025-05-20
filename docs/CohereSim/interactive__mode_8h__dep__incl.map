@@ -1,0 +1,8 @@
+<map id="src/interactive/interactive_mode.h" name="src/interactive/interactive_mode.h">
+<area shape="rect" id="node1" title="Declaration of the InteractiveMode base class." alt="" coords="192,5,381,47"/>
+<area shape="rect" id="node2" href="$interactive__mode__coherence_8h.html" title="Declaration of the InteractiveModeCoherence and BusEvent classes." alt="" coords="85,95,275,136"/>
+<area shape="rect" id="node5" href="$interactive__mode__replacer_8h.html" title="Declaration of the InteractiveModeReplacer class." alt="" coords="299,95,488,136"/>
+<area shape="rect" id="node3" href="$interactive__mode__coherence_8cc.html" title="Implementation of the InteractiveModeCoherence and BusEvent classes." alt="" coords="5,184,195,225"/>
+<area shape="rect" id="node4" href="$run__modes_8cc.html" title="Implementation of the three modes of operation: Single Metrics, Batch Metrics, and Interactive." alt="" coords="219,191,354,218"/>
+<area shape="rect" id="node6" href="$interactive__mode__replacer_8cc.html" title="Implementation of the InteractiveModeReplacer class." alt="" coords="379,184,568,225"/>
+</map>

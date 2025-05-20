@@ -1,8 +1,0 @@
-<map id="src/memory_system.h" name="src/memory_system.h">
-<area shape="rect" id="node1" title="Declaration of the MemorySystem class." alt="" coords="241,5,407,32"/>
-<area shape="rect" id="node2" href="$cache_8cc.html" title="Definition of the Cache class methods." alt="" coords="5,80,107,107"/>
-<area shape="rect" id="node3" href="$broadcast_8h.html" title="Declaration of the Broadcast directory protocol." alt="" coords="131,80,314,107"/>
-<area shape="rect" id="node5" href="$memory__system_8cc.html" title="Implementation of the MemorySystem class methods." alt="" coords="339,80,512,107"/>
-<area shape="rect" id="node6" href="$run__modes_8cc.html" title="Implementation of the three modes of operation: Single Metrics, Batch Metrics, and Textbook." alt="" coords="537,80,671,107"/>
-<area shape="rect" id="node4" href="$broadcast_8cc.html" title="Implementation of the Broadcast directory protocol." alt="" coords="128,155,317,181"/>
-</map>

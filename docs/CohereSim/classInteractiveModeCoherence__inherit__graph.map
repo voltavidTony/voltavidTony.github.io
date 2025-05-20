@@ -1,0 +1,5 @@
+<map id="InteractiveModeCoherence" name="InteractiveModeCoherence">
+<area shape="rect" id="node1" title="The InteractiveMode class for coherence protocols." alt="" coords="5,155,203,181"/>
+<area shape="rect" id="node2" href="$classInteractiveMode.html" title="The InteractiveMode abstract base class." alt="" coords="40,80,168,107"/>
+<area shape="rect" id="node3" href="$classCacheABC.html" title="The cache interface." alt="" coords="59,5,149,32"/>
+</map>
